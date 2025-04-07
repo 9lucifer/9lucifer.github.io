@@ -7,8 +7,8 @@ hero:
   text: "闲下来写两篇~"
   tagline: 全栈 ！= 全干 后端 ！= 后台 
   image:
-  src: /hero-image.png
-  alt: Showcase
+    src: /hero-image.png
+    alt: Showcase
   actions:
     - theme: brand
       text: Markdown Examples
