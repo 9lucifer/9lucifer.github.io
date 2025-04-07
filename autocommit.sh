@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# 新增变更检测
+if [ -z "$(git status --porcelain)" ]; then
+    echo "工作区无变更，跳过提交"
+    exit 0
+fi
+
 # 检查是否输入提交信息
 if [ -z "$1" ]; then
     echo "用法: ./autocommit.sh \"你的提交信息\""
