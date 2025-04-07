@@ -1,23 +1,20 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
+import { execSync } from 'child_process';
 
 export default defineConfig({
-  markdown: {
-    languages: [
-      {
-        id: 'sql',
-        scopeName: 'source.sql',
-        aliases: ['mysql'],
-        // grammar: 可选，不用可注释掉
-        // grammar: require('some-sql-grammar.json')
-      }
-    ]
-  },
-
-  ignoreDeadLinks: true,
-
+  title: "x-tech 🏠",
+  description: "null",
+  head: [
+    // 基础favicon
+    ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
+    // 现代浏览器适配
+    ['link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],
+  ],
+  
   themeConfig: {
-    logo: '/hero-image.png',
+    logo: '/hero-image.png', 
     siteTitle: '9lucifer 🏠',
+
 
     // 导航栏
     nav: [
@@ -84,9 +81,22 @@ export default defineConfig({
         }
       ]
     },
+
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/9lucifer/9lucifer.github.io' },
-      { icon: 'bilibili', link: 'https://space.bilibili.com/662223993?spm_id_from=333.1007.0.0' }
-    ]
-  }
-})
+      { icon: 'github', link: 'https://github.com/whut-x-tech/01A' },
+      { icon: 'bilibili', link: 'https://space.bilibili.com/662223993?spm_id_from=333.1007.0.0' } // 🔹 添加 Bilibili 主页
+    ],
+    
+
+    // 启用目录索引
+    outline: 'deep', // 或者设置为数字，例如 2
+    lastUpdated: true, // 启用最后更新时间
+
+    // 页脚配置
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2024-present x-tech'
+    }
+  },
+
+});
