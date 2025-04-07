@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-// 如果不打算自定义 SQL 的语法高亮，可以移除 grammar 项
 export default defineConfig({
   markdown: {
     languages: [
@@ -8,7 +7,7 @@ export default defineConfig({
         id: 'sql',
         scopeName: 'source.sql',
         aliases: ['mysql'],
-        // 可引入语法文件，也可以设置为 undefined 或删掉此项
+        // grammar: 可选，不用可注释掉
         // grammar: require('some-sql-grammar.json')
       }
     ]
@@ -21,7 +20,6 @@ export default defineConfig({
     siteTitle: '9lucifer 🏠',
 
     nav: [
-      { text: 'Home', link: '/' },
       {
         text: '🗄️ 数据库',
         activeMatch: '^/sql/',
@@ -66,7 +64,7 @@ export default defineConfig({
             { text: '⚡ Redis 专题', link: '/sql/redis/' }
           ]
         }
-      ],
+      ]
     },
 
     socialLinks: [
