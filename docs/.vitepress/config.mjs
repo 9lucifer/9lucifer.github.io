@@ -22,10 +22,11 @@ export default defineConfig({
       { text: 'Examples', link: '/markdown-examples' },
       { 
         text: '🗄️ 数据库', 
-        link: '/sql/mysql/',
-        items: [
-          { text: 'MySQL', link: '/sql/mysql/' },
-          { text: 'Redis', link: '/sql/redis/' }
+        items: [ // 移除了 link 属性，添加完整下拉菜单
+          { text: '🏷️ MySQL', link: '/sql/mysql/' },
+          { text: '🔑 Redis', link: '/sql/redis/' },
+          { type: 'separator' }, // 添加分隔线
+          { text: '📚 数据库总览', link: '/sql/' }
         ]
       }
     ],
