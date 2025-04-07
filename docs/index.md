@@ -5,7 +5,10 @@ layout: home
 hero:
   name: "blog for 9lucifer"
   text: "闲下来写两篇~"
-  tagline: My great project tagline
+  tagline: 全栈 ！= 全干 后端 ！= 后台 
+  image:
+  src: /hero-image.png
+  alt: Showcase
   actions:
     - theme: brand
       text: Markdown Examples
