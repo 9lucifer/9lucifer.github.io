@@ -19,60 +19,71 @@ export default defineConfig({
     logo: '/hero-image.png',
     siteTitle: '9lucifer 🏠',
 
+    // 导航栏
     nav: [
-      {
-        text: '🗄️ 数据库',
-        activeMatch: '^/sql/',
-        items: [
-          { text: '🏷️ MySQL', link: '/sql/mysql/' },
-          { text: '🔑 Redis', link: '/sql/redis/' },
-          { type: 'separator' },
-          { text: '📚 数据库总览', link: '/sql/' }
-        ]
-      }
+      { text: '☕️ Java', link: '/java/', activeMatch: '/java/' },
+      { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
+      { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
+      { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
+      { text: '🚀 算法训练', link: '/leetcode/', activeMatch: '/leetcode/' },
     ],
 
+    // 侧边栏
     sidebar: {
-      '/': [
+      '/java/': [
         {
-          text: '📚 文档',
-          items: []
-        }
-      ],
-      '/sql/mysql/': [
-        {
-          text: 'MySQL 专栏',
-          collapsible: true,
-          collapsed: false,
+          text: '后端学习',
           items: [
-            { text: '🔓📈 乐观锁指南', link: '/sql/mysql/mysql-happy' },
-            { text: '📚 悲观锁解析', link: '/sql/mysql/mysql-sad' }
+            { text: '📌《每天搞懂一道Hard》之数独终结者（LeetCode 37', link: '/java/hard-37' },
+            { text: '📌《每天搞懂一个JDK源码》之HashMap解读', link: '/java/jdk-hashmap' },
+            { text: '🚀 手写线程池实战：从原理到实现，深入理解线程池工作机制', link: '/java/myThreadPool' },
           ]
         }
       ],
-      '/sql/redis/': [
+      '/front/': [
         {
-          text: 'Redis 实战',
-          collapsible: true,
-          collapsed: false,
+          text: '前端学习',
           items: [
-            { text: '🏗️ 基础应用', link: '/sql/redis/redis-basic' },
-            { text: '🚀 高级特性', link: '/sql/redis/redis-advanced' }
+            { text: '🎨 Mark.js 的使用指南', link: '/front/mark-js' },
+            { text: '📄 Mammoth.js 渲染 Word 文档为 HTML：详细教程 🚀', link: '/front/Mammoth-js' },
+            { text: '🚀 后端程序员好上手的前端框架——layui', link: '/front/layui-admin' },
           ]
         }
       ],
-      '/sql/': [
+      '/mysql/': [
         {
-          text: '数据库系统',
-          collapsible: true,
+          text: 'MySQL 学习',
           items: [
-            { text: '📖 MySQL 专题', link: '/sql/mysql/' },
-            { text: '⚡ Redis 专题', link: '/sql/redis/' }
+            { text: '🔓📈 MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
+            { text: '📚 MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
+          ]
+        }
+      ],
+      '/center/': [
+        {
+          text: '中间件学习',
+          items: [
+            { text: 'MongoDB快速上手（包会用）', link: '/center/MongoDB-fast' },
+            { text: 'RabbitMQ 五种模式的实现——SpringBoot', link: '/center/rabbitmq-sb' },
+            { text: 'RabbitMQ 五种模式总结', link: '/center/rabbitmq-base' },
+            { text: '几种用户鉴权的方式对比', link: '/center/auth' },
+            { text: 'RBAC 权限控制模型学习', link: '/center/RBAC' },
+            { text: 'SpringSecurity 学习笔记', link: '/center/springSecurity1' },
+          ]
+        }
+      ],
+      '/leetcode/': [
+        {
+          text: '算法板子和心得',
+          items: [
+            { text: '🚩 Java Queue 接口 API 介绍', link: '/leetcode/Java-Queue-API' },
+            { text: '🚩 Java Stack 接口 API 介绍', link: '/leetcode/Java-Stack-API' },
+            { text: '📝 面试算法通关秘籍', link: '/leetcode/algo_mode' },
+            { text: '📝 基础算法：快速排序和归并排序', link: '/leetcode/quick_merge' },
           ]
         }
       ]
     },
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/9lucifer/9lucifer.github.io' },
       { icon: 'bilibili', link: 'https://space.bilibili.com/662223993?spm_id_from=333.1007.0.0' }
