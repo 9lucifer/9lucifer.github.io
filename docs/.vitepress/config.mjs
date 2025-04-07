@@ -33,6 +33,12 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/': [
+        {
+          text: '📚 文档',
+          items: []
+        }
+      ],
       '/sql/mysql/': [
         {
           text: 'MySQL 专栏',
