@@ -26,18 +26,30 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Examples', link: '/markdown-examples' },
+      { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
     ],
 
-    sidebar: [
-      {
+    sidebar: {
+      '/mysql/': [
+        {
+          text: 'MySQL 学习',
+          items: [
+            { text: '🔓📈 MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
+            { text: '📚 MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
+          ]
+        }
+      ],
+      '/':[
+        {
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }
-    ],
+      ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/9lucifer/9lucifer.github.io' },
