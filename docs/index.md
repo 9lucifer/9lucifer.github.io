@@ -11,7 +11,7 @@ hero:
       text: Markdown Examples
       link: /markdown-examples
     - theme: alt
-      text: 个人简历
+      text: 个人简历 
       link: /resume.pdf
 
 features:
