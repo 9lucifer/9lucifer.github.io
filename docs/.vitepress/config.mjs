@@ -18,6 +18,7 @@ export default defineConfig({
 
     // 导航栏
     nav: [
+      { text: '☕️ 项目', link: '/project/', activeMatch: '/project/' },
       { text: '☕️ Java', link: '/java/', activeMatch: '/java/' },
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
@@ -27,6 +28,16 @@ export default defineConfig({
 
     // 侧边栏
     sidebar: {
+      '/java/': [
+        {
+          text: '我的项目',
+          items: [
+            { text: '西湖论剑', link: '/project/lakesword' },
+            { text: '拼团交易', link: '/project/group-buy' },
+            { text: 'ai代码评审', link: '/project/openai-code-review' },
+          ]
+        }
+      ],
       '/java/': [
         {
           text: '后端学习',
