@@ -22,10 +22,24 @@ if ! git commit -m "$1"; then
 fi
 
 # 获取远程协议类型
+# 修改协议检测部分
 REMOTE_URL=$(git remote get-url origin)
 if [[ $REMOTE_URL == http* ]]; then
-    echo "检测到HTTPS协议，自动启用凭据存储..."
-    git config --global credential.helper store
+    echo "检测到HTTPS协议，正在切换为SSH..."
+    git remote set-url origin git@github.com:9lucifer/9lucifer.github.io.git
+elif [[ $REMOTE_URL != *@* ]]; then
+    echo "未配置SSH协议，请手动设置："
+    echo "git remote set-url origin git@github.com:9lucifer/9lucifer.github.io.git"
+    exit 1
+fi
+
+# 添加SSH连接测试
+echo "正在验证SSH连接..."
+if ! ssh -T git@github.com 2>&1 | grep "successfully authenticated"; then
+    echo "SSH认证失败，请检查："
+    echo "1. ~/.ssh/id_rsa 密钥是否存在"
+    echo "2. SSH密钥是否添加到GitHub账户"
+    exit 1
 fi
 
 # 带超时的推送操作（增加详细输出）
