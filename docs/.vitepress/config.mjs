@@ -21,6 +21,8 @@ export default defineConfig({
     }]
   ],
   themeConfig: {
+    logo: '/hero-image.png', 
+    siteTitle: '9lucifer 🏠',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
@@ -38,7 +40,8 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/9lucifer/9lucifer.github.io' },
+      { icon: 'bilibili', link: 'https://space.bilibili.com/662223993?spm_id_from=333.1007.0.0' } // 🔹 添加 Bilibili 主页
+    ],
   }
 })
