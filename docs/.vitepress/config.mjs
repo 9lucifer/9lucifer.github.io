@@ -27,16 +27,40 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
+      { 
+        text: '🗄️ 数据库', 
+        link: '/sql/',
+        activeMatch: '/sql/' // 修改激活匹配规则
+      },
     ],
 
     sidebar: {
-      '/mysql/': [
+      '/sql/mysql/': [
         {
-          text: 'MySQL 学习',
+          text: 'MySQL 专栏',
+          collapsible: true,
           items: [
-            { text: '🔓📈 MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
-            { text: '📚 MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
+            { text: '🔓📈 乐观锁指南', link: '/sql/mysql/mysql-happy' },
+            { text: '📚 悲观锁解析', link: '/sql/mysql/mysql-sad' }
+          ]
+        }
+      ],
+      '/sql/redis/': [
+        {
+          text: 'Redis 实战',
+          collapsible: true,
+          items: [
+            { text: '🏗️ 基础应用', link: '/sql/redis/redis-basic' },
+            { text: '🚀 高级特性', link: '/sql/redis/redis-advanced' }
+          ]
+        }
+      ],
+      '/sql/': [
+        {
+          text: '数据库系统',
+          items: [
+            { text: '📖 MySQL 专题', link: '/sql/mysql/' },
+            { text: '⚡ Redis 专题', link: '/sql/redis/' }
           ]
         }
       ],
