@@ -21,11 +21,12 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
       { 
-        text: '🗄️ 数据库', 
-        items: [ // 移除了 link 属性，添加完整下拉菜单
+        text: '🗄️ 数据库',
+        activeMatch: '^/sql/', // 修正正则表达式格式
+        items: [
           { text: '🏷️ MySQL', link: '/sql/mysql/' },
           { text: '🔑 Redis', link: '/sql/redis/' },
-          { type: 'separator' }, // 添加分隔线
+          { type: 'separator' },
           { text: '📚 数据库总览', link: '/sql/' }
         ]
       }
@@ -36,6 +37,7 @@ export default defineConfig({
         {
           text: 'MySQL 专栏',
           collapsible: true,
+          collapsed: false, // 添加默认展开状态
           items: [
             { text: '🔓📈 乐观锁指南', link: '/sql/mysql/mysql-happy' },
             { text: '📚 悲观锁解析', link: '/sql/mysql/mysql-sad' }
@@ -46,6 +48,7 @@ export default defineConfig({
         {
           text: 'Redis 实战',
           collapsible: true,
+          collapsed: false, // 添加默认展开状态
           items: [
             { text: '🏗️ 基础应用', link: '/sql/redis/redis-basic' },
             { text: '🚀 高级特性', link: '/sql/redis/redis-advanced' }
@@ -55,6 +58,7 @@ export default defineConfig({
       '/sql/': [
         {
           text: '数据库系统',
+          collapsible: true, // 添加可折叠属性
           items: [
             { text: '📖 MySQL 专题', link: '/sql/mysql/' },
             { text: '⚡ Redis 专题', link: '/sql/redis/' }
