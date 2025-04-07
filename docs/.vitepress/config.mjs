@@ -24,11 +24,16 @@ export default defineConfig({
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
       { text: '🚀 算法训练', link: '/leetcode/', activeMatch: '/leetcode/' },
+      { 
+        text: '📄 刷题记录', 
+        link: '/shuait.html', // 必须添加 .html 扩展名
+        target: '_blank' // 添加新标签页打开（可选）
+      }
     ],
 
     // 侧边栏
     sidebar: {
-      '/java/': [
+      '/project/': [
         {
           text: '我的项目',
           items: [
