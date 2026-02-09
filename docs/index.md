@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "blog for 9lucifer"
+  name: "blog for Isaac饿啊"
   text: "闲下来写两篇~"
   tagline: 全栈 ！= 全干 后端 ！= 后台 
   image:
@@ -11,10 +11,10 @@ hero:
     alt: Showcase
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 年度总结
+      link: /annual-summary/
     - theme: alt
-      text: 个人简历 
+      text: 个人简历
       link: /resume.pdf
 
 features:

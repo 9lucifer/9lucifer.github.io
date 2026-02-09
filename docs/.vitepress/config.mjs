@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { execSync } from 'child_process';
+import annualSummarySidebar from './sidebar/annual-summary.mjs';
 
 export default defineConfig({
   title: "x-tech 🏠",
@@ -33,6 +34,7 @@ export default defineConfig({
 
     // 侧边栏
     sidebar: {
+      '/annual-summary/': annualSummarySidebar,
       '/project/': [
         {
           text: '我的项目',
