@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 import annualSummarySidebar from './sidebar/annual-summary.mjs';
 
 export default defineConfig({
-  title: "x-tech 🏠",
+  title: "IsaacE2 🏠",
   description: "null",
   head: [
     // 基础favicon
@@ -113,7 +113,7 @@ export default defineConfig({
     // 页脚配置
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024-present x-tech'
+      copyright: 'Copyright © 2024-present IsaacE2'
     }
   },
 
