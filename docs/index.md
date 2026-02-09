@@ -15,7 +15,7 @@ hero:
       link: /annual-summary/
     - theme: alt
       text: 个人简历
-      link: /resume.pdf
+      link: /resume_v2.pdf
 
 features:
   - title: 核心技术栈
