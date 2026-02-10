@@ -4,7 +4,7 @@
 
 ## 网络协议脑图
 
-<XMindViewer src="/net-proto.xmind" :height="650" />
+<XMindViewer src="/net-proto.xmind" :height="650"></XMindViewer>
 
 ## TCP/IP
 
