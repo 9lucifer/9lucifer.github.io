@@ -4,55 +4,7 @@
 
 ## 网络协议脑图
 
-<!-- 使用 xmind 文件 -->
-<XmindViewer src="/net-proto.xmind" />
-
-<!-- 或者使用手动定义的脑图 -->
-<MindMap :data="{
-  name: '计算机网络',
-  children: [
-    {
-      name: '应用层',
-      children: [
-        { name: 'HTTP/HTTPS' },
-        { name: 'FTP' },
-        { name: 'SMTP' },
-        { name: 'DNS' }
-      ]
-    },
-    {
-      name: '传输层',
-      children: [
-        { name: 'TCP' },
-        { name: 'UDP' }
-      ]
-    },
-    {
-      name: '网络层',
-      children: [
-        { name: 'IP' },
-        { name: 'ICMP' },
-        { name: 'ARP' }
-      ]
-    },
-    {
-      name: '数据链路层',
-      children: [
-        { name: 'Ethernet' },
-        { name: 'MAC' },
-        { name: 'VLAN' }
-      ]
-    },
-    {
-      name: '物理层',
-      children: [
-        { name: '光纤' },
-        { name: '双绞线' },
-        { name: '无线' }
-      ]
-    }
-  ]
-}" />
+<XMindViewer src="/net-proto.xmind" :height="650" />
 
 ## TCP/IP
 

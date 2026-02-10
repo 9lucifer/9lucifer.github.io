@@ -1,104 +1,165 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref, watch, nextTick } from 'vue'
 import * as echarts from 'echarts/core'
 import { TreeChart } from 'echarts/charts'
+import { TooltipComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 import XMind from 'xmind'
 
-echarts.use([TreeChart, CanvasRenderer])
+echarts.use([TreeChart, TooltipComponent, CanvasRenderer])
 
 const props = defineProps({
-  src: {
-    type: String,
-    required: true
-  }
+  src: { type: String, required: true },
+  height: { type: Number, default: 600 }
 })
 
 const containerRef = ref(null)
+const loading = ref(true)
 const error = ref(null)
 
-onMounted(async () => {
-  try {
-    // 加载 xmind 文件
-    const response = await fetch(props.src)
-    const blob = await response.blob()
-    const buffer = await blob.arrayBuffer()
+let chart = null
 
-    // 解析 xmind
-    const xmind = await XMind.load(buffer)
-    const data = xmind.get()
+/* ---------------- 解析 XMind ---------------- */
 
-    // 转换为 ECharts 树形数据
-    const treeData = convertToTree(data[0].topic)
+function convertToTree(topic) {
+  if (!topic) return null
 
-    // 渲染脑图
-    const chart = echarts.init(containerRef.value)
-
-    const option = {
-      series: [{
-        type: 'tree',
-        data: [treeData],
-        top: '5%',
-        left: '10%',
-        bottom: '5%',
-        right: '20%',
-        symbolSize: 10,
-        label: {
-          position: 'left',
-          verticalAlign: 'middle',
-          align: 'right',
-          fontSize: 13,
-          fontWeight: 'bold'
-        },
-        leaves: {
-          label: {
-            position: 'right',
-            verticalAlign: 'middle',
-            align: 'left'
-          }
-        },
-        expandAndCollapse: true,
-        initialTreeDepth: 2,
-        roam: true,
-        itemStyle: {
-          color: '#2196F3',
-          borderColor: '#2196F3',
-          borderWidth: 2
-        },
-        lineStyle: {
-          color: '#90CAF9',
-          width: 2,
-          curveness: 0.5
-        }
-      }]
-    }
-
-    chart.setOption(option)
-    window.addEventListener('resize', () => chart.resize())
-  } catch (e) {
-    error.value = `加载失败: ${e.message}`
-    console.error('Xmind 加载错误:', e)
-  }
-})
-
-function convertToTree(xmindTopic) {
   const node = {
-    name: xmindTopic.title
+    name: topic.title || ' '
   }
 
-  if (xmindTopic.children && xmindTopic.children.length > 0) {
-    node.children = xmindTopic.children.map
+  const children = topic?.children?.attached
+
+  if (children && children.length) {
+    node.children = children.map(convertToTree)
   }
 
   return node
 }
+
+async function loadXmind() {
+  try {
+    loading.value = true
+    error.value = null
+
+    const res = await fetch(props.src)
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
+
+    const buffer = await res.arrayBuffer()
+    const workbook = await XMind.load(buffer)
+    const sheets = workbook.get()
+
+    if (!sheets?.length) throw new Error('空的 XMind 文件')
+
+    const root = sheets[0].rootTopic
+    const treeData = convertToTree(root)
+
+    await nextTick()
+    renderChart(treeData)
+
+    loading.value = false
+  } catch (e) {
+    error.value = e.message
+    loading.value = false
+    console.error(e)
+  }
+}
+
+/* ---------------- 渲染图表 ---------------- */
+
+function isDark() {
+  return document.documentElement.classList.contains('dark')
+}
+
+function renderChart(data) {
+  if (!containerRef.value) return
+
+  chart?.dispose()
+  chart = echarts.init(containerRef.value)
+
+  const dark = isDark()
+
+  chart.setOption({
+    tooltip: { trigger: 'item', triggerOn: 'mousemove' },
+
+    series: [{
+      type: 'tree',
+      data: [data],
+
+      left: '2%',
+      right: '2%',
+      top: '5%',
+      bottom: '5%',
+
+      layout: 'orthogonal',
+      orient: 'LR',
+
+      roam: true,
+      expandAndCollapse: true,
+      initialTreeDepth: -1,
+
+      symbol: 'roundRect',
+      symbolSize: [90, 28],
+
+      label: {
+        position: 'inside',
+        color: '#fff',
+        fontSize: 12
+      },
+
+      itemStyle: {
+        color: dark ? '#7aa2ff' : '#5B8FF9'
+      },
+
+      lineStyle: {
+        color: dark ? '#aaa' : '#999',
+        width: 2,
+        curveness: 0.35
+      }
+    }]
+  })
+}
+
+/* ---------------- resize & dark mode ---------------- */
+
+function resize() {
+  chart?.resize()
+}
+
+const observer = new MutationObserver(() => {
+  if (chart) loadXmind()
+})
+
+onMounted(() => {
+  loadXmind()
+  window.addEventListener('resize', resize)
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', resize)
+  observer.disconnect()
+  chart?.dispose()
+})
+
+watch(() => props.src, loadXmind)
 </script>
 
 <template>
   <div>
-    <div v-if="error" style="color: red; padding: 20px;">
-      {{ error }}
+    <div v-if="loading" style="text-align:center;padding:40px;opacity:.6">
+      正在加载脑图...
     </div>
-    <div ref="containerRef" style="width: 100%; height: 600px;"></div>
+
+    <div v-else-if="error" style="color:#ff4d4f;padding:20px">
+      <b>脑图加载失败</b>
+      <div style="font-size:12px;margin-top:6px">{{ error }}</div>
+    </div>
+
+    <div
+      v-else
+      ref="containerRef"
+      :style="{ width:'100%', height: height + 'px' }"
+    />
   </div>
 </template>
