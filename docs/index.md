@@ -30,35 +30,35 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
-    <a href="/java/myThreadPool" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>🚀 手写线程池实战</h3>
-      <p>从原理到实现，深入理解线程池工作机制</p>
+    <a href="/mysql/mysql-sad" class="article-card">
+      <div class="article-tag">数据库</div>
+      <h3>📚 MySQL悲观锁深度解析 | 从原理到实战避坑指南</h3>
+      <p>---</p>
     </a>
-    <a href="/java/jdk-hashmap" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>📌 HashMap 源码解读</h3>
-      <p>每天搞懂一个 JDK 源码系列</p>
-    </a>
-    <a href="/java/hard-37" class="article-card">
+    <a href="/leetcode/Java-Queue-API" class="article-card">
       <div class="article-tag">算法</div>
-      <h3>📌 数独终结者</h3>
-      <p>LeetCode 37 Hard 题解析</p>
+      <h3>未命名文章</h3>
+      <p>- `LinkedList`（最常用）</p>
     </a>
-    <a href="/center/MongoDB-fast" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>MongoDB 快速上手</h3>
-      <p>包会用的 MongoDB 入门教程</p>
+    <a href="/leetcode/Java-Stack-API" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>未命名文章</h3>
+      <p>------</p>
+    </a>
+    <a href="/leetcode/algo_mode" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>传统 ACM 模式</h3>
+      <p>💻 笔试/机试生存法则</p>
+    </a>
+    <a href="/leetcode/quick_merge" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>**快速排序** 和 **归并排序**</h3>
+      <p>---</p>
     </a>
     <a href="/mysql/mysql-happy" class="article-card">
       <div class="article-tag">数据库</div>
-      <h3>🔓 MySQL 乐观锁终极指南</h3>
-      <p>深入理解乐观锁的原理与实践</p>
-    </a>
-    <a href="/front/Mammoth-js" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>📄 Mammoth.js 详细教程</h3>
-      <p>渲染 Word 文档为 HTML</p>
+      <h3>🔓📈 MySQL乐观锁终极指南 | 高并发场景下的生存法则与实战陷阱</h3>
+      <p>---</p>
     </a>
   </div>
 </div>

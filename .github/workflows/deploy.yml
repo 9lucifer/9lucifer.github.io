@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: npm ci # 或 pnpm install / yarn install / bun install
       - name: Update latest articles
-        run: bash scripts/update-latest-articles.sh
+        run: node scripts/update-latest-articles.js
       - name: Build with VitePress
         run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
