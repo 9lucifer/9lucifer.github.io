@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "blog for Isaac饿啊"
+  name: "IsaacE2的岁月史书"
   text: "闲下来写两篇~"
-  tagline: 全栈 ！= 全干 后端 ！= 后台 
+  tagline: 全栈 = 全干 后端 = 后台 
   image:
     src: /hero-image.png
     alt: Showcase
@@ -18,12 +18,12 @@ hero:
       link: /resume_v2.pdf
 
 features:
-  - title: 核心技术栈
-    details: Java/Spring生态 | 分布式相关技术栈 | JVM性能调优 | Linux相关研究
-  - title: 深度解析
-    details: Spring源码解读 | 高并发架构实践 | 数据结构与算法 | 设计模式应用
-  - title: 系统优化
-    details: MySQL索引优化 | Redis缓存策略 | JVM内存管理 | 网络协议分析
+  - title: 我希望
+    details: 积累海量的技术沉淀，追求深度的知识洞察，永葆求知若渴的初心
+  - title: 我希望
+    details: 拥有健康的体魄，保持年轻的心态，活出生命的精彩
+  - title: 我希望
+    details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
 
