@@ -30,6 +30,16 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/front/mark-js" class="article-card">
+      <div class="article-tag">前端</div>
+      <h3>🎨 Mark.js 的使用指南</h3>
+      <p>Mark.js 是一个用于在网页中高亮显示关键词的 JavaScript 库。它可以帮助用户在文本内容中快速定位和突出显</p>
+    </a>
+    <a href="/front/layui-admin" class="article-card">
+      <div class="article-tag">前端</div>
+      <h3>后端程序员好上手的前端框架——layui</h3>
+      <p>layui的基础之后再补，现在是介绍**pear admin layui**</p>
+    </a>
     <a href="/mysql/mysql-sad" class="article-card">
       <div class="article-tag">数据库</div>
       <h3>📚 MySQL悲观锁深度解析 | 从原理到实战避坑指南</h3>
@@ -49,16 +59,6 @@ features:
       <div class="article-tag">算法</div>
       <h3>传统 ACM 模式</h3>
       <p>💻 笔试/机试生存法则</p>
-    </a>
-    <a href="/leetcode/quick_merge" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>**快速排序** 和 **归并排序**</h3>
-      <p>---</p>
-    </a>
-    <a href="/mysql/mysql-happy" class="article-card">
-      <div class="article-tag">数据库</div>
-      <h3>🔓📈 MySQL乐观锁终极指南 | 高并发场景下的生存法则与实战陷阱</h3>
-      <p>---</p>
     </a>
   </div>
 </div>
