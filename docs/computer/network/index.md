@@ -4,6 +4,10 @@
 
 ## 网络协议脑图
 
+<!-- 使用 xmind 文件 -->
+<XmindViewer src="/net-proto.xmind" />
+
+<!-- 或者使用手动定义的脑图 -->
 <MindMap :data="{
   name: '计算机网络',
   children: [
