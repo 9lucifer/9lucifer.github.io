@@ -1,4 +1,4 @@
-## springSecurity入门
+# springSecurity入门
 
 > （本文适合从未接触过spring security的同学快速上手体验）
 

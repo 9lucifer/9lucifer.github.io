@@ -30,35 +30,35 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
-    <a href="/front/mark-js" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>🎨 Mark.js 的使用指南</h3>
-      <p>Mark.js 是一个用于在网页中高亮显示关键词的 JavaScript 库。它可以帮助用户在文本内容中快速定位和突出显</p>
-    </a>
     <a href="/front/layui-admin" class="article-card">
       <div class="article-tag">前端</div>
       <h3>后端程序员好上手的前端框架——layui</h3>
       <p>layui的基础之后再补，现在是介绍**pear admin layui**</p>
     </a>
-    <a href="/mysql/mysql-sad" class="article-card">
-      <div class="article-tag">数据库</div>
-      <h3>📚 MySQL悲观锁深度解析 | 从原理到实战避坑指南</h3>
-      <p>---</p>
+    <a href="/front/mark-js" class="article-card">
+      <div class="article-tag">前端</div>
+      <h3>🎨 Mark.js 的使用指南</h3>
+      <p>Mark.js 是一个用于在网页中高亮显示关键词的 JavaScript 库。它可以帮助用户在文本内容中快速定位和突出显</p>
     </a>
-    <a href="/leetcode/Java-Queue-API" class="article-card">
-      <div class="article-tag">算法</div>
+    <a href="/center/MongoDB-fast" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>MongoDB快速上手（包会用）</h3>
+      <p>MongoDB 是一个开源的 **文档型数据库**，它使用类似 JSON 的 **BSON**（二进制 JSON）格式来</p>
+    </a>
+    <a href="/center/RBAC" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>RBAC 权限控制模型学习</h3>
+      <p>RBAC（Role-Based Access Control，基于角色的访问控制）是一种权限管理模型，通过将权限分配给角</p>
+    </a>
+    <a href="/center/auth" class="article-card">
+      <div class="article-tag">中间件</div>
       <h3>未命名文章</h3>
-      <p>- `LinkedList`（最常用）</p>
+      <p>最近也要准备秋招，刚好整理下前后端一般采用的几种鉴权方式。</p>
     </a>
-    <a href="/leetcode/Java-Stack-API" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>未命名文章</h3>
-      <p>------</p>
-    </a>
-    <a href="/leetcode/algo_mode" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>传统 ACM 模式</h3>
-      <p>💻 笔试/机试生存法则</p>
+    <a href="/center/rabbitmq-base" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>rabbitmq五种模式的总结</h3>
+      <p>完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning</p>
     </a>
   </div>
 </div>

@@ -1,11 +1,26 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // 配置
 const DOCS_DIR = path.join(__dirname, '../docs');
 const INDEX_FILE = path.join(DOCS_DIR, 'index.md');
 const EXCLUDE_DIRS = ['node_modules', '.vitepress', 'annual-summary', 'project'];
 const EXCLUDE_FILES = ['index.md', 'api-examples.md', 'markdown-examples.md'];
+
+// 获取文件的 Git 最后修改时间
+function getGitModifiedTime(filePath) {
+  try {
+    const timestamp = execSync(
+      `git log -1 --format=%ct "${filePath}"`,
+      { encoding: 'utf-8' }
+    ).trim();
+    return parseInt(timestamp) * 1000; // 转换为毫秒
+  } catch (error) {
+    // 如果文件未被 Git 跟踪，使用文件系统时间
+    return fs.statSync(filePath).mtime.getTime();
+  }
+}
 
 // 获取分类
 function getCategory(filePath) {
@@ -56,7 +71,7 @@ function findMarkdownFiles(dir, fileList = []) {
     } else if (file.endsWith('.md') && !EXCLUDE_FILES.includes(file)) {
       fileList.push({
         path: filePath,
-        mtime: stat.mtime
+        mtime: getGitModifiedTime(filePath) // 使用 Git 时间
       });
     }
   }
@@ -71,7 +86,7 @@ function updateLatestArticles() {
   // 查找所有文章
   const allFiles = findMarkdownFiles(DOCS_DIR);
 
-  // 按修改时间排序，取最新的 6 篇
+  // 按 Git 提交时间排序，取最新的 6 篇
   const latestFiles = allFiles
     .sort((a, b) => b.mtime - a.mtime)
     .slice(0, 6);
@@ -82,12 +97,14 @@ function updateLatestArticles() {
   const articles = latestFiles.map(file => {
     const content = fs.readFileSync(file.path, 'utf-8');
     const relativePath = path.relative(DOCS_DIR, file.path).replace(/\.md$/, '').replace(/\\/g, '/');
+    const date = new Date(file.mtime);
 
     return {
       link: `/${relativePath}`,
       category: getCategory(file.path),
       title: getTitle(content),
-      description: getDescription(content)
+      description: getDescription(content),
+      date: date.toISOString().split('T')[0] // 格式化日期
     };
   });
 
@@ -114,7 +131,7 @@ function updateLatestArticles() {
 
     // 输出文章列表
     articles.forEach((article, index) => {
-      console.log(`  ${index + 1}. [${article.category}] ${article.title}`);
+      console.log(`  ${index + 1}. [${article.category}] ${article.title} (${article.date})`);
     });
   } else {
     console.error('❌ 未找到文章列表区域');
