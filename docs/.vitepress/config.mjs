@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { execSync } from 'child_process';
 import annualSummarySidebar from './sidebar/annual-summary.mjs';
+import computerSidebar from './sidebar/computer.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -20,6 +21,7 @@ export default defineConfig({
     // 导航栏
     nav: [
       { text: '☕️ Java', link: '/java/', activeMatch: '/java/' },
+      { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
@@ -34,6 +36,7 @@ export default defineConfig({
     // 侧边栏
     sidebar: {
       '/annual-summary/': annualSummarySidebar,
+      '/computer/': computerSidebar,
       '/project/': [
         {
           text: '我的项目',
