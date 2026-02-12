@@ -5,6 +5,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "echarts": "^6.0.0",
     "vitepress": "^1.6.3",
     "xmind": "^2.2.33"
   }

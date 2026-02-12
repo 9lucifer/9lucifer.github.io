@@ -2,6 +2,9 @@ import { defineConfig } from 'vitepress';
 import { execSync } from 'child_process';
 import annualSummarySidebar from './sidebar/annual-summary.mjs';
 import computerSidebar from './sidebar/computer.mjs';
+import javaBasicSidebar from './sidebar/java-basic.mjs';
+import javaSpringSidebar from './sidebar/java-spring.mjs';
+import javaJvmSidebar from './sidebar/java-jvm.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -20,7 +23,15 @@ export default defineConfig({
 
     // 导航栏
     nav: [
-      { text: '☕️ Java', link: '/java/', activeMatch: '/java/' },
+      {
+        text: '☕️ Java',
+        activeMatch: '/java/',
+        items: [
+          { text: 'Java 基础', link: '/java/basic/' },
+          { text: 'Spring 框架', link: '/java/spring/' },
+          { text: 'JVM', link: '/java/jvm/' }
+        ]
+      },
       { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
@@ -47,16 +58,9 @@ export default defineConfig({
           ]
         }
       ],
-      '/java/': [
-        {
-          text: '后端学习',
-          items: [
-            { text: '📌《每天搞懂一道Hard》之数独终结者（LeetCode 37', link: '/java/hard-37' },
-            { text: '📌《每天搞懂一个JDK源码》之HashMap解读', link: '/java/jdk-hashmap' },
-            { text: '🚀 手写线程池实战：从原理到实现，深入理解线程池工作机制', link: '/java/myThreadPool' },
-          ]
-        }
-      ],
+      '/java/basic/': javaBasicSidebar,
+      '/java/spring/': javaSpringSidebar,
+      '/java/jvm/': javaJvmSidebar,
       '/front/': [
         {
           text: '前端学习',

@@ -2,9 +2,9 @@
 
 学习计算机网络的基础知识和核心协议
 
-## 网络协议脑图
+## 网络协议
 
-<XMindViewer src="/net-proto.xmind" :height="650"></XMindViewer>
+在这里写网络协议相关内容...
 
 ## TCP/IP
 
