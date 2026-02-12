@@ -1,4 +1,4 @@
-# 🚩 Java Queue 接口 API 介绍
+# Java Queue 接口 API 介绍
 
 ------
 
@@ -102,5 +102,3 @@ Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 | 入队     | `offer(e)`   |
 | 出队     | `poll()`     |
 | 查看队头 | `peek()`     |
-
-<Artalk />
