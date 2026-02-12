@@ -69,9 +69,9 @@ function findMarkdownFiles(dir, fileList = []) {
         findMarkdownFiles(filePath, fileList);
       }
     } else if (file.endsWith('.md')) {
-      // 排除根目录的 index.md 文件
+      // 排除所有目录的 index.md 文件
       const relativePath = path.relative(DOCS_DIR, filePath);
-      if (relativePath === 'index.md') {
+      if (relativePath.endsWith('index.md')) {
         continue;
       }
 
