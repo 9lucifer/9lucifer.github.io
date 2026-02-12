@@ -18,7 +18,7 @@ export default defineConfig({
   
   themeConfig: {
     logo: '/hero-image.png', 
-    siteTitle: '9lucifer 🏠',
+    siteTitle: 'IsaacE2 🏠',
 
 
     // 导航栏
