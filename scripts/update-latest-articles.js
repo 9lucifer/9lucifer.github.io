@@ -6,7 +6,7 @@ const { execSync } = require('child_process');
 const DOCS_DIR = path.join(__dirname, '../docs');
 const INDEX_FILE = path.join(DOCS_DIR, 'index.md');
 const EXCLUDE_DIRS = ['node_modules', '.vitepress', 'annual-summary', 'project'];
-const EXCLUDE_FILES = ['index.md', 'api-examples.md', 'markdown-examples.md'];
+const EXCLUDE_FILES = ['api-examples.md', 'markdown-examples.md'];
 
 // 获取文件的 Git 最后修改时间
 function getGitModifiedTime(filePath) {
@@ -68,11 +68,19 @@ function findMarkdownFiles(dir, fileList = []) {
       if (!EXCLUDE_DIRS.includes(file)) {
         findMarkdownFiles(filePath, fileList);
       }
-    } else if (file.endsWith('.md') && !EXCLUDE_FILES.includes(file)) {
-      fileList.push({
-        path: filePath,
-        mtime: getGitModifiedTime(filePath) // 使用 Git 时间
-      });
+    } else if (file.endsWith('.md')) {
+      // 排除根目录的 index.md 文件
+      const relativePath = path.relative(DOCS_DIR, filePath);
+      if (relativePath === 'index.md') {
+        continue;
+      }
+
+      if (!EXCLUDE_FILES.includes(file)) {
+        fileList.push({
+          path: filePath,
+          mtime: getGitModifiedTime(filePath) // 使用 Git 时间
+        });
+      }
     }
   }
 

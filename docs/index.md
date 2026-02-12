@@ -30,35 +30,35 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
-    <a href="/front/layui-admin" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>后端程序员好上手的前端框架——layui</h3>
-      <p>layui的基础之后再补，现在是介绍**pear admin layui**</p>
+    <a href="/java/spring/index" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>Spring 框架</h3>
+      <p>![页面-1](https://imgtu.oss-cn-beijing.aliyuncs.com/image/%E9%</p>
     </a>
-    <a href="/front/mark-js" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>🎨 Mark.js 的使用指南</h3>
-      <p>Mark.js 是一个用于在网页中高亮显示关键词的 JavaScript 库。它可以帮助用户在文本内容中快速定位和突出显</p>
+    <a href="/java/basic/hard-37" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>📌《每天搞懂一道Hard》之数独终结者（LeetCode 37）</h3>
+      <p>🔗原题链接：https://leetcode.com/problems/sudoku-solver/</p>
     </a>
-    <a href="/center/MongoDB-fast" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>MongoDB快速上手（包会用）</h3>
-      <p>MongoDB 是一个开源的 **文档型数据库**，它使用类似 JSON 的 **BSON**（二进制 JSON）格式来</p>
+    <a href="/java/basic/jdk-hashmap" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>📌《每天搞懂一个JDK源码》之HashMap解读</h3>
+      <p>🔗源码定位：java.util.HashMap（建议IDE对照阅读）</p>
     </a>
-    <a href="/center/RBAC" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>RBAC 权限控制模型学习</h3>
-      <p>RBAC（Role-Based Access Control，基于角色的访问控制）是一种权限管理模型，通过将权限分配给角</p>
+    <a href="/java/basic/myThreadPool" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>🚀 手写线程池实战：从原理到实现，深入理解线程池工作机制</h3>
+      <p>📌 本文参考B站技术视频 [《Java手写线程池实战》](https://www.bilibili.com/video</p>
     </a>
-    <a href="/center/auth" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>未命名文章</h3>
-      <p>最近也要准备秋招，刚好整理下前后端一般采用的几种鉴权方式。</p>
+    <a href="/java/index" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>Java 技术专栏 🚀</h3>
+      <p>专注Java核心技术栈 | 高频面试题解析 | JDK源码深度解读</p>
     </a>
-    <a href="/center/rabbitmq-base" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>rabbitmq五种模式的总结</h3>
-      <p>完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning</p>
+    <a href="/computer/network/index" class="article-card">
+      <div class="article-tag">其他</div>
+      <h3>计算机网络</h3>
+      <p>学习计算机网络的基础知识和核心协议</p>
     </a>
   </div>
 </div>
