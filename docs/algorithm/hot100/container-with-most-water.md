@@ -2,10 +2,9 @@
 > 题目链接：https://leetcode.cn/problems/container-with-most-water
 
 ### 解题思路
-初始时：宽度最大
+初始时宽度最大，然后不断向内移动指针寻找更大的面积。
 - 左指针 l = 0
 - 右指针 r = n - 1
-然后不断向内移动指针寻找更大的面积。
 
 ### java版本解答
 ```java

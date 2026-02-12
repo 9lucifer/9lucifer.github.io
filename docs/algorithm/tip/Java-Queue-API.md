@@ -1,4 +1,4 @@
-## 🚩 Java Queue 接口 API 介绍（LeetCode 刷题常用）
+# 🚩 Java Queue 接口 API 介绍
 
 ------
 
@@ -32,7 +32,7 @@ Queue<Integer> pq = new PriorityQueue<>();
 
 ------
 
-## 🚩 使用举例（LeetCode 常用）：
+## 使用举例（LeetCode 常用）：
 
 ### 示例1：基础队列（BFS 常见场景）
 
@@ -83,7 +83,7 @@ while (!pq.isEmpty()) {
 
 ------
 
-## 🚩 实践经验（LeetCode刷题技巧）：
+## 实践经验（LeetCode刷题技巧）：
 
 - 推荐使用 `offer()` / `poll()` / `peek()` 这一组方法，它们在队列为空或满时不会抛异常，而是返回`null`或`false`，更安全。
 - BFS 过程中，使用 `LinkedList` 或 `ArrayDeque` 性能都不错（推荐 `ArrayDeque` 更高效一些）。
@@ -95,7 +95,7 @@ Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
 ------
 
-## 🎯 快速记忆：
+## 快速记忆：
 
 | 常规操作 | 推荐方法组合 |
 | -------- | ------------ |
