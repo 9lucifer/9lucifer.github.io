@@ -30,35 +30,35 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
-    <a href="/java/basic/hard-37" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>📌《每天搞懂一道Hard》之数独终结者（LeetCode 37）</h3>
-      <p>🔗原题链接：https://leetcode.com/problems/sudoku-solver/</p>
+    <a href="/algorithm/hot100/move-zeroes" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>4. 移动零</h3>
+      <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
     </a>
-    <a href="/java/basic/jdk-hashmap" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>📌《每天搞懂一个JDK源码》之HashMap解读</h3>
-      <p>🔗源码定位：java.util.HashMap（建议IDE对照阅读）</p>
+    <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>3. 最长连续序列</h3>
+      <p>题目链接：https://leetcode.cn/problems/longest-consecutive-sequen</p>
     </a>
-    <a href="/java/basic/myThreadPool" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>🚀 手写线程池实战：从原理到实现，深入理解线程池工作机制</h3>
-      <p>📌 本文参考B站技术视频 [《Java手写线程池实战》](https://www.bilibili.com/video</p>
+    <a href="/algorithm/hot100/group-anagrams" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>2. 字母异位词分组</h3>
+      <p>题目链接：https://leetcode.cn/problems/group-anagrams</p>
     </a>
-    <a href="/center/springSecurity1" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>springSecurity入门</h3>
-      <p>（本文适合从未接触过spring security的同学快速上手体验）</p>
+    <a href="/algorithm/hot100/two-sum" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>1. 两数之和</h3>
+      <p>题目链接：https://leetcode.cn/problems/two-sum</p>
     </a>
-    <a href="/front/layui-admin" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>后端程序员好上手的前端框架——layui</h3>
-      <p>layui的基础之后再补，现在是介绍**pear admin layui**</p>
+    <a href="/algorithm/tip/Java-Queue-API" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>未命名文章</h3>
+      <p>- `LinkedList`（最常用）</p>
     </a>
-    <a href="/front/mark-js" class="article-card">
-      <div class="article-tag">前端</div>
-      <h3>🎨 Mark.js 的使用指南</h3>
-      <p>Mark.js 是一个用于在网页中高亮显示关键词的 JavaScript 库。它可以帮助用户在文本内容中快速定位和突出显</p>
+    <a href="/algorithm/tip/Java-Stack-API" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>未命名文章</h3>
+      <p>------</p>
     </a>
   </div>
 </div>

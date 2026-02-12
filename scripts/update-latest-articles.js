@@ -78,8 +78,8 @@ function findMarkdownFiles(dir, fileList = []) {
       if (!EXCLUDE_DIRS.includes(file)) {
         findMarkdownFiles(filePath, fileList);
       }
-    } else if (file.endsWith('.md')) {
-      // 排除所有目录的 index.md 文件
+    } else if (file.endsWith('.md') && file.length > 3) {
+      // 排除所有目录的 index.md 文件和无效文件名的文件
       const relativePath = path.relative(DOCS_DIR, filePath);
       if (relativePath.endsWith('index.md')) {
         continue;
