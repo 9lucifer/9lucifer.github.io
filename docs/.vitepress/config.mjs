@@ -5,6 +5,8 @@ import computerSidebar from './sidebar/computer.mjs';
 import javaBasicSidebar from './sidebar/java-basic.mjs';
 import javaSpringSidebar from './sidebar/java-spring.mjs';
 import javaJvmSidebar from './sidebar/java-jvm.mjs';
+import algorithmHot100Sidebar from './sidebar/algorithm-hot100.mjs';
+import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -36,7 +38,14 @@ export default defineConfig({
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
-      { text: '🚀 算法训练', link: '/leetcode/', activeMatch: '/leetcode/' },
+      {
+        text: '🚀 算法训练',
+        activeMatch: '/algorithm/',
+        items: [
+          { text: '🔥 Hot100', link: '/algorithm/hot100/' },
+          { text: '💡 算法技巧', link: '/algorithm/tip/' }
+        ]
+      },
       {
         text: '📄 刷题记录',
         link: '/shuait.html', // 必须添加 .html 扩展名
@@ -93,17 +102,8 @@ export default defineConfig({
           ]
         }
       ],
-      '/leetcode/': [
-        {
-          text: '算法板子和心得',
-          items: [
-            { text: '🚩 Java Queue 接口 API 介绍', link: '/leetcode/Java-Queue-API' },
-            { text: '🚩 Java Stack 接口 API 介绍', link: '/leetcode/Java-Stack-API' },
-            { text: '📝 面试算法通关秘籍', link: '/leetcode/algo_mode' },
-            { text: '📝 基础算法：快速排序和归并排序', link: '/leetcode/quick_merge' },
-          ]
-        }
-      ]
+      '/algorithm/hot100/': algorithmHot100Sidebar,
+      '/algorithm/tip/': algorithmTipSidebar
     },
 
     socialLinks: [

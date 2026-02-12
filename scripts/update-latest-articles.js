@@ -15,10 +15,20 @@ function getGitModifiedTime(filePath) {
       `git log -1 --format=%ct "${filePath}"`,
       { encoding: 'utf-8' }
     ).trim();
-    return parseInt(timestamp) * 1000; // 转换为毫秒
+    const ms = parseInt(timestamp) * 1000;
+    if (isNaN(ms) || ms <= 0) {
+      console.warn(`文件 ${filePath} 的 Git 时间无效，使用文件系统时间`);
+      return fs.statSync(filePath).mtime.getTime();
+    }
+    return ms;
   } catch (error) {
     // 如果文件未被 Git 跟踪，使用文件系统时间
-    return fs.statSync(filePath).mtime.getTime();
+    try {
+      return fs.statSync(filePath).mtime.getTime();
+    } catch (statError) {
+      console.warn(`无法获取文件 ${filePath} 的时间，使用当前时间`);
+      return Date.now();
+    }
   }
 }
 
@@ -28,7 +38,7 @@ function getCategory(filePath) {
   if (filePath.includes('/mysql/')) return '数据库';
   if (filePath.includes('/front/')) return '前端';
   if (filePath.includes('/center/')) return '中间件';
-  if (filePath.includes('/leetcode/')) return '算法';
+  if (filePath.includes('/algorithm/')) return '算法';
   if (filePath.includes('/project/')) return '项目';
   return '其他';
 }
