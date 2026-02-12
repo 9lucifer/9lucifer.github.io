@@ -30,6 +30,16 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/center/rabbitmq/rabbitmq-base" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>rabbitmq五种模式的总结</h3>
+      <p>完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning</p>
+    </a>
+    <a href="/center/rabbitmq/rabbitmq-sb" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>rabbitmq五种模式的实现——springboot</h3>
+      <p>基础知识和javase的实现形式可以看我之前的博客</p>
+    </a>
     <a href="/center/kafka/Kafka-compile" class="article-card">
       <div class="article-tag">中间件</div>
       <h3>Kafka2.7.2源码编译记录</h3>
@@ -49,16 +59,6 @@ features:
       <div class="article-tag">算法</div>
       <h3>4. 移动零</h3>
       <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
-    </a>
-    <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>3. 最长连续序列</h3>
-      <p>题目链接：https://leetcode.cn/problems/longest-consecutive-sequen</p>
-    </a>
-    <a href="/algorithm/hot100/group-anagrams" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>2. 字母异位词分组</h3>
-      <p>题目链接：https://leetcode.cn/problems/group-anagrams</p>
     </a>
   </div>
 </div>

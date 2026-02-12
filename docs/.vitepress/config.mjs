@@ -7,6 +7,7 @@ import javaSpringSidebar from './sidebar/java-spring.mjs';
 import javaJvmSidebar from './sidebar/java-jvm.mjs';
 import algorithmHot100Sidebar from './sidebar/algorithm-hot100.mjs';
 import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
+import aiSidebar from './sidebar/ai.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -51,11 +52,7 @@ export default defineConfig({
           { text: '💡 算法技巧', link: '/algorithm/tip/' }
         ]
       },
-      {
-        text: '📄 刷题记录',
-        link: '/shuait.html', // 必须添加 .html 扩展名
-        target: '_blank' // 添加新标签页打开（可选）
-      }
+      { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
     ],
 
     // 侧边栏
@@ -117,7 +114,8 @@ export default defineConfig({
         }
       ],
       '/algorithm/hot100/': algorithmHot100Sidebar,
-      '/algorithm/tip/': algorithmTipSidebar
+      '/algorithm/tip/': algorithmTipSidebar,
+      '/ai/': aiSidebar
     },
 
     socialLinks: [
