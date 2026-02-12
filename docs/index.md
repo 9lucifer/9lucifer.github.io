@@ -30,15 +30,15 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
-    <a href="/algorithm/hot100/move-zeroes" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>4. 移动零</h3>
-      <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
-    </a>
     <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
       <div class="article-tag">算法</div>
       <h3>3. 最长连续序列</h3>
       <p>题目链接：https://leetcode.cn/problems/longest-consecutive-sequen</p>
+    </a>
+    <a href="/algorithm/hot100/move-zeroes" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>4. 移动零</h3>
+      <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
     </a>
     <a href="/algorithm/hot100/group-anagrams" class="article-card">
       <div class="article-tag">算法</div>
