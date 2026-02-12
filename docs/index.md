@@ -30,35 +30,35 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/center/kafka/Kafka-compile" class="article-card">
+      <div class="article-tag">中间件</div>
+      <h3>Kafka2.7.2源码编译记录</h3>
+      <p>参考博客：https://cloud.tencent.com/developer/article/2240359</p>
+    </a>
+    <a href="/algorithm/tip/Java-Queue-API" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>Java Queue 接口 API 介绍</h3>
+      <p>- `LinkedList`（最常用）</p>
+    </a>
     <a href="/algorithm/hot100/container-with-most-water" class="article-card">
       <div class="article-tag">算法</div>
       <h3>5. 盛最多水的容器</h3>
       <p>题目链接：https://leetcode.cn/problems/container-with-most-water</p>
-    </a>
-    <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>3. 最长连续序列</h3>
-      <p>题目链接：https://leetcode.cn/problems/longest-consecutive-sequen</p>
     </a>
     <a href="/algorithm/hot100/move-zeroes" class="article-card">
       <div class="article-tag">算法</div>
       <h3>4. 移动零</h3>
       <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
     </a>
+    <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>3. 最长连续序列</h3>
+      <p>题目链接：https://leetcode.cn/problems/longest-consecutive-sequen</p>
+    </a>
     <a href="/algorithm/hot100/group-anagrams" class="article-card">
       <div class="article-tag">算法</div>
       <h3>2. 字母异位词分组</h3>
       <p>题目链接：https://leetcode.cn/problems/group-anagrams</p>
-    </a>
-    <a href="/algorithm/hot100/two-sum" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>1. 两数之和</h3>
-      <p>题目链接：https://leetcode.cn/problems/two-sum</p>
-    </a>
-    <a href="/algorithm/tip/Java-Queue-API" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>未命名文章</h3>
-      <p>- `LinkedList`（最常用）</p>
     </a>
   </div>
 </div>
