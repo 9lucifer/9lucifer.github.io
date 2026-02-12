@@ -1,7 +1,10 @@
-# 两数之和
-> 题目链接：https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked
+# 1. 两数之和
+> 题目链接：https://leetcode.cn/problems/two-sum
 
+### 解题思路
 这已经是最简单的题目了，用hashmap秒杀。
+
+### java版本解答
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
