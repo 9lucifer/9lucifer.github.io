@@ -30,6 +30,11 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/container-with-most-water" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>5. 盛最多水的容器</h3>
+      <p>题目链接：https://leetcode.cn/problems/container-with-most-water</p>
+    </a>
     <a href="/algorithm/hot100/longest-consecutive-sequence" class="article-card">
       <div class="article-tag">算法</div>
       <h3>3. 最长连续序列</h3>
@@ -54,11 +59,6 @@ features:
       <div class="article-tag">算法</div>
       <h3>未命名文章</h3>
       <p>- `LinkedList`（最常用）</p>
-    </a>
-    <a href="/algorithm/tip/Java-Stack-API" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>未命名文章</h3>
-      <p>------</p>
     </a>
   </div>
 </div>
