@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "IsaacE2的岁月史书"
-  text: "闲下来写两篇~"
+  name: "IsaacE2的记录"
+  text: "闲下来写两篇~[迁移中-预计还需2天]"
   tagline: 全栈 = 全干 后端 = 后台
   image:
     src: /hero-image.png
