@@ -19,8 +19,13 @@ export default defineConfig({
   ],
   
   themeConfig: {
-    logo: '/hero-image.png', 
+    logo: '/hero-image.png',
     siteTitle: 'IsaacE2 🏠',
+
+    // 搜索配置
+    search: {
+      provider: 'local'
+    },
 
 
     // 导航栏
