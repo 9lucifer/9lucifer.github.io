@@ -96,6 +96,13 @@ export default defineConfig({
             { text: 'MongoDB快速上手（包会用）', link: '/center/MongoDB-fast' },
             { text: 'RabbitMQ 五种模式的实现——SpringBoot', link: '/center/rabbitmq-sb' },
             { text: 'RabbitMQ 五种模式总结', link: '/center/rabbitmq-base' },
+            {
+              text: 'Kafka 学习',
+              items: [
+                { text: 'Kafka 学习', link: '/center/kafka/' },
+                { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' }
+              ]
+            },
             { text: '几种用户鉴权的方式对比', link: '/center/auth' },
             { text: 'RBAC 权限控制模型学习', link: '/center/RBAC' },
             { text: 'SpringSecurity 学习笔记', link: '/center/springSecurity1' },
