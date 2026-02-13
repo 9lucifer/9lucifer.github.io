@@ -9,6 +9,7 @@ export default [
       { text: '4. 移动零', link: '/algorithm/hot100/move-zeroes' },
       { text: '5. 盛最多水的容器', link: '/algorithm/hot100/container-with-most-water' },
               { text: '6. 三数之和', link: '/algorithm/hot100/3sum' },
+              { text: '7. 接雨水', link: '/algorithm/hot100/trapping-rain-water' },
     ]
   }
 ];

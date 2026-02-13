@@ -30,6 +30,11 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/trapping-rain-water" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>7. 接雨水</h3>
+      <p>题目链接：https://leetcode.cn/problems/trapping-rain-water</p>
+    </a>
     <a href="/algorithm/hot100/3sum" class="article-card">
       <div class="article-tag">算法</div>
       <h3>6. 三数之和</h3>
@@ -54,11 +59,6 @@ features:
       <div class="article-tag">中间件</div>
       <h3>Kafka2.7.2源码编译记录</h3>
       <p>参考博客：https://cloud.tencent.com/developer/article/2240359</p>
-    </a>
-    <a href="/algorithm/tip/Java-Queue-API" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>Java Queue 接口 API 介绍</h3>
-      <p>- `LinkedList`（最常用）</p>
     </a>
   </div>
 </div>
