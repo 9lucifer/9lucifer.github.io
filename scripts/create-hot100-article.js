@@ -47,12 +47,12 @@ function formatFilename(title) {
 }
 
 // 更新侧边栏配置
-function updateSidebarConfig(title, filename) {
+function updateSidebarConfig(number, title, filename) {
   try {
     const sidebarContent = fs.readFileSync(SIDEBAR_CONFIG, 'utf-8');
 
     // 查找 items 数组并添加新条目到最下面
-    const newItem = `      { text: '${title}', link: '/algorithm/hot100/${filename}' }`;
+    const newItem = `      { text: '${number}. ${title}', link: '/algorithm/hot100/${filename}' }`;
     const updatedContent = sidebarContent.replace(
       /(\s+items: \[)[\s\S]*?(\s+])/,
       (match, start, end) => {
@@ -113,7 +113,7 @@ async function createNewArticle() {
     console.log('✅ 文章文件已创建:', filePath);
 
     // 更新侧边栏配置
-    updateSidebarConfig(title, filename);
+    updateSidebarConfig(number, title, filename);
 
     // 更新最新文章列表
     try {

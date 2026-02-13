@@ -30,6 +30,16 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/3sum" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>6. 三数之和</h3>
+      <p>题目链接：https://leetcode.cn/problems/3sum</p>
+    </a>
+    <a href="/java/basic/string" class="article-card">
+      <div class="article-tag">Java</div>
+      <h3>字符串</h3>
+      <p>![image-20260213221946267](https://imgtu.oss-cn-beijing.aliy</p>
+    </a>
     <a href="/center/rabbitmq/rabbitmq-base" class="article-card">
       <div class="article-tag">中间件</div>
       <h3>rabbitmq五种模式的总结</h3>
@@ -49,16 +59,6 @@ features:
       <div class="article-tag">算法</div>
       <h3>Java Queue 接口 API 介绍</h3>
       <p>- `LinkedList`（最常用）</p>
-    </a>
-    <a href="/algorithm/hot100/container-with-most-water" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>5. 盛最多水的容器</h3>
-      <p>题目链接：https://leetcode.cn/problems/container-with-most-water</p>
-    </a>
-    <a href="/algorithm/hot100/move-zeroes" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>4. 移动零</h3>
-      <p>题目链接：https://leetcode.cn/problems/move-zeroes</p>
     </a>
   </div>
 </div>
