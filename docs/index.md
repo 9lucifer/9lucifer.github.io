@@ -85,52 +85,52 @@ features:
 /* 访问计数器样式 */
 .counter-container {
   max-width: 1152px;
-  margin: 48px auto;
+  margin: 32px auto;
   padding: 0 24px;
   text-align: center;
 }
 
 .counter-container h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  color: var(--vp-c-text-1);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: var(--vp-c-text-2);
 }
 
 .counter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .counter-item {
-  padding: 24px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 8px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   transition: all 0.3s ease;
 }
 
 .counter-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: var(--vp-c-divider);
 }
 
 .counter-label {
   display: block;
-  font-size: 14px;
-  color: var(--vp-c-text-2);
-  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  margin-bottom: 6px;
 }
 
 .counter-value {
   display: block;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
 }
 
 /* 最新文章区域 */
