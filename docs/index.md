@@ -1,10 +1,9 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "IsaacE2的记录"
-  text: "闲下来写两篇~[迁移中-预计还需2天]"
+  text: "闲下来写两篇~"
   tagline: 全栈 = 全干 后端 = 后台
   image:
     src: /hero-image.png
@@ -26,228 +25,242 @@ features:
     details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
-<div class="counter-container">
-  <h3>📊 访问统计</h3>
+<div class="counter-section">
   <div class="counter-grid">
-    <div class="counter-item">
-      <span class="counter-label">总访问量</span>
-      <span class="counter-value" id="vercount_value_site_pv">Loading</span>
+    <div class="counter-card">
+      <div class="counter-icon">👥</div>
+      <div class="counter-info">
+        <span class="counter-value" id="vercount_value_site_uv">...</span>
+        <span class="counter-label">访客总数</span>
+      </div>
     </div>
-    <div class="counter-item">
-      <span class="counter-label">总访客数</span>
-      <span class="counter-value" id="vercount_value_site_uv">Loading</span>
+    <div class="counter-card">
+      <div class="counter-icon">👁️</div>
+      <div class="counter-info">
+        <span class="counter-value" id="vercount_value_site_pv">...</span>
+        <span class="counter-label">总浏览量</span>
+      </div>
     </div>
-    <div class="counter-item">
-      <span class="counter-label">页面浏览</span>
-      <span class="counter-value" id="vercount_value_page_pv">Loading</span>
+    <div class="counter-card">
+      <div class="counter-icon">📄</div>
+      <div class="counter-info">
+        <span class="counter-value" id="vercount_value_page_pv">...</span>
+        <span class="counter-label">本页阅读</span>
+      </div>
     </div>
   </div>
 </div>
 
-
 <div class="latest-articles">
-  <h2>📝 最新文章</h2>
+  <div class="section-header">
+    <h2>📝 最新文章</h2>
+    <p class="section-tagline">记录成长的点点滴滴</p>
+  </div>
   <div class="articles-grid">
     <a href="/algorithm/hot100/subarray-sum-equals-k" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>10. 和为k的子数组</h3>
-      <p>题目链接：https://leetcode.cn/problems/subarray-sum-equals-k</p>
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>10. 和为k的子数组</h3>
+        <p>探索前缀和与哈希表在解决连续子数组问题中的巧妙应用。</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
     </a>
     <a href="/algorithm/hot100/find-all-anagrams-in-a-string" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>9. 找到字符串中所有字母异位词</h3>
-      <p>题目链接：https://leetcode.cn/problems/find-all-anagrams-in-a-str</p>
-    </a>
-    <a href="/algorithm/hot100/longest-substring-without-repeating-characters" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>8. 无重复字符最长子串</h3>
-      <p>题目链接：https://leetcode.cn/problems/longest-substring-without-</p>
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>9. 找到所有字母异位词</h3>
+        <p>基于滑动窗口算法，在字符串中高效定位所有异位词排列。</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
     </a>
     <a href="/design/role-permission" class="article-card">
-      <div class="article-tag">其他</div>
-      <h3>权限管理鉴权模型</h3>
-      <p>用户登陆之后，在访问系统某个功能模块的时候，往往需要根据内容和用户进行鉴权，比如GitHub需要判断某个用户对某个仓库是</p>
-    </a>
-    <a href="/algorithm/hot100/trapping-rain-water" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>7. 接雨水</h3>
-      <p>题目链接：https://leetcode.cn/problems/trapping-rain-water</p>
-    </a>
-    <a href="/algorithm/hot100/3sum" class="article-card">
-      <div class="article-tag">算法</div>
-      <h3>6. 三数之和</h3>
-      <p>题目链接：https://leetcode.cn/problems/3sum</p>
+      <div class="article-content">
+        <span class="article-tag">设计</span>
+        <h3>权限管理鉴权模型</h3>
+        <p>深入理解 RBAC 模型，探讨现代应用中用户、角色与权限的解耦设计。</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
     </a>
   </div>
 </div>
 
 <style>
-/* 访问计数器样式 */
-.counter-container {
-  max-width: 1152px;
-  margin: 32px auto;
-  padding: 0 24px;
-  text-align: center;
+:root {
+  --card-bg: var(--vp-c-bg-soft);
+  --card-border: var(--vp-c-divider);
+  --accent-color: var(--vp-c-brand-1);
 }
 
-.counter-container h3 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  color: var(--vp-c-text-2);
+/* --- 访问统计优化 --- */
+.counter-section {
+  max-width: 1152px;
+  margin: 48px auto;
+  padding: 0 24px;
 }
 
 .counter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  max-width: 600px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
-.counter-item {
-  padding: 16px;
-  border-radius: 8px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  transition: all 0.3s ease;
+.counter-card {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.counter-item:hover {
+.counter-card:hover {
+  border-color: var(--accent-color);
+  background: var(--vp-c-bg-mute);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-color: var(--vp-c-divider);
 }
 
-.counter-label {
-  display: block;
-  font-size: 12px;
-  color: var(--vp-c-text-3);
-  margin-bottom: 6px;
+.counter-icon {
+  font-size: 28px;
+  margin-right: 16px;
+  opacity: 0.8;
+}
+
+.counter-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .counter-value {
-  display: block;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--vp-c-text-1);
+  font-family: var(--vp-font-family-mono);
 }
 
-/* 最新文章区域 */
+.counter-label {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+}
+
+/* --- 文章区域优化 --- */
 .latest-articles {
   max-width: 1152px;
-  margin: 64px auto;
+  margin: 80px auto;
   padding: 0 24px;
 }
 
-.latest-articles h2 {
+.section-header {
   text-align: center;
-  font-size: 32px;
-  font-weight: 600;
   margin-bottom: 48px;
-  color: var(--vp-c-text-1);
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.section-tagline {
+  color: var(--vp-c-text-2);
+  font-size: 16px;
 }
 
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  margin-bottom: 48px;
 }
 
 .article-card {
-  position: relative;
-  padding: 24px;
-  border-radius: 12px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none !important;
   transition: all 0.3s ease;
-  text-decoration: none;
-  display: block;
+  overflow: hidden;
 }
 
 .article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: var(--vp-c-brand-1);
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+}
+
+.article-content {
+  padding: 24px;
 }
 
 .article-tag {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-color);
   background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-  margin-bottom: 12px;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
 }
 
 .article-card h3 {
+  margin-top: 12px;
   font-size: 18px;
   font-weight: 600;
-  margin: 0 0 8px 0;
   color: var(--vp-c-text-1);
+  line-height: 1.4;
 }
 
 .article-card p {
+  margin-top: 8px;
   font-size: 14px;
   color: var(--vp-c-text-2);
-  margin: 0;
   line-height: 1.6;
+  /* 限制两行显示 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* 调整 hero 图片容器 */
+.article-footer {
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-color);
+  border-top: 1px solid var(--card-border);
+  background: rgba(0,0,0,0.02);
+}
+
+/* --- Hero 修正与增强 --- */
 .VPHero .image-container {
   position: relative;
-  display: inline-block;
-  margin-left: 50px; /* 容器整体右移 */
-}
-/* 创建光晕伪元素 */
-.VPHero .image-container::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;  /* 光晕尺寸 */
-  height: 500px;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(100, 149, 237, 0.3) 0%,  /* 柔和的蓝色光晕 */
-    rgba(100, 149, 237, 0.15) 50%,
-    rgba(100, 149, 237, 0) 70%
-  );
-  filter: blur(60px);
-  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 调整图片样式 */
 .VPHero img {
-  width: 300px;
-  height: 300px;
-  position: relative;
   border-radius: 50%;
-  box-shadow: 0 0 40px rgba(100, 149, 237, 0.3); /* 添加辅助光晕 */
+  border: 4px solid var(--vp-c-bg);
+  box-shadow: var(--vp-shadow-3);
+  z-index: 1;
+  transition: transform 0.5s ease;
 }
 
-/* 其他文字调整保持原样 */
-.VPHero .text { font-size: 24px; }
-.VPHero .name { font-size: 48px; }
-.VPHero .tagline { font-size: 18px; }
-
-
-
-/* 修改 hero 部分的字号 */
-.VPHero .text {
-  font-size: 24px; /* 调整为你需要的字号 */
+.VPHero img:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
-.VPHero .name {
-  font-size: 48px; /* 调整 hero name 的字号 */
-}
-
-.VPHero .tagline {
-  font-size: 18px; /* 调整 tagline 的字号 */
+.VPHero .image-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--vp-c-brand-soft) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.6;
 }
 </style>
