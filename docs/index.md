@@ -26,6 +26,24 @@ features:
     details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
+<div class="counter-container">
+  <h3>📊 访问统计</h3>
+  <div class="counter-grid">
+    <div class="counter-item">
+      <span class="counter-label">总访问量</span>
+      <span class="counter-value" id="vercount_value_site_pv">Loading</span>
+    </div>
+    <div class="counter-item">
+      <span class="counter-label">总访客数</span>
+      <span class="counter-value" id="vercount_value_site_uv">Loading</span>
+    </div>
+    <div class="counter-item">
+      <span class="counter-label">页面浏览</span>
+      <span class="counter-value" id="vercount_value_page_pv">Loading</span>
+    </div>
+  </div>
+</div>
+
 
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
@@ -64,6 +82,56 @@ features:
 </div>
 
 <style>
+/* 访问计数器样式 */
+.counter-container {
+  max-width: 1152px;
+  margin: 48px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.counter-container h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--vp-c-text-1);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.counter-item {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.3s ease;
+}
+
+.counter-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--vp-c-brand-1);
+}
+
+.counter-label {
+  display: block;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  margin-bottom: 8px;
+}
+
+.counter-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
 
 /* 最新文章区域 */
 .latest-articles {
