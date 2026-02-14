@@ -129,9 +129,12 @@ function updateLatestArticles() {
   // 生成 HTML
   const articlesHtml = articles.map(article =>
     `    <a href="${article.link}" class="article-card">
-      <div class="article-tag">${article.category}</div>
-      <h3>${article.title}</h3>
-      <p>${article.description}</p>
+      <div class="article-content">
+        <span class="article-tag">${article.category}</span>
+        <h3>${article.title}</h3>
+        <p>${article.description}</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
     </a>`
   ).join('\n');
 

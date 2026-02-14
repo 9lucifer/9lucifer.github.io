@@ -57,27 +57,51 @@ features:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/find-all-anagrams-in-a-string" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>9. 找到字符串中所有字母异位词</h3>
+        <p>题目链接：https://leetcode.cn/problems/find-all-anagrams-in-a-str</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
     <a href="/algorithm/hot100/subarray-sum-equals-k" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
         <h3>10. 和为k的子数组</h3>
-        <p>探索前缀和与哈希表在解决连续子数组问题中的巧妙应用。</p>
+        <p>题目链接：https://leetcode.cn/problems/subarray-sum-equals-k</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/find-all-anagrams-in-a-string" class="article-card">
+    <a href="/java/basic/exception" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">Java</span>
+        <h3>java异常处理</h3>
+        <p>![error-exception](https://imgtu.oss-cn-beijing.aliyuncs.com</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
+    <a href="/algorithm/hot100/longest-substring-without-repeating-characters" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>9. 找到所有字母异位词</h3>
-        <p>基于滑动窗口算法，在字符串中高效定位所有异位词排列。</p>
+        <h3>8. 无重复字符最长子串</h3>
+        <p>题目链接：https://leetcode.cn/problems/longest-substring-without-</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
     <a href="/design/role-permission" class="article-card">
       <div class="article-content">
-        <span class="article-tag">设计</span>
+        <span class="article-tag">其他</span>
         <h3>权限管理鉴权模型</h3>
-        <p>深入理解 RBAC 模型，探讨现代应用中用户、角色与权限的解耦设计。</p>
+        <p>用户登陆之后，在访问系统某个功能模块的时候，往往需要根据内容和用户进行鉴权，比如GitHub需要判断某个用户对某个仓库是</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
+    <a href="/algorithm/hot100/trapping-rain-water" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>7. 接雨水</h3>
+        <p>题目链接：https://leetcode.cn/problems/trapping-rain-water</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
