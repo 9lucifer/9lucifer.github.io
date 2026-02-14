@@ -69,6 +69,63 @@ function updateSidebarConfig(number, title, filename) {
   }
 }
 
+// 更新 index.md 文件中的题目列表
+function updateIndexMd(number, title, filename) {
+  try {
+    const indexPath = path.join(HOT100_DIR, 'index.md');
+    const indexContent = fs.readFileSync(indexPath, 'utf-8');
+
+    // 查找题目列表部分并添加新条目
+    const newItem = `- [${number}. ${title}](${filename}.md)`;
+
+    // 查找题目列表部分
+    const titleIndex = indexContent.indexOf('## 题目列表');
+    if (titleIndex === -1) {
+      console.error('❌ 未找到题目列表部分');
+      return;
+    }
+
+    // 获取题目列表开始和结束的位置
+    const listStart = titleIndex + '## 题目列表'.length;
+    let listEnd = indexContent.indexOf('\n\n', listStart);
+    if (listEnd === -1) {
+      listEnd = indexContent.length;
+    }
+
+    // 提取现有题目列表
+    const existingList = indexContent.slice(listStart, listEnd).trim();
+    const itemsArray = existingList.split('\n').filter(item => item.trim());
+
+    // 检查是否已存在该条目
+    const existingItem = itemsArray.find(item => item.includes(title));
+    if (existingItem) {
+      console.log('ℹ️  该题目已存在于题目列表中，无需重复添加');
+      return;
+    }
+
+    // 添加新条目
+    itemsArray.push(newItem);
+
+    // 按题目编号排序
+    itemsArray.sort((a, b) => {
+      const numA = parseInt(a.match(/\[(\d+)\./)?.[1] || '0');
+      const numB = parseInt(b.match(/\[(\d+)\./)?.[1] || '0');
+      return numA - numB;
+    });
+
+    // 构建更新后的题目列表
+    const updatedList = '## 题目列表\n\n' + itemsArray.join('\n');
+
+    // 替换原题目列表
+    const updatedContent = indexContent.slice(0, titleIndex) + updatedList + indexContent.slice(listEnd);
+
+    fs.writeFileSync(indexPath, updatedContent, 'utf-8');
+    console.log('✅ index.md 题目列表已更新');
+  } catch (error) {
+    console.error('❌ 更新 index.md 失败:', error.message);
+  }
+}
+
 // 创建新文章
 async function createNewArticle() {
   console.log('=== 创建 Hot100 新文章 ===');
@@ -114,6 +171,9 @@ async function createNewArticle() {
 
     // 更新侧边栏配置
     updateSidebarConfig(number, title, filename);
+
+    // 更新 index.md 文件中的题目列表
+    updateIndexMd(number, title, filename);
 
     // 更新最新文章列表
     try {

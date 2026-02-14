@@ -48,6 +48,16 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/subarray-sum-equals-k" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>10. 和为k的子数组</h3>
+      <p>题目链接：https://leetcode.cn/problems/subarray-sum-equals-k</p>
+    </a>
+    <a href="/algorithm/hot100/find-all-anagrams-in-a-string" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>9. 找到字符串中所有字母异位词</h3>
+      <p>题目链接：https://leetcode.cn/problems/find-all-anagrams-in-a-str</p>
+    </a>
     <a href="/algorithm/hot100/longest-substring-without-repeating-characters" class="article-card">
       <div class="article-tag">算法</div>
       <h3>8. 无重复字符最长子串</h3>
@@ -67,16 +77,6 @@ features:
       <div class="article-tag">算法</div>
       <h3>6. 三数之和</h3>
       <p>题目链接：https://leetcode.cn/problems/3sum</p>
-    </a>
-    <a href="/java/basic/string" class="article-card">
-      <div class="article-tag">Java</div>
-      <h3>字符串</h3>
-      <p>![image-20260213221946267](https://imgtu.oss-cn-beijing.aliy</p>
-    </a>
-    <a href="/center/rabbitmq/rabbitmq-base" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>rabbitmq五种模式的总结</h3>
-      <p>完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning</p>
     </a>
   </div>
 </div>
