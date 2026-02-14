@@ -48,6 +48,16 @@ features:
 <div class="latest-articles">
   <h2>📝 最新文章</h2>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/longest-substring-without-repeating-characters" class="article-card">
+      <div class="article-tag">算法</div>
+      <h3>8. 无重复字符最长子串</h3>
+      <p>题目链接：https://leetcode.cn/problems/longest-substring-without-</p>
+    </a>
+    <a href="/design/role-permission" class="article-card">
+      <div class="article-tag">其他</div>
+      <h3>权限管理鉴权模型</h3>
+      <p>用户登陆之后，在访问系统某个功能模块的时候，往往需要根据内容和用户进行鉴权，比如GitHub需要判断某个用户对某个仓库是</p>
+    </a>
     <a href="/algorithm/hot100/trapping-rain-water" class="article-card">
       <div class="article-tag">算法</div>
       <h3>7. 接雨水</h3>
@@ -67,16 +77,6 @@ features:
       <div class="article-tag">中间件</div>
       <h3>rabbitmq五种模式的总结</h3>
       <p>完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning</p>
-    </a>
-    <a href="/center/rabbitmq/rabbitmq-sb" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>rabbitmq五种模式的实现——springboot</h3>
-      <p>基础知识和javase的实现形式可以看我之前的博客</p>
-    </a>
-    <a href="/center/kafka/Kafka-compile" class="article-card">
-      <div class="article-tag">中间件</div>
-      <h3>Kafka2.7.2源码编译记录</h3>
-      <p>参考博客：https://cloud.tencent.com/developer/article/2240359</p>
     </a>
   </div>
 </div>
