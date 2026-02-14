@@ -102,7 +102,6 @@ export default defineConfig({
             {
               text: 'RabbitMQ 学习',
               items: [
-                { text: 'RabbitMQ 学习', link: '/center/rabbitmq/' },
                 { text: 'RabbitMQ 五种模式总结', link: '/center/rabbitmq/rabbitmq-base' },
                 { text: 'RabbitMQ 五种模式的实现——SpringBoot', link: '/center/rabbitmq/rabbitmq-sb' }
               ]
@@ -110,7 +109,6 @@ export default defineConfig({
             {
               text: 'Kafka 学习',
               items: [
-                { text: 'Kafka 学习', link: '/center/kafka/' },
                 { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' }
               ]
             }
