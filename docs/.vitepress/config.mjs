@@ -8,6 +8,7 @@ import javaJvmSidebar from './sidebar/java-jvm.mjs';
 import algorithmHot100Sidebar from './sidebar/algorithm-hot100.mjs';
 import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 import aiSidebar from './sidebar/ai.mjs';
+import designSidebar from './sidebar/design.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -53,6 +54,7 @@ export default defineConfig({
         ]
       },
       { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
+      { text: '🏗️ 系统设计', link: '/design/', activeMatch: '/design/' },
     ],
 
     // 侧边栏
@@ -115,7 +117,8 @@ export default defineConfig({
       ],
       '/algorithm/hot100/': algorithmHot100Sidebar,
       '/algorithm/tip/': algorithmTipSidebar,
-      '/ai/': aiSidebar
+      '/ai/': aiSidebar,
+      '/design/': designSidebar
     },
 
     socialLinks: [
