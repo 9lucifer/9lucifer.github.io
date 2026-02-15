@@ -57,6 +57,22 @@ features:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/minimum-window-substring" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>12. 最小覆盖子串</h3>
+        <p>题目链接：https://leetcode.cn/problems/minimum-window-substring</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
+    <a href="/algorithm/hot100/sliding-window-maximum" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>11. 滑动窗口最大值</h3>
+        <p>题目链接：https://leetcode.cn/problems/sliding-window-maximum</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
     <a href="/algorithm/hot100/find-all-anagrams-in-a-string" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
@@ -73,35 +89,19 @@ features:
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/java/basic/exception" class="article-card">
+    <a href="/center/kafka/kafka-basic" class="article-card">
       <div class="article-content">
-        <span class="article-tag">Java</span>
-        <h3>java异常处理</h3>
-        <p>![error-exception](https://imgtu.oss-cn-beijing.aliyuncs.com</p>
+        <span class="article-tag">中间件</span>
+        <h3>kafka简介</h3>
+        <p>应用程序会产生很多数据，比如用户浏览偏好等，我们需要用这些数据去转化成商品推荐等更有价值的能力。不同于一般的介绍kafk</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/longest-substring-without-repeating-characters" class="article-card">
+    <a href="/center/kafka/producer-send" class="article-card">
       <div class="article-content">
-        <span class="article-tag">算法</span>
-        <h3>8. 无重复字符最长子串</h3>
-        <p>题目链接：https://leetcode.cn/problems/longest-substring-without-</p>
-      </div>
-      <div class="article-footer">查看详情 →</div>
-    </a>
-    <a href="/design/role-permission" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">其他</span>
-        <h3>权限管理鉴权模型</h3>
-        <p>用户登陆之后，在访问系统某个功能模块的时候，往往需要根据内容和用户进行鉴权，比如GitHub需要判断某个用户对某个仓库是</p>
-      </div>
-      <div class="article-footer">查看详情 →</div>
-    </a>
-    <a href="/algorithm/hot100/trapping-rain-water" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">算法</span>
-        <h3>7. 接雨水</h3>
-        <p>题目链接：https://leetcode.cn/problems/trapping-rain-water</p>
+        <span class="article-tag">中间件</span>
+        <h3>kafka生产者发送消息流程</h3>
+        <p>下面是发送消息的测试代码：</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>

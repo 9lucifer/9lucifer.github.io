@@ -14,3 +14,5 @@
 - [8. 无重复字符最长子串](longest-substring-without-repeating-characters.md)
 - [9. 找到字符串中所有字母异位词](find-all-anagrams-in-a-string.md)
 - [10. 和为k的子数组](subarray-sum-equals-k.md)
+- [11. 滑动窗口最大值](sliding-window-maximum.md)
+- [12. 最小覆盖子串](minimum-window-substring.md)

@@ -51,16 +51,46 @@ function updateSidebarConfig(number, title, filename) {
   try {
     const sidebarContent = fs.readFileSync(SIDEBAR_CONFIG, 'utf-8');
 
-    // 查找 items 数组并添加新条目到最下面
-    const newItem = `      { text: '${number}. ${title}', link: '/algorithm/hot100/${filename}' }`;
-    const updatedContent = sidebarContent.replace(
-      /(\s+items: \[)[\s\S]*?(\s+])/,
-      (match, start, end) => {
-        // 找到最后一个条目后的位置
-        const lastItemEnd = match.lastIndexOf('}');
-        return match.slice(0, lastItemEnd + 1) + ',\n' + ' '.repeat(8) + newItem + match.slice(lastItemEnd + 1);
+    // 解析侧边栏配置为 JavaScript 对象
+    // 移除 export default 关键字，以便 eval 能够解析
+    const configContent = sidebarContent.replace('export default ', '');
+    const sidebarConfig = eval(configContent);
+
+    // 找到 Hot100 对应的配置项
+    const hot100Config = sidebarConfig.find(item => item.text === 'LeetCode Hot100');
+
+    if (hot100Config) {
+      // 检查是否已存在该条目
+      const existingItem = hot100Config.items.find(item => item.text.includes(title));
+      if (existingItem) {
+        console.log('ℹ️  该题目已存在于侧边栏中，无需重复添加');
+        return;
       }
-    );
+
+      // 添加新条目
+      hot100Config.items.push({
+        text: `${number}. ${title}`,
+        link: `/algorithm/hot100/${filename}`
+      });
+
+      // 排序条目（保持第一个条目不变，后面的按序号排序）
+      const firstItem = hot100Config.items[0];
+      const sortedItems = [
+        firstItem,
+        ...hot100Config.items.slice(1).sort((a, b) => {
+          const numA = parseInt(a.text.match(/^(\d+)\./)?.[1] || '0');
+          const numB = parseInt(b.text.match(/^(\d+)\./)?.[1] || '0');
+          return numA - numB;
+        })
+      ];
+      hot100Config.items = sortedItems;
+    }
+
+    // 重新生成配置文件内容
+    const updatedContent = `export default ${JSON.stringify(sidebarConfig, null, 2)
+      .replace(/"(\w+)":/g, '$1:') // 移除对象属性的引号
+      .replace(/\n  /g, '\n    ')  // 调整缩进
+    };\n`;
 
     fs.writeFileSync(SIDEBAR_CONFIG, updatedContent, 'utf-8');
     console.log('✅ 侧边栏配置已更新');
