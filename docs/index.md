@@ -259,12 +259,14 @@ features:
   background: rgba(0,0,0,0.02);
 }
 
-/* --- Hero 修正与增强 --- */
+/* --- Hero 修正与增强：彻底锁死，不再逃跑 --- */
 .VPHero .image-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* 确保容器不会因为子元素放大而改变大小 */
+  overflow: visible; 
 }
 
 .VPHero img {
@@ -272,19 +274,29 @@ features:
   border: 4px solid var(--vp-c-bg);
   box-shadow: var(--vp-shadow-3);
   z-index: 1;
-  transition: transform 0.5s ease;
+  /* 增加 transform-origin 确保从正中心缩放 */
+  transform-origin: center center;
+  /* 增加 transition 确保丝滑 */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
+/* 仅在鼠标悬浮时垂直向上微动，而不是向四周跑 */
 .VPHero img:hover {
-  transform: scale(1.05) rotate(2deg);
+  /* 使用 translateY 配合 scale，只让它稍微“浮起”，不乱跑 */
+  transform: scale(1.03) translateY(-5px) !important;
 }
 
+/* 光晕背景也锁死在正下方 */
 .VPHero .image-bg {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, var(--vp-c-brand-soft) 0%, transparent 70%);
   filter: blur(40px);
   opacity: 0.6;
+  pointer-events: none; /* 确保鼠标能穿透光晕点到图片 */
 }
 </style>
