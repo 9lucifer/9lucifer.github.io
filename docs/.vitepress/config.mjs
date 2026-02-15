@@ -48,7 +48,7 @@ export default defineConfig({
       { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
       {
-        text: '🚀 算法训练',
+        text: '🚀 算法练习',
         activeMatch: '/algorithm/',
         items: [
           { text: '🔥 Hot100', link: '/algorithm/hot100/' },
@@ -80,9 +80,9 @@ export default defineConfig({
         {
           text: '前端学习',
           items: [
-            { text: '🎨 Mark.js 的使用指南', link: '/front/mark-js' },
-            { text: '📄 Mammoth.js 渲染 Word 文档为 HTML：详细教程 🚀', link: '/front/Mammoth-js' },
-            { text: '🚀 后端程序员好上手的前端框架——layui', link: '/front/layui-admin' },
+            { text: 'Mark.js 的使用入门', link: '/front/mark-js' },
+            { text: 'Mammoth.js 渲染 Word 文档为 HTML', link: '/front/Mammoth-js' },
+            { text: '好上手的古早前端框架——layUi', link: '/front/layui-admin' },
           ]
         }
       ],
@@ -90,8 +90,8 @@ export default defineConfig({
         {
           text: 'MySQL 学习',
           items: [
-            { text: '🔓📈 MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
-            { text: '📚 MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
+            { text: 'MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
+            { text: 'MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
           ]
         }
       ],
@@ -109,6 +109,7 @@ export default defineConfig({
             {
               text: 'Kafka 学习',
               items: [
+                { text: 'Kafka 简介', link: '/center/kafka/kafka-basic' },
                 { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' }
               ]
             }

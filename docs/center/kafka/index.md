@@ -4,5 +4,6 @@
 
 ## 学习记录
 
+- [Kafka 简介](kafka-basic.md)
 - [Kafka2.7.2源码编译记录](Kafka-compile.md)
 
