@@ -124,7 +124,7 @@ function updateIndexMd(number, title, filename) {
 
     // 提取现有题目列表
     const existingList = indexContent.slice(listStart, listEnd).trim();
-    const itemsArray = existingList.split('\n').filter(item => item.trim());
+    const itemsArray = existingList.split('\n').filter(item => item.trim()).map(item => item.trim());
 
     // 检查是否已存在该条目
     const existingItem = itemsArray.find(item => item.includes(title));

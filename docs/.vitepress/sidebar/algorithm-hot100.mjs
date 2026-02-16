@@ -69,6 +69,26 @@ export default [
         {
           text: "16. 除了自身以外数组的乘积",
           link: "/algorithm/hot100/product-of-array-except-self"
+        },
+        {
+          text: "17. 缺失的第一个正数",
+          link: "/algorithm/hot100/first-missing-positive"
+        },
+        {
+          text: "18. 矩阵置零",
+          link: "/algorithm/hot100/set-matrix-zeroes"
+        },
+        {
+          text: "19. 螺旋矩阵",
+          link: "/algorithm/hot100/spiral-matrix"
+        },
+        {
+          text: "20. 旋转图像",
+          link: "/algorithm/hot100/rotate-image"
+        },
+        {
+          text: "21. 搜索二维矩阵 II",
+          link: "/algorithm/hot100/search-a-2d-matrix-ii"
         }
       ]
     }
