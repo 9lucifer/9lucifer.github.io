@@ -61,6 +61,14 @@ export default [
         {
           text: "14. 合并区间",
           link: "/algorithm/hot100/merge-intervals"
+        },
+        {
+          text: "15. 轮转数组",
+          link: "/algorithm/hot100/rotate-array"
+        },
+        {
+          text: "16. 除了自身以外数组的乘积",
+          link: "/algorithm/hot100/product-of-array-except-self"
         }
       ]
     }

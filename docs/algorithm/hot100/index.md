@@ -4,6 +4,10 @@
 
 ## 题目列表
 
+- [16. 除了自身以外数组的乘积](product-of-array-except-self.md)
+
+- [15. 轮转数组](rotate-array.md)
+
 - [1. 两数之和](two-sum.md)
 - [2. 字母异位词分组](group-anagrams.md)
 - [3. 最长连续序列](longest-consecutive-sequence.md)
