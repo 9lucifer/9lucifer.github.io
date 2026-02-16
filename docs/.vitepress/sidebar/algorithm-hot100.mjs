@@ -53,6 +53,14 @@ export default [
         {
           text: "12. 最小覆盖子串",
           link: "/algorithm/hot100/minimum-window-substring"
+        },
+        {
+          text: "13. 最大子数组和",
+          link: "/algorithm/hot100/maximum-subarray"
+        },
+        {
+          text: "14. 合并区间",
+          link: "/algorithm/hot100/merge-intervals"
         }
       ]
     }

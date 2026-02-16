@@ -5,6 +5,7 @@ import computerSidebar from './sidebar/computer.mjs';
 import javaBasicSidebar from './sidebar/java-basic.mjs';
 import javaSpringSidebar from './sidebar/java-spring.mjs';
 import javaJvmSidebar from './sidebar/java-jvm.mjs';
+import javaNewResearchSidebar from './sidebar/java/new-research.mjs';
 import algorithmHot100Sidebar from './sidebar/algorithm-hot100.mjs';
 import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 import aiSidebar from './sidebar/ai.mjs';
@@ -40,7 +41,8 @@ export default defineConfig({
         items: [
           { text: 'Java 基础', link: '/java/basic/' },
           { text: 'Spring 框架', link: '/java/spring/' },
-          { text: 'JVM', link: '/java/jvm/' }
+          { text: 'JVM', link: '/java/jvm/' },
+          { text: '前沿探索', link: '/java/new-research/' }
         ]
       },
       { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
@@ -76,6 +78,7 @@ export default defineConfig({
       '/java/basic/': javaBasicSidebar,
       '/java/spring/': javaSpringSidebar,
       '/java/jvm/': javaJvmSidebar,
+      '/java/new-research/': javaNewResearchSidebar,
       '/front/': [
         {
           text: '前端学习',

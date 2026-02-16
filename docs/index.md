@@ -57,6 +57,30 @@ features:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
+    <a href="/algorithm/hot100/merge-intervals" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>14. 合并区间</h3>
+        <p>题目链接：https://leetcode.cn/problems/merge-intervals</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
+    <a href="/algorithm/hot100/maximum-subarray" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">算法</span>
+        <h3>13. 最大子数组和</h3>
+        <p>题目链接：https://leetcode.cn/problems/maximum-subarray</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
+    <a href="/java/new-research/java-structured-concurrency" class="article-card">
+      <div class="article-content">
+        <span class="article-tag">Java</span>
+        <h3>结构化并发-虚拟线程</h3>
+        <p>传统的 Java 线程是一种**平台线程**：它是一个包含线程运行状态的对象，例如运行时栈、本地存储、指针等，并且与**</p>
+      </div>
+      <div class="article-footer">查看详情 →</div>
+    </a>
     <a href="/algorithm/hot100/minimum-window-substring" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
@@ -78,30 +102,6 @@ features:
         <span class="article-tag">算法</span>
         <h3>9. 找到字符串中所有字母异位词</h3>
         <p>题目链接：https://leetcode.cn/problems/find-all-anagrams-in-a-str</p>
-      </div>
-      <div class="article-footer">查看详情 →</div>
-    </a>
-    <a href="/algorithm/hot100/subarray-sum-equals-k" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">算法</span>
-        <h3>10. 和为k的子数组</h3>
-        <p>题目链接：https://leetcode.cn/problems/subarray-sum-equals-k</p>
-      </div>
-      <div class="article-footer">查看详情 →</div>
-    </a>
-    <a href="/center/kafka/kafka-basic" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">中间件</span>
-        <h3>kafka简介</h3>
-        <p>应用程序会产生很多数据，比如用户浏览偏好等，我们需要用这些数据去转化成商品推荐等更有价值的能力。不同于一般的介绍kafk</p>
-      </div>
-      <div class="article-footer">查看详情 →</div>
-    </a>
-    <a href="/center/kafka/producer-send" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">中间件</span>
-        <h3>kafka生产者发送消息流程</h3>
-        <p>下面是发送消息的测试代码：</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>

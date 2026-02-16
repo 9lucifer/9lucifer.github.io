@@ -16,3 +16,5 @@
 - [10. 和为k的子数组](subarray-sum-equals-k.md)
 - [11. 滑动窗口最大值](sliding-window-maximum.md)
 - [12. 最小覆盖子串](minimum-window-substring.md)
+- [13. 最大子数组和](maximum-subarray.md)
+- [14. 合并区间](merge-intervals.md)
