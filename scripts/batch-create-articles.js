@@ -1,33 +1,23 @@
-#!/usr/bin/env node
-
 const fs = require('fs');
 const path = require('path');
-const readline = require('readline');
+const { execSync } = require('child_process');
 
-// 创建 readline 接口用于输入
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// 题目信息数组
+const problems = [
+  { number: 27, title: '合并两个有序链表', link: 'https://leetcode.cn/problems/merge-two-sorted-lists/' },
+  { number: 28, title: '两数相加', link: 'https://leetcode.cn/problems/add-two-numbers/' },
+  { number: 29, title: '删除链表的倒数第 N 个结点', link: 'https://leetcode.cn/problems/remove-nth-node-from-end-of-list/' },
+  { number: 30, title: '两两交换链表中的节点', link: 'https://leetcode.cn/problems/swap-nodes-in-pairs/' },
+  { number: 31, title: 'K 个一组翻转链表', link: 'https://leetcode.cn/problems/reverse-nodes-in-k-group/' },
+  { number: 32, title: '随机链表的复制', link: 'https://leetcode.cn/problems/copy-list-with-random-pointer/' },
+  { number: 33, title: '排序链表', link: 'https://leetcode.cn/problems/sort-list/' },
+  { number: 34, title: '合并 K 个升序链表', link: 'https://leetcode.cn/problems/merge-k-sorted-lists/' },
+  { number: 35, title: 'LRU 缓存', link: 'https://leetcode.cn/problems/lru-cache/' }
+];
 
-// Hot100 目录路径
+// 常量定义
 const HOT100_DIR = path.join(__dirname, '../docs/algorithm/hot100');
-// 侧边栏配置文件路径
 const SIDEBAR_CONFIG = path.join(__dirname, '../docs/.vitepress/sidebar/algorithm-hot100.mjs');
-
-// 初始化文章内容模板
-function getArticleTemplate(number, title, leetcodeLink = '') {
-  return `# ${number}. ${title}
-> 题目链接：${leetcodeLink}
-
-### 解题思路
-
-### java版本解答
-\`\`\`java
-
-\`\`\`
-`;
-}
 
 // 从 LeetCode 链接解析文件名
 function extractFilenameFromLeetCodeLink(link) {
@@ -46,13 +36,26 @@ function formatFilename(title) {
     .trim();
 }
 
+// 获取文章模板
+function getArticleTemplate(number, title, leetcodeLink = '') {
+  return `# ${number}. ${title}
+> 题目链接：${leetcodeLink}
+
+### 解题思路
+
+### java版本解答
+\`\`\`java
+
+\`\`\`
+`;
+}
+
 // 更新侧边栏配置
 function updateSidebarConfig(number, title, filename) {
   try {
     const sidebarContent = fs.readFileSync(SIDEBAR_CONFIG, 'utf-8');
 
     // 解析侧边栏配置为 JavaScript 对象
-    // 移除 export default 关键字，以便 eval 能够解析
     const configContent = sidebarContent.replace('export default ', '');
     const sidebarConfig = eval(configContent);
 
@@ -63,7 +66,7 @@ function updateSidebarConfig(number, title, filename) {
       // 检查是否已存在该条目
       const existingItem = hot100Config.items.find(item => item.text.includes(title));
       if (existingItem) {
-        console.log('ℹ️  该题目已存在于侧边栏中，无需重复添加');
+        console.log(`ℹ️  该题目已存在于侧边栏中，无需重复添加: ${title}`);
         return;
       }
 
@@ -93,9 +96,9 @@ function updateSidebarConfig(number, title, filename) {
     };\n`;
 
     fs.writeFileSync(SIDEBAR_CONFIG, updatedContent, 'utf-8');
-    console.log('✅ 侧边栏配置已更新');
+    console.log(`✅ 侧边栏配置已更新: ${title}`);
   } catch (error) {
-    console.error('❌ 更新侧边栏配置失败:', error.message);
+    console.error(`❌ 更新侧边栏配置失败: ${title}`, error.message);
   }
 }
 
@@ -108,7 +111,7 @@ function updateIndexMd(number, title, filename) {
     // 查找题目列表部分并添加新条目
     const newItem = `- [${number}. ${title}](${filename}.md)`;
 
-    // 查找题目列表部分 - 使用更简单的方法
+    // 查找题目列表部分
     const lines = indexContent.split('\n');
     let listStart = -1;
     let listEnd = -1;
@@ -144,37 +147,24 @@ function updateIndexMd(number, title, filename) {
       }
     }
 
-    // 调试：打印处理前的数组
-    console.log('处理前的数组:', itemsArray);
-    console.log('数组长度:', itemsArray.length);
-
     // 检查是否已存在该条目
     const existingItem = itemsArray.find(item => item.includes(title));
     if (existingItem) {
-      console.log('ℹ️  该题目已存在于题目列表中，无需重复添加');
+      console.log(`ℹ️  该题目已存在于题目列表中，无需重复添加: ${title}`);
       return;
     }
 
     // 添加新条目
     itemsArray.push(newItem);
 
-    // 调试：打印添加后的数组
-    console.log('添加后的数组:', itemsArray);
-
     // 按题目编号排序
     itemsArray.sort((a, b) => {
-      // 提取题目编号，确保提取逻辑更健壮
-      const numA = extractNumber(a);
-      const numB = extractNumber(b);
-
-      console.log(`比较 ${a} (${numA}) 和 ${b} (${numB})`); // 调试日志
+      const numA = parseInt(a.match(/\[(\d+)\./)?.[1] || '0');
+      const numB = parseInt(b.match(/\[(\d+)\./)?.[1] || '0');
       return numA - numB;
     });
 
-    // 调试：打印排序后的数组
-    console.log('排序后的数组:', itemsArray);
-
-    // 构建更新后的题目列表，确保格式一致
+    // 构建更新后的题目列表
     const updatedLines = [...lines];
     // 删除旧的题目列表
     updatedLines.splice(listStart, listEnd - listStart);
@@ -183,40 +173,22 @@ function updateIndexMd(number, title, filename) {
       updatedLines.splice(listStart + i, 0, itemsArray[i]);
     }
 
-    // 写入更新后的内容
     fs.writeFileSync(indexPath, updatedLines.join('\n'), 'utf-8');
-    console.log('✅ index.md 题目列表已更新');
+    console.log(`✅ index.md 题目列表已更新: ${title}`);
   } catch (error) {
-    console.error('❌ 更新 index.md 失败:', error.message);
+    console.error(`❌ 更新 index.md 失败: ${title}`, error.message);
   }
 }
 
-// 辅助函数：提取题目编号
-function extractNumber(item) {
-  const match = item.match(/\[(\d+)\./);
-  return match ? parseInt(match[1], 10) : 0;
-}
-
-// 创建新文章
-async function createNewArticle() {
-  console.log('=== 创建 Hot100 新文章 ===');
-
+// 创建单个文章
+function createArticle(problem) {
   try {
-    // 获取输入信息
-    const number = await new Promise(resolve => rl.question('请输入题目编号（例如：2）: ', resolve));
-    const title = await new Promise(resolve => rl.question('请输入题目名称（例如：字母异位词分组）: ', resolve));
-    const leetcodeLink = await new Promise(resolve => rl.question('请输入 LeetCode 题目链接（例如：https://leetcode.cn/problems/longest-consecutive-sequence）: ', resolve));
-
-    if (!number || !title) {
-      console.error('❌ 题目编号和名称不能为空');
-      rl.close();
-      return;
-    }
+    const { number, title, link } = problem;
 
     // 确定文件名
     let filename;
-    if (leetcodeLink) {
-      const extractedFilename = extractFilenameFromLeetCodeLink(leetcodeLink);
+    if (link) {
+      const extractedFilename = extractFilenameFromLeetCodeLink(link);
       if (extractedFilename) {
         filename = extractedFilename;
       } else {
@@ -230,42 +202,49 @@ async function createNewArticle() {
 
     // 检查文件是否已存在
     if (fs.existsSync(filePath)) {
-      console.error('❌ 文件已存在:', filePath);
-      rl.close();
+      console.log(`ℹ️ 文件已存在，跳过: ${filePath}`);
+      // 仍然需要更新侧边栏和 index.md
+      updateSidebarConfig(number, title, filename);
+      updateIndexMd(number, title, filename);
       return;
     }
 
     // 创建文章文件
-    const articleContent = getArticleTemplate(number, title, leetcodeLink);
+    const articleContent = getArticleTemplate(number, title, link);
     fs.writeFileSync(filePath, articleContent, 'utf-8');
-    console.log('✅ 文章文件已创建:', filePath);
+    console.log(`✅ 文章文件已创建: ${filePath}`);
 
     // 更新侧边栏配置
     updateSidebarConfig(number, title, filename);
 
     // 更新 index.md 文件中的题目列表
     updateIndexMd(number, title, filename);
-
-    // 更新最新文章列表
-    try {
-      console.log('🔄 正在更新最新文章列表...');
-      const { execSync } = require('child_process');
-      const result = execSync('node scripts/update-latest-articles.js', { encoding: 'utf-8' });
-      console.log('✅ 最新文章列表已更新');
-    } catch (error) {
-      console.warn('⚠️  更新最新文章列表失败:', error.message);
-    }
-
-    console.log('\n🎉 文章创建完成！');
-    console.log('文件路径:', filePath);
-    console.log('侧边栏配置已更新:', SIDEBAR_CONFIG);
-
   } catch (error) {
-    console.error('❌ 创建文章失败:', error.message);
+    console.error(`❌ 创建文章失败: ${problem.title}`, error.message);
+  }
+}
+
+// 批量创建文章
+function batchCreateArticles() {
+  console.log('=== 开始批量创建文章 ===');
+
+  // 创建每个文章
+  for (const problem of problems) {
+    console.log(`\n处理: ${problem.number}. ${problem.title}`);
+    createArticle(problem);
   }
 
-  rl.close();
+  // 更新最新文章列表
+  try {
+    console.log('\n🔄 正在更新最新文章列表...');
+    const result = execSync('node scripts/update-latest-articles.js', { encoding: 'utf-8' });
+    console.log('✅ 最新文章列表已更新');
+  } catch (error) {
+    console.warn('⚠️  更新最新文章列表失败:', error.message);
+  }
+
+  console.log('\n🎉 批量创建完成！');
 }
 
 // 启动脚本
-createNewArticle();
+batchCreateArticles();

@@ -3,7 +3,6 @@
 > 后续考虑补充go版本，因为现在学会go了hhh～
 
 ## 题目列表
-
 - [1. 两数之和](two-sum.md)
 - [2. 字母异位词分组](group-anagrams.md)
 - [3. 最长连续序列](longest-consecutive-sequence.md)
@@ -25,3 +24,17 @@
 - [19. 螺旋矩阵](spiral-matrix.md)
 - [20. 旋转图像](rotate-image.md)
 - [21. 搜索二维矩阵 II](search-a-2d-matrix-ii.md)
+- [22. 相交链表](intersection-of-two-linked-lists.md)
+- [23. 反转链表](reverse-linked-list.md)
+- [24. 回文链表](palindrome-linked-list.md)
+- [25. 环形链表](linked-list-cycle.md)
+- [26. 环形链表 II](linked-list-cycle-ii.md)
+- [27. 合并两个有序链表](merge-two-sorted-lists.md)
+- [28. 两数相加](add-two-numbers.md)
+- [29. 删除链表的倒数第 N 个结点](remove-nth-node-from-end-of-list.md)
+- [30. 两两交换链表中的节点](swap-nodes-in-pairs.md)
+- [31. K 个一组翻转链表](reverse-nodes-in-k-group.md)
+- [32. 随机链表的复制](copy-list-with-random-pointer.md)
+- [33. 排序链表](sort-list.md)
+- [34. 合并 K 个升序链表](merge-k-sorted-lists.md)
+- [35. LRU 缓存](lru-cache.md)

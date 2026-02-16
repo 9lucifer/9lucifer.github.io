@@ -89,6 +89,62 @@ export default [
         {
           text: "21. 搜索二维矩阵 II",
           link: "/algorithm/hot100/search-a-2d-matrix-ii"
+        },
+        {
+          text: "22. 相交链表",
+          link: "/algorithm/hot100/intersection-of-two-linked-lists"
+        },
+        {
+          text: "23. 反转链表",
+          link: "/algorithm/hot100/reverse-linked-list"
+        },
+        {
+          text: "24. 回文链表",
+          link: "/algorithm/hot100/palindrome-linked-list"
+        },
+        {
+          text: "25. 环形链表",
+          link: "/algorithm/hot100/linked-list-cycle"
+        },
+        {
+          text: "26. 环形链表 II",
+          link: "/algorithm/hot100/linked-list-cycle-ii"
+        },
+        {
+          text: "27. 合并两个有序链表",
+          link: "/algorithm/hot100/merge-two-sorted-lists"
+        },
+        {
+          text: "28. 两数相加",
+          link: "/algorithm/hot100/add-two-numbers"
+        },
+        {
+          text: "29. 删除链表的倒数第 N 个结点",
+          link: "/algorithm/hot100/remove-nth-node-from-end-of-list"
+        },
+        {
+          text: "30. 两两交换链表中的节点",
+          link: "/algorithm/hot100/swap-nodes-in-pairs"
+        },
+        {
+          text: "31. K 个一组翻转链表",
+          link: "/algorithm/hot100/reverse-nodes-in-k-group"
+        },
+        {
+          text: "32. 随机链表的复制",
+          link: "/algorithm/hot100/copy-list-with-random-pointer"
+        },
+        {
+          text: "33. 排序链表",
+          link: "/algorithm/hot100/sort-list"
+        },
+        {
+          text: "34. 合并 K 个升序链表",
+          link: "/algorithm/hot100/merge-k-sorted-lists"
+        },
+        {
+          text: "35. LRU 缓存",
+          link: "/algorithm/hot100/lru-cache"
         }
       ]
     }
