@@ -57,51 +57,51 @@ features:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
-    <a href="/algorithm/hot100/lru-cache" class="article-card">
+    <a href="/algorithm/hot100/n-queens" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>35. LRU 缓存</h3>
-        <p>题目链接：https://leetcode.cn/problems/lru-cache/</p>
+        <h3>62. N 皇后</h3>
+        <p>题目链接：https://leetcode.cn/problems/n-queens/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/merge-k-sorted-lists" class="article-card">
+    <a href="/algorithm/hot100/palindrome-partitioning" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>34. 合并 K 个升序链表</h3>
-        <p>题目链接：https://leetcode.cn/problems/merge-k-sorted-lists/</p>
+        <h3>61. 分割回文串</h3>
+        <p>题目链接：https://leetcode.cn/problems/palindrome-partitioning/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/sort-list" class="article-card">
+    <a href="/algorithm/hot100/word-search" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>33. 排序链表</h3>
-        <p>题目链接：https://leetcode.cn/problems/sort-list/</p>
+        <h3>60. 单词搜索</h3>
+        <p>题目链接：https://leetcode.cn/problems/word-search/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/copy-list-with-random-pointer" class="article-card">
+    <a href="/algorithm/hot100/generate-parentheses" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>32. 随机链表的复制</h3>
-        <p>题目链接：https://leetcode.cn/problems/copy-list-with-random-poin</p>
+        <h3>59. 括号生成</h3>
+        <p>题目链接：https://leetcode.cn/problems/generate-parentheses/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/reverse-nodes-in-k-group" class="article-card">
+    <a href="/algorithm/hot100/combination-sum" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>31. K 个一组翻转链表</h3>
-        <p>题目链接：https://leetcode.cn/problems/reverse-nodes-in-k-group/</p>
+        <h3>58. 组合总和</h3>
+        <p>题目链接：https://leetcode.cn/problems/combination-sum/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/swap-nodes-in-pairs" class="article-card">
+    <a href="/algorithm/hot100/letter-combinations-of-a-phone-number" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>30. 两两交换链表中的节点</h3>
-        <p>题目链接：https://leetcode.cn/problems/swap-nodes-in-pairs/</p>
+        <h3>57. 电话号码的字母组合</h3>
+        <p>题目链接：https://leetcode.cn/problems/letter-combinations-of-a-p</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>

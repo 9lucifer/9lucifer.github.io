@@ -145,6 +145,114 @@ export default [
         {
           text: "35. LRU 缓存",
           link: "/algorithm/hot100/lru-cache"
+        },
+        {
+          text: "36. 二叉树的中序遍历",
+          link: "/algorithm/hot100/binary-tree-inorder-traversal"
+        },
+        {
+          text: "37. 二叉树的最大深度",
+          link: "/algorithm/hot100/maximum-depth-of-binary-tree"
+        },
+        {
+          text: "38. 翻转二叉树",
+          link: "/algorithm/hot100/invert-binary-tree"
+        },
+        {
+          text: "39. 对称二叉树",
+          link: "/algorithm/hot100/symmetric-tree"
+        },
+        {
+          text: "40. 二叉树的直径",
+          link: "/algorithm/hot100/diameter-of-binary-tree"
+        },
+        {
+          text: "41. 二叉树的层序遍历",
+          link: "/algorithm/hot100/binary-tree-level-order-traversal"
+        },
+        {
+          text: "42. 将有序数组转换为二叉搜索树",
+          link: "/algorithm/hot100/convert-sorted-array-to-binary-search-tree"
+        },
+        {
+          text: "43. 验证二叉搜索树",
+          link: "/algorithm/hot100/validate-binary-search-tree"
+        },
+        {
+          text: "44. 二叉搜索树中第 K 小的元素",
+          link: "/algorithm/hot100/kth-smallest-element-in-a-bst"
+        },
+        {
+          text: "45. 二叉树的右视图",
+          link: "/algorithm/hot100/binary-tree-right-side-view"
+        },
+        {
+          text: "46. 二叉树展开为链表",
+          link: "/algorithm/hot100/flatten-binary-tree-to-linked-list"
+        },
+        {
+          text: "47. 从前序与中序遍历序列构造二叉树",
+          link: "/algorithm/hot100/construct-binary-tree-from-preorder-and-inorder-traversal"
+        },
+        {
+          text: "48. 路径总和 III",
+          link: "/algorithm/hot100/path-sum-iii"
+        },
+        {
+          text: "49. 二叉树的最近公共祖先",
+          link: "/algorithm/hot100/lowest-common-ancestor-of-a-binary-tree"
+        },
+        {
+          text: "50. 二叉树中的最大路径和",
+          link: "/algorithm/hot100/binary-tree-maximum-path-sum"
+        },
+        {
+          text: "51. 岛屿数量",
+          link: "/algorithm/hot100/number-of-islands"
+        },
+        {
+          text: "52. 腐烂的橘子",
+          link: "/algorithm/hot100/rotting-oranges"
+        },
+        {
+          text: "53. 课程表",
+          link: "/algorithm/hot100/course-schedule"
+        },
+        {
+          text: "54. 实现 Trie (前缀树)",
+          link: "/algorithm/hot100/implement-trie-prefix-tree"
+        },
+        {
+          text: "55. 全排列",
+          link: "/algorithm/hot100/permutations"
+        },
+        {
+          text: "56. 子集",
+          link: "/algorithm/hot100/subsets"
+        },
+        {
+          text: "57. 电话号码的字母组合",
+          link: "/algorithm/hot100/letter-combinations-of-a-phone-number"
+        },
+        {
+          text: "58. 组合总和",
+          link: "/algorithm/hot100/combination-sum"
+        },
+        {
+          text: "59. 括号生成",
+          link: "/algorithm/hot100/generate-parentheses"
+        },
+        {
+          text: "60. 单词搜索",
+          link: "/algorithm/hot100/word-search"
+        },
+        {
+          text: "61. 分割回文串",
+          link: "/algorithm/hot100/palindrome-partitioning"
+        },
+        {
+          text: "62. N 皇后",
+          link: "/algorithm/hot100/n-queens"
         }
       ]
     }

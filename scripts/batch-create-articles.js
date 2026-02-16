@@ -4,15 +4,36 @@ const { execSync } = require('child_process');
 
 // 题目信息数组
 const problems = [
-  { number: 27, title: '合并两个有序链表', link: 'https://leetcode.cn/problems/merge-two-sorted-lists/' },
-  { number: 28, title: '两数相加', link: 'https://leetcode.cn/problems/add-two-numbers/' },
-  { number: 29, title: '删除链表的倒数第 N 个结点', link: 'https://leetcode.cn/problems/remove-nth-node-from-end-of-list/' },
-  { number: 30, title: '两两交换链表中的节点', link: 'https://leetcode.cn/problems/swap-nodes-in-pairs/' },
-  { number: 31, title: 'K 个一组翻转链表', link: 'https://leetcode.cn/problems/reverse-nodes-in-k-group/' },
-  { number: 32, title: '随机链表的复制', link: 'https://leetcode.cn/problems/copy-list-with-random-pointer/' },
-  { number: 33, title: '排序链表', link: 'https://leetcode.cn/problems/sort-list/' },
-  { number: 34, title: '合并 K 个升序链表', link: 'https://leetcode.cn/problems/merge-k-sorted-lists/' },
-  { number: 35, title: 'LRU 缓存', link: 'https://leetcode.cn/problems/lru-cache/' }
+  // 二叉树相关题目
+  { number: 36, title: '二叉树的中序遍历', link: 'https://leetcode.cn/problems/binary-tree-inorder-traversal/' },
+  { number: 37, title: '二叉树的最大深度', link: 'https://leetcode.cn/problems/maximum-depth-of-binary-tree/' },
+  { number: 38, title: '翻转二叉树', link: 'https://leetcode.cn/problems/invert-binary-tree/' },
+  { number: 39, title: '对称二叉树', link: 'https://leetcode.cn/problems/symmetric-tree/' },
+  { number: 40, title: '二叉树的直径', link: 'https://leetcode.cn/problems/diameter-of-binary-tree/' },
+  { number: 41, title: '二叉树的层序遍历', link: 'https://leetcode.cn/problems/binary-tree-level-order-traversal/' },
+  { number: 42, title: '将有序数组转换为二叉搜索树', link: 'https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/' },
+  { number: 43, title: '验证二叉搜索树', link: 'https://leetcode.cn/problems/validate-binary-search-tree/' },
+  { number: 44, title: '二叉搜索树中第 K 小的元素', link: 'https://leetcode.cn/problems/kth-smallest-element-in-a-bst/' },
+  { number: 45, title: '二叉树的右视图', link: 'https://leetcode.cn/problems/binary-tree-right-side-view/' },
+  { number: 46, title: '二叉树展开为链表', link: 'https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/' },
+  { number: 47, title: '从前序与中序遍历序列构造二叉树', link: 'https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/' },
+  { number: 48, title: '路径总和 III', link: 'https://leetcode.cn/problems/path-sum-iii/' },
+  { number: 49, title: '二叉树的最近公共祖先', link: 'https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/' },
+  { number: 50, title: '二叉树中的最大路径和', link: 'https://leetcode.cn/problems/binary-tree-maximum-path-sum/' },
+
+  // 其他题目
+  { number: 51, title: '岛屿数量', link: 'https://leetcode.cn/problems/number-of-islands/' },
+  { number: 52, title: '腐烂的橘子', link: 'https://leetcode.cn/problems/rotting-oranges/' },
+  { number: 53, title: '课程表', link: 'https://leetcode.cn/problems/course-schedule/' },
+  { number: 54, title: '实现 Trie (前缀树)', link: 'https://leetcode.cn/problems/implement-trie-prefix-tree/' },
+  { number: 55, title: '全排列', link: 'https://leetcode.cn/problems/permutations/' },
+  { number: 56, title: '子集', link: 'https://leetcode.cn/problems/subsets/' },
+  { number: 57, title: '电话号码的字母组合', link: 'https://leetcode.cn/problems/letter-combinations-of-a-phone-number/' },
+  { number: 58, title: '组合总和', link: 'https://leetcode.cn/problems/combination-sum/' },
+  { number: 59, title: '括号生成', link: 'https://leetcode.cn/problems/generate-parentheses/' },
+  { number: 60, title: '单词搜索', link: 'https://leetcode.cn/problems/word-search/' },
+  { number: 61, title: '分割回文串', link: 'https://leetcode.cn/problems/palindrome-partitioning/' },
+  { number: 62, title: 'N 皇后', link: 'https://leetcode.cn/problems/n-queens/' }
 ];
 
 // 常量定义
