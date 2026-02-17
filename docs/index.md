@@ -139,7 +139,7 @@ features:
   </div>
 </div>
 
-<script>
+<script v-pre>
 // 只在浏览器环境执行
 if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   (function() {
