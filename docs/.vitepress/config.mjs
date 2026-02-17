@@ -9,6 +9,7 @@ import javaNewResearchSidebar from './sidebar/java/new-research.mjs';
 import algorithmHot100Sidebar from './sidebar/algorithm-hot100.mjs';
 import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 import aiSidebar from './sidebar/ai.mjs';
+import womenHealthSidebar from './sidebar/women-health.mjs';
 import designSidebar from './sidebar/design.mjs';
 
 export default defineConfig({
@@ -51,7 +52,6 @@ export default defineConfig({
       },
       { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
-      { text: '🌐 前端', link: '/front/', activeMatch: '/front/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
       {
         text: '🚀 算法练习',
@@ -63,6 +63,7 @@ export default defineConfig({
       },
       { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
       { text: '🏗️ 系统设计', link: '/design/', activeMatch: '/design/' },
+        { text: '🩺 女性生理', link: '/women-health/', activeMatch: '/women-health/' },
     ],
 
     // 侧边栏
@@ -127,6 +128,7 @@ export default defineConfig({
       '/algorithm/hot100/': algorithmHot100Sidebar,
       '/algorithm/tip/': algorithmTipSidebar,
       '/ai/': aiSidebar,
+      '/women-health/': womenHealthSidebar,
       '/design/': designSidebar
     },
 
