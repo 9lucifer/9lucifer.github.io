@@ -20,7 +20,9 @@ export default defineConfig({
     // 现代浏览器适配
     ['link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],
     // Vercount 访问计数器脚本
-    ['script', { defer: true, src: 'https://events.vercount.one/js' }]
+    ['script', { defer: true, src: 'https://events.vercount.one/js' }],
+    // 自定义 CSS
+    ['link', { rel: 'stylesheet', href: '/css/home.css' }]
   ],
   
   themeConfig: {
