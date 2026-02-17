@@ -180,11 +180,9 @@
   flex-shrink: 0;
 }
 
-.counter-icon {
-  width: 18px;
-  height: 18px;
-  color: white;
-  stroke-width: 2.2;
+.counter-icon-text {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .counter-label {
