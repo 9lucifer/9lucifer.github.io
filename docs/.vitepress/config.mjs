@@ -22,7 +22,9 @@ export default defineConfig({
     // Vercount 访问计数器脚本
     ['script', { defer: true, src: 'https://events.vercount.one/js' }],
     // 自定义 CSS
-    ['link', { rel: 'stylesheet', href: '/css/home.css' }]
+    ['link', { rel: 'stylesheet', href: '/css/home.css' }],
+    // 自定义 JS
+    ['script', { defer: true, src: '/js/home.js' }]
   ],
   
   themeConfig: {
