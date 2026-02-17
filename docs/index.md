@@ -25,32 +25,6 @@ features:
     details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
-<div class="counter-section">
-  <div class="counter-grid">
-    <div class="counter-card">
-      <div class="counter-icon">👥</div>
-      <div class="counter-info">
-        <span class="counter-value" id="vercount_value_site_uv">...</span>
-        <span class="counter-label">访客总数</span>
-      </div>
-    </div>
-    <div class="counter-card">
-      <div class="counter-icon">👁️</div>
-      <div class="counter-info">
-        <span class="counter-value" id="vercount_value_site_pv">...</span>
-        <span class="counter-label">总浏览量</span>
-      </div>
-    </div>
-    <div class="counter-card">
-      <div class="counter-icon">📄</div>
-      <div class="counter-info">
-        <span class="counter-value" id="vercount_value_page_pv">...</span>
-        <span class="counter-label">本页阅读</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="latest-articles">
   <div class="section-header">
     <h2>📝 最新文章</h2>
@@ -108,6 +82,37 @@ features:
   </div>
 </div>
 
+<div class="counter-section">
+  <div class="counter-grid">
+    <div class="counter-card">
+      <div class="counter-icon-wrapper">
+        <svg class="counter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="counter-content">
+        <span class="counter-value" id="vercount_value_site_uv">...</span>
+        <span class="counter-label">访客总数</span>
+      </div>
+    </div>
+    <div class="counter-card">
+      <div class="counter-icon-wrapper">
+        <svg class="counter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </div>
+      <div class="counter-content">
+        <span class="counter-value" id="vercount_value_site_pv">...</span>
+        <span class="counter-label">总浏览量</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
 :root {
   --card-bg: var(--vp-c-bg-soft);
@@ -115,7 +120,7 @@ features:
   --accent-color: var(--vp-c-brand-1);
 }
 
-/* --- 访问统计优化 --- */
+/* --- 现代玻璃态访问统计 --- */
 .counter-section {
   max-width: 1152px;
   margin: 48px auto;
@@ -124,47 +129,120 @@ features:
 
 .counter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
 }
 
 .counter-card {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 20px 24px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 28px 20px 32px;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--vp-c-brand-1) 50%,
+    transparent);
+  opacity: 0.6;
 }
 
 .counter-card:hover {
-  border-color: var(--accent-color);
-  background: var(--vp-c-bg-mute);
-  transform: translateY(-2px);
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--vp-c-brand-1);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(23, 171, 124, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.counter-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,
+    var(--vp-c-brand-1) 0%,
+    var(--vp-c-brand-2) 100%);
+  box-shadow:
+    0 4px 16px rgba(23, 171, 124, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.counter-card:hover .counter-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow:
+    0 8px 24px rgba(23, 171, 124, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .counter-icon {
-  font-size: 28px;
-  margin-right: 16px;
-  opacity: 0.8;
+  width: 20px;
+  height: 20px;
+  color: white;
+  stroke-width: 2.2;
 }
 
-.counter-info {
+.counter-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
 .counter-value {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg,
+    var(--vp-c-text-1) 0%,
+    var(--vp-c-brand-1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: var(--vp-font-family-mono);
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+.counter-card:hover .counter-value {
+  transform: scale(1.05);
 }
 
 .counter-label {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--vp-c-text-2);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.counter-card:hover .counter-label {
+  color: var(--vp-c-brand-1);
 }
 
 /* --- 文章区域优化 --- */
@@ -266,7 +344,7 @@ features:
   justify-content: center;
   align-items: center;
   /* 确保容器不会因为子元素放大而改变大小 */
-  overflow: visible; 
+  overflow: visible;
 }
 
 .VPHero img {
@@ -282,7 +360,7 @@ features:
 
 /* 仅在鼠标悬浮时垂直向上微动，而不是向四周跑 */
 .VPHero img:hover {
-  /* 使用 translateY 配合 scale，只让它稍微“浮起”，不乱跑 */
+  /* 使用 translateY 配合 scale，只让它稍微"浮起"，不乱跑 */
   transform: scale(1.03) translateY(-5px) !important;
 }
 
