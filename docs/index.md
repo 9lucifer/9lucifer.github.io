@@ -25,6 +25,7 @@ features:
     details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
+<div v-pre>
 <div class="latest-articles">
   <div class="section-header">
     <h2>📝 最新文章</h2>
@@ -137,4 +138,5 @@ features:
       </div>
     </div>
   </div>
+</div>
 </div>

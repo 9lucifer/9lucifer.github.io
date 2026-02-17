@@ -146,7 +146,7 @@ function updateLatestArticles() {
   let indexContent = fs.readFileSync(INDEX_FILE, 'utf-8');
 
   // 替换文章列表 - 只替换 articles-grid 内部的内容
-  const regex = /(<div class="articles-grid">)([\s\S]*?)(<\/div>)(?=\s*<\/div>\s*<\/div>)/;
+  const regex = /(<div class="articles-grid">)([\s\S]*?)(<\/div>)(?=\s*<\/div>\s*<div class="counter-section")/;
   const replacement = `$1\n${articlesHtml}\n  $3`;
 
   if (regex.test(indexContent)) {
