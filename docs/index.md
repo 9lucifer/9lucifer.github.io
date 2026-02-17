@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "IsaacE2的记录"
   text: "闲下来写两篇~"
-  tagline: 全栈 = 全干 后端 = 后台
+  tagline: 联系方式：3616266449@qq.com
   image:
     src: /hero-image.png
     alt: Showcase
