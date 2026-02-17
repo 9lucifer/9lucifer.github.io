@@ -253,6 +253,154 @@ export default [
         {
           text: "62. N 皇后",
           link: "/algorithm/hot100/n-queens"
+        },
+        {
+          text: "63. 搜索插入位置",
+          link: "/algorithm/hot100/search-insert-position"
+        },
+        {
+          text: "65. 在排序数组中查找元素的第一个和最后一个位置",
+          link: "/algorithm/hot100/find-first-and-last-position-of-element-in-sorted-array"
+        },
+        {
+          text: "66. 搜索旋转排序数组",
+          link: "/algorithm/hot100/search-in-rotated-sorted-array"
+        },
+        {
+          text: "67. 寻找旋转排序数组中的最小值",
+          link: "/algorithm/hot100/find-minimum-in-rotated-sorted-array"
+        },
+        {
+          text: "68. 寻找两个正序数组的中位数",
+          link: "/algorithm/hot100/median-of-two-sorted-arrays"
+        },
+        {
+          text: "69. 有效的括号",
+          link: "/algorithm/hot100/valid-parentheses"
+        },
+        {
+          text: "70. 最小栈",
+          link: "/algorithm/hot100/min-stack"
+        },
+        {
+          text: "71. 字符串解码",
+          link: "/algorithm/hot100/decode-string"
+        },
+        {
+          text: "72. 每日温度",
+          link: "/algorithm/hot100/daily-temperatures"
+        },
+        {
+          text: "73. 柱状图中最大的矩形",
+          link: "/algorithm/hot100/largest-rectangle-in-histogram"
+        },
+        {
+          text: "74. 数组中的第K个最大元素",
+          link: "/algorithm/hot100/kth-largest-element-in-an-array"
+        },
+        {
+          text: "75. 前 K 个高频元素",
+          link: "/algorithm/hot100/top-k-frequent-elements"
+        },
+        {
+          text: "76. 数据流的中位数",
+          link: "/algorithm/hot100/find-median-from-data-stream"
+        },
+        {
+          text: "77. 买卖股票的最佳时机",
+          link: "/algorithm/hot100/best-time-to-buy-and-sell-stock"
+        },
+        {
+          text: "78. 跳跃游戏",
+          link: "/algorithm/hot100/jump-game"
+        },
+        {
+          text: "79. 跳跃游戏 II",
+          link: "/algorithm/hot100/jump-game-ii"
+        },
+        {
+          text: "80. 划分字母区间",
+          link: "/algorithm/hot100/partition-labels"
+        },
+        {
+          text: "81. 爬楼梯",
+          link: "/algorithm/hot100/climbing-stairs"
+        },
+        {
+          text: "82. 杨辉三角",
+          link: "/algorithm/hot100/pascals-triangle"
+        },
+        {
+          text: "83. 打家劫舍",
+          link: "/algorithm/hot100/house-robber"
+        },
+        {
+          text: "84. 完全平方数",
+          link: "/algorithm/hot100/perfect-squares"
+        },
+        {
+          text: "85. 零钱兑换",
+          link: "/algorithm/hot100/coin-change"
+        },
+        {
+          text: "86. 单词拆分",
+          link: "/algorithm/hot100/word-break"
+        },
+        {
+          text: "87. 最长递增子序列",
+          link: "/algorithm/hot100/longest-increasing-subsequence"
+        },
+        {
+          text: "88. 乘积最大子数组",
+          link: "/algorithm/hot100/maximum-product-subarray"
+        },
+        {
+          text: "89. 分割等和子集",
+          link: "/algorithm/hot100/partition-equal-subset-sum"
+        },
+        {
+          text: "90. 最长有效括号",
+          link: "/algorithm/hot100/longest-valid-parentheses"
+        },
+        {
+          text: "91. 不同路径",
+          link: "/algorithm/hot100/unique-paths"
+        },
+        {
+          text: "92. 最小路径和",
+          link: "/algorithm/hot100/minimum-path-sum"
+        },
+        {
+          text: "93. 最长回文子串",
+          link: "/algorithm/hot100/longest-palindromic-substring"
+        },
+        {
+          text: "94. 最长公共子序列",
+          link: "/algorithm/hot100/longest-common-subsequence"
+        },
+        {
+          text: "95. 编辑距离",
+          link: "/algorithm/hot100/edit-distance"
+        },
+        {
+          text: "96. 只出现一次的数字",
+          link: "/algorithm/hot100/single-number"
+        },
+        {
+          text: "97. 多数元素",
+          link: "/algorithm/hot100/majority-element"
+        },
+        {
+          text: "98. 颜色分类",
+          link: "/algorithm/hot100/sort-colors"
+        },
+        {
+          text: "99. 下一个排列",
+          link: "/algorithm/hot100/next-permutation"
+        },
+        {
+          text: "100. 寻找重复数",
+          link: "/algorithm/hot100/find-the-duplicate-number"
         }
       ]
     }

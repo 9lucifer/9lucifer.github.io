@@ -4,36 +4,55 @@ const { execSync } = require('child_process');
 
 // 题目信息数组
 const problems = [
-  // 二叉树相关题目
-  { number: 36, title: '二叉树的中序遍历', link: 'https://leetcode.cn/problems/binary-tree-inorder-traversal/' },
-  { number: 37, title: '二叉树的最大深度', link: 'https://leetcode.cn/problems/maximum-depth-of-binary-tree/' },
-  { number: 38, title: '翻转二叉树', link: 'https://leetcode.cn/problems/invert-binary-tree/' },
-  { number: 39, title: '对称二叉树', link: 'https://leetcode.cn/problems/symmetric-tree/' },
-  { number: 40, title: '二叉树的直径', link: 'https://leetcode.cn/problems/diameter-of-binary-tree/' },
-  { number: 41, title: '二叉树的层序遍历', link: 'https://leetcode.cn/problems/binary-tree-level-order-traversal/' },
-  { number: 42, title: '将有序数组转换为二叉搜索树', link: 'https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/' },
-  { number: 43, title: '验证二叉搜索树', link: 'https://leetcode.cn/problems/validate-binary-search-tree/' },
-  { number: 44, title: '二叉搜索树中第 K 小的元素', link: 'https://leetcode.cn/problems/kth-smallest-element-in-a-bst/' },
-  { number: 45, title: '二叉树的右视图', link: 'https://leetcode.cn/problems/binary-tree-right-side-view/' },
-  { number: 46, title: '二叉树展开为链表', link: 'https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/' },
-  { number: 47, title: '从前序与中序遍历序列构造二叉树', link: 'https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/' },
-  { number: 48, title: '路径总和 III', link: 'https://leetcode.cn/problems/path-sum-iii/' },
-  { number: 49, title: '二叉树的最近公共祖先', link: 'https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/' },
-  { number: 50, title: '二叉树中的最大路径和', link: 'https://leetcode.cn/problems/binary-tree-maximum-path-sum/' },
+  // 二分查找相关题目
+  { number: 63, title: '搜索插入位置', link: 'https://leetcode.cn/problems/search-insert-position/' },
+  { number: 64, title: '搜索二维矩阵', link: 'https://leetcode.cn/problems/search-a-2d-matrix/' },
+  { number: 65, title: '在排序数组中查找元素的第一个和最后一个位置', link: 'https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/' },
+  { number: 66, title: '搜索旋转排序数组', link: 'https://leetcode.cn/problems/search-in-rotated-sorted-array/' },
+  { number: 67, title: '寻找旋转排序数组中的最小值', link: 'https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/' },
+  { number: 68, title: '寻找两个正序数组的中位数', link: 'https://leetcode.cn/problems/median-of-two-sorted-arrays/' },
+
+  // 栈相关题目
+  { number: 69, title: '有效的括号', link: 'https://leetcode.cn/problems/valid-parentheses/' },
+  { number: 70, title: '最小栈', link: 'https://leetcode.cn/problems/min-stack/' },
+  { number: 71, title: '字符串解码', link: 'https://leetcode.cn/problems/decode-string/' },
+  { number: 72, title: '每日温度', link: 'https://leetcode.cn/problems/daily-temperatures/' },
+  { number: 73, title: '柱状图中最大的矩形', link: 'https://leetcode.cn/problems/largest-rectangle-in-histogram/' },
+
+  // 堆相关题目
+  { number: 74, title: '数组中的第K个最大元素', link: 'https://leetcode.cn/problems/kth-largest-element-in-an-array/' },
+  { number: 75, title: '前 K 个高频元素', link: 'https://leetcode.cn/problems/top-k-frequent-elements/' },
+  { number: 76, title: '数据流的中位数', link: 'https://leetcode.cn/problems/find-median-from-data-stream/' },
+
+  // 贪心算法相关题目
+  { number: 77, title: '买卖股票的最佳时机', link: 'https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/' },
+  { number: 78, title: '跳跃游戏', link: 'https://leetcode.cn/problems/jump-game/' },
+  { number: 79, title: '跳跃游戏 II', link: 'https://leetcode.cn/problems/jump-game-ii/' },
+  { number: 80, title: '划分字母区间', link: 'https://leetcode.cn/problems/partition-labels/' },
+
+  // 动态规划相关题目
+  { number: 81, title: '爬楼梯', link: 'https://leetcode.cn/problems/climbing-stairs/' },
+  { number: 82, title: '杨辉三角', link: 'https://leetcode.cn/problems/pascals-triangle/' },
+  { number: 83, title: '打家劫舍', link: 'https://leetcode.cn/problems/house-robber/' },
+  { number: 84, title: '完全平方数', link: 'https://leetcode.cn/problems/perfect-squares/' },
+  { number: 85, title: '零钱兑换', link: 'https://leetcode.cn/problems/coin-change/' },
+  { number: 86, title: '单词拆分', link: 'https://leetcode.cn/problems/word-break/' },
+  { number: 87, title: '最长递增子序列', link: 'https://leetcode.cn/problems/longest-increasing-subsequence/' },
+  { number: 88, title: '乘积最大子数组', link: 'https://leetcode.cn/problems/maximum-product-subarray/' },
+  { number: 89, title: '分割等和子集', link: 'https://leetcode.cn/problems/partition-equal-subset-sum/' },
+  { number: 90, title: '最长有效括号', link: 'https://leetcode.cn/problems/longest-valid-parentheses/' },
+  { number: 91, title: '不同路径', link: 'https://leetcode.cn/problems/unique-paths/' },
+  { number: 92, title: '最小路径和', link: 'https://leetcode.cn/problems/minimum-path-sum/' },
+  { number: 93, title: '最长回文子串', link: 'https://leetcode.cn/problems/longest-palindromic-substring/' },
+  { number: 94, title: '最长公共子序列', link: 'https://leetcode.cn/problems/longest-common-subsequence/' },
+  { number: 95, title: '编辑距离', link: 'https://leetcode.cn/problems/edit-distance/' },
 
   // 其他题目
-  { number: 51, title: '岛屿数量', link: 'https://leetcode.cn/problems/number-of-islands/' },
-  { number: 52, title: '腐烂的橘子', link: 'https://leetcode.cn/problems/rotting-oranges/' },
-  { number: 53, title: '课程表', link: 'https://leetcode.cn/problems/course-schedule/' },
-  { number: 54, title: '实现 Trie (前缀树)', link: 'https://leetcode.cn/problems/implement-trie-prefix-tree/' },
-  { number: 55, title: '全排列', link: 'https://leetcode.cn/problems/permutations/' },
-  { number: 56, title: '子集', link: 'https://leetcode.cn/problems/subsets/' },
-  { number: 57, title: '电话号码的字母组合', link: 'https://leetcode.cn/problems/letter-combinations-of-a-phone-number/' },
-  { number: 58, title: '组合总和', link: 'https://leetcode.cn/problems/combination-sum/' },
-  { number: 59, title: '括号生成', link: 'https://leetcode.cn/problems/generate-parentheses/' },
-  { number: 60, title: '单词搜索', link: 'https://leetcode.cn/problems/word-search/' },
-  { number: 61, title: '分割回文串', link: 'https://leetcode.cn/problems/palindrome-partitioning/' },
-  { number: 62, title: 'N 皇后', link: 'https://leetcode.cn/problems/n-queens/' }
+  { number: 96, title: '只出现一次的数字', link: 'https://leetcode.cn/problems/single-number/' },
+  { number: 97, title: '多数元素', link: 'https://leetcode.cn/problems/majority-element/' },
+  { number: 98, title: '颜色分类', link: 'https://leetcode.cn/problems/sort-colors/' },
+  { number: 99, title: '下一个排列', link: 'https://leetcode.cn/problems/next-permutation/' },
+  { number: 100, title: '寻找重复数', link: 'https://leetcode.cn/problems/find-the-duplicate-number/' }
 ];
 
 // 常量定义

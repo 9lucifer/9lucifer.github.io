@@ -57,51 +57,51 @@ features:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
-    <a href="/algorithm/hot100/n-queens" class="article-card">
+    <a href="/algorithm/hot100/find-the-duplicate-number" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>62. N 皇后</h3>
-        <p>题目链接：https://leetcode.cn/problems/n-queens/</p>
+        <h3>100. 寻找重复数</h3>
+        <p>题目链接：https://leetcode.cn/problems/find-the-duplicate-number/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/palindrome-partitioning" class="article-card">
+    <a href="/algorithm/hot100/next-permutation" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>61. 分割回文串</h3>
-        <p>题目链接：https://leetcode.cn/problems/palindrome-partitioning/</p>
+        <h3>99. 下一个排列</h3>
+        <p>题目链接：https://leetcode.cn/problems/next-permutation/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/word-search" class="article-card">
+    <a href="/algorithm/hot100/sort-colors" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>60. 单词搜索</h3>
-        <p>题目链接：https://leetcode.cn/problems/word-search/</p>
+        <h3>98. 颜色分类</h3>
+        <p>题目链接：https://leetcode.cn/problems/sort-colors/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/generate-parentheses" class="article-card">
+    <a href="/algorithm/hot100/majority-element" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>59. 括号生成</h3>
-        <p>题目链接：https://leetcode.cn/problems/generate-parentheses/</p>
+        <h3>97. 多数元素</h3>
+        <p>题目链接：https://leetcode.cn/problems/majority-element/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/combination-sum" class="article-card">
+    <a href="/algorithm/hot100/single-number" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>58. 组合总和</h3>
-        <p>题目链接：https://leetcode.cn/problems/combination-sum/</p>
+        <h3>96. 只出现一次的数字</h3>
+        <p>题目链接：https://leetcode.cn/problems/single-number/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
-    <a href="/algorithm/hot100/letter-combinations-of-a-phone-number" class="article-card">
+    <a href="/algorithm/hot100/edit-distance" class="article-card">
       <div class="article-content">
         <span class="article-tag">算法</span>
-        <h3>57. 电话号码的字母组合</h3>
-        <p>题目链接：https://leetcode.cn/problems/letter-combinations-of-a-p</p>
+        <h3>95. 编辑距离</h3>
+        <p>题目链接：https://leetcode.cn/problems/edit-distance/</p>
       </div>
       <div class="article-footer">查看详情 →</div>
     </a>
