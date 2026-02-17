@@ -129,12 +129,16 @@ function updateLatestArticles() {
   // 生成 HTML
   const articlesHtml = articles.map(article =>
     `    <a href="${article.link}" class="article-card">
-      <div class="article-content">
-        <span class="article-tag">${article.category}</span>
-        <h3>${article.title}</h3>
-        <p>${article.description}</p>
+      <div class="article-inner">
+        <div class="article-slide-up">
+          <div class="article-content">
+            <span class="article-tag">${article.category}</span>
+            <h3>${article.title}</h3>
+            <p>${article.description}</p>
+          </div>
+          <div class="article-footer">查看详情 →</div>
+        </div>
       </div>
-      <div class="article-footer">查看详情 →</div>
     </a>`
   ).join('\n');
 
@@ -142,7 +146,7 @@ function updateLatestArticles() {
   let indexContent = fs.readFileSync(INDEX_FILE, 'utf-8');
 
   // 替换文章列表 - 只替换 articles-grid 内部的内容
-  const regex = /(<div class="articles-grid">)([\s\S]*?)(<\/div>)(?=\s*<\/div>)/;
+  const regex = /(<div class="articles-grid">)([\s\S]*?)(<\/div>)(?=\s*<\/div>\s*<\/div>)/;
   const replacement = `$1\n${articlesHtml}\n  $3`;
 
   if (regex.test(indexContent)) {
