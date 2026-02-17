@@ -4,6 +4,90 @@
   --accent-color: var(--vp-c-brand-1);
 }
 
+/* --- Features 区域优化 --- */
+.VPFeatures {
+  padding: 48px 0 !important;
+}
+
+.VPFeature {
+  position: relative;
+  padding: 32px 24px !important;
+  border-radius: 20px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--vp-c-brand-1) 50%,
+    transparent);
+  opacity: 0.5;
+}
+
+.VPFeature:hover {
+  transform: translateY(-8px) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(23, 171, 124, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.VPFeature .icon {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg,
+    var(--vp-c-brand-1) 0%,
+    var(--vp-c-brand-2) 100%) !important;
+  box-shadow:
+    0 4px 12px rgba(23, 171, 124, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  margin-bottom: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.VPFeature:hover .icon {
+  transform: scale(1.1) rotate(5deg) !important;
+  box-shadow:
+    0 8px 24px rgba(23, 171, 124, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+.VPFeature .title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  color: var(--vp-c-text-1) !important;
+  transition: color 0.3s ease !important;
+}
+
+.VPFeature:hover .title {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPFeature .details {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: var(--vp-c-text-2) !important;
+}
+
 /* --- 现代玻璃态访问统计 --- */
 .counter-section {
   max-width: 1152px;
@@ -317,4 +401,53 @@
   filter: blur(40px);
   opacity: 0.6;
   pointer-events: none;
+}
+
+/* --- Features 轮播高亮效果 --- */
+.VPFeatures {
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+  overflow: hidden;
+}
+
+.VPFeatures.fade-out {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  transform: translateY(-20px);
+}
+
+.VPFeature.highlight {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(23, 171, 124, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-8px) scale(1.02) !important;
+}
+
+.VPFeature.highlight::before {
+  opacity: 1 !important;
+}
+
+.VPFeature.highlight .title {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPFeature.highlight .icon {
+  transform: scale(1.1) rotate(5deg) !important;
+  box-shadow:
+    0 8px 24px rgba(23, 171, 124, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 最新文章区域上移动画 */
+.latest-articles {
+  transition: margin-top 0.5s ease;
+}
+
+.latest-articles.shift-up {
+  margin-top: 0 !important;
 }
