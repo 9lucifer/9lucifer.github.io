@@ -66,6 +66,7 @@
 - [61. 分割回文串](palindrome-partitioning.md)
 - [62. N 皇后](n-queens.md)
 - [63. 搜索插入位置](search-insert-position.md)
+- [64. 搜索二维矩阵](search-a-2d-matrix.md)
 - [65. 在排序数组中查找元素的第一个和最后一个位置](find-first-and-last-position-of-element-in-sorted-array.md)
 - [66. 搜索旋转排序数组](search-in-rotated-sorted-array.md)
 - [67. 寻找旋转排序数组中的最小值](find-minimum-in-rotated-sorted-array.md)
