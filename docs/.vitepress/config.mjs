@@ -63,7 +63,6 @@ export default defineConfig({
       },
       { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
       { text: '🏗️ 系统设计', link: '/design/', activeMatch: '/design/' },
-        { text: '🩺 女性生理', link: '/women-health/', activeMatch: '/women-health/' },
     ],
 
     // 侧边栏
