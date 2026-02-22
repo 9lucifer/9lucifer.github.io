@@ -5,7 +5,7 @@ export default [
       { text: 'AI 首页', link: '/ai/' },
         { text: 'AI名词汇总', link: '/ai/ai-names-info' },
         { text: 'openclaw使用体验', link: '/ai/openclaw-after-user' },
-
+        { text: 'openclaw使用体验(二)', link: '/ai/openclaw-after-use-2' },
     ]
   }
 ];
