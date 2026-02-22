@@ -106,6 +106,7 @@ export default defineConfig({
         {
           text: '中间件学习',
           items: [
+            { text: '中间件学习首页', link: '/center/index' },
             {
               text: 'RabbitMQ 学习',
               items: [
@@ -116,9 +117,9 @@ export default defineConfig({
             {
               text: 'Kafka 学习',
               items: [
-                  { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' },
                 { text: 'Kafka 简介', link: '/center/kafka/kafka-basic' },
-                { text: '生产者发送消息流程', link: '/center/kafka/producer-send' },
+                { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' },
+                { text: '生产者发送消息流程', link: '/center/kafka/producer-send' }
               ]
             }
           ]
