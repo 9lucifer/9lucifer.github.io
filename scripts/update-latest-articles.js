@@ -40,6 +40,8 @@ function getCategory(filePath) {
   if (filePath.includes('/center/')) return '中间件';
   if (filePath.includes('/algorithm/')) return '算法';
   if (filePath.includes('/project/')) return '项目';
+  if (filePath.includes('/ai/')) return '人工智能';
+  if (filePath.includes('/design/')) return '系统设计';
   return '其他';
 }
 
