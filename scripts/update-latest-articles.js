@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 // 配置
 const DOCS_DIR = path.join(__dirname, '../docs');
 const INDEX_FILE = path.join(DOCS_DIR, 'index.md');
-const EXCLUDE_DIRS = ['node_modules', '.vitepress', 'annual-summary', 'project'];
+const EXCLUDE_DIRS = ['node_modules', '.vitepress', 'annual-summary', 'project','women-health'];
 const EXCLUDE_FILES = ['api-examples.md', 'markdown-examples.md'];
 
 // 获取文件的 Git 最后修改时间
