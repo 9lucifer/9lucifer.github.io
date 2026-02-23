@@ -48,7 +48,7 @@ SQL 的语法树解析
 
  MySQL 的基础架构
 
-<img src="/Users/heybox/Library/Application%20Support/typora-user-images/image-20260222180846450.png" alt="image-20260222180846450" style="zoom: 50%;" />
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/image/image-20260222180846450.png" alt="image-20260222180846450" style="zoom: 50%;" />
 
 ⼀条查询语句是如何执⾏的
 
