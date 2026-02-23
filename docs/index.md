@@ -15,14 +15,6 @@ hero:
     - theme: alt
       text: 个人简历
       link: /resume_v2.pdf
-
-features:
-  - title: 我希望
-    details: 积累海量的技术沉淀，追求深度的知识洞察，永葆求知若渴的初心
-  - title: 我希望
-    details: 拥有健康的体魄，保持年轻的心态，活出生命的精彩
-  - title: 我希望
-    details: 珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量
 ---
 
 <div v-pre>
@@ -104,6 +96,31 @@ features:
         </div>
       </div>
     </a>
+  </div>
+</div>
+
+<!-- 我的追求 -->
+<div class="features-section">
+  <div class="section-header">
+    <h2>💫 我的追求</h2>
+    <p class="section-tagline">技术、生活与爱</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌟</div>
+      <h3>技术深耕</h3>
+      <p>积累海量的技术沉淀，追求深度的知识洞察，永葆求知若渴的初心</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💪</div>
+      <h3>生活热爱</h3>
+      <p>拥有健康的体魄，保持年轻的心态，活出生命的精彩</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">❤️</div>
+      <h3>情感珍视</h3>
+      <p>珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量</p>
+    </div>
   </div>
 </div>
 
