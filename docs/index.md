@@ -14,7 +14,7 @@ hero:
       link: /annual-summary/
     - theme: alt
       text: 个人简历
-      link: /resume_v2.pdf
+      link: /resume_v3.pdf
 ---
 
 <div v-pre>
