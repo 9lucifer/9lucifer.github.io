@@ -9,4 +9,4 @@
 
 
 ## 自留地（访客忽视，有鉴权）
-- [面试查缺补漏](i-interview.md) - 面试突击
+- [面试查缺补漏](/i-interview-protected.html) - 面试突击

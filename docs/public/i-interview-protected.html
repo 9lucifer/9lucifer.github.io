@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面试突击</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #ffffff;
+      color: #213547;
+      line-height: 1.6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #1e1e2e;
+        color: #e5e7eb;
+      }
+    }
+
+    .password-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .password-card {
+      background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.85) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .password-card {
+        background: linear-gradient(145deg,
+          rgba(45, 45, 63, 0.95) 0%,
+          rgba(45, 45, 63, 0.85) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .password-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .password-card h2 {
+      margin: 0 0 8px 0;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .password-hint {
+      margin: 0 0 24px 0;
+      color: #476582;
+      font-size: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .password-hint {
+        color: #a5adcb;
+      }
+    }
+
+    .password-input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f9f9f9;
+      color: #213547;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .password-input {
+        border-color: #3f3f5f;
+        background: #2d2d3f;
+        color: #e5e7eb;
+      }
+    }
+
+    .password-input:focus {
+      border-color: #17ab7c;
+      box-shadow: 0 0 0 4px rgba(23, 171, 124, 0.15);
+    }
+
+    .password-button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #17ab7c 0%, #3eaf7c 100%);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .password-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(23, 171, 124, 0.4);
+    }
+
+    .password-error {
+      margin: 16px 0 0 0;
+      color: #ef4444;
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .content-wrapper {
+      display: none;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .content-wrapper.visible {
+      display: block;
+    }
+
+    .password-wrapper.hidden {
+      display: none;
+    }
+
+    .content-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .content-header {
+        background: #1e1e2e;
+        border-bottom-color: #3f3f5f;
+      }
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      color: #476582;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .home-link {
+        background: #2d2d3f;
+        color: #a5adcb;
+      }
+    }
+
+    .home-link:hover {
+      background: #e5e7eb;
+      color: #213547;
+      text-decoration: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .home-link:hover {
+        background: #3f3f5f;
+        color: #e5e7eb;
+      }
+    }
+
+    .lock-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #f9f9f9;
+      color: #476582;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .lock-button {
+        border-color: #3f3f5f;
+        background: #2d2d3f;
+        color: #a5adcb;
+      }
+    }
+
+    .lock-button:hover {
+      background: #e5e7eb;
+      color: #213547;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .lock-button:hover {
+        background: #3f3f5f;
+        color: #e5e7eb;
+      }
+    }
+
+    .content-frame {
+      width: 100%;
+      height: calc(100vh - 57px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="password-wrapper" class="password-wrapper">
+    <div class="password-card">
+      <div class="password-icon">🔒</div>
+      <h2>请输入访问密码</h2>
+      <p class="password-hint">此页面需要密码才能访问</p>
+      <input
+        id="password-input"
+        type="password"
+        placeholder="输入密码..."
+        class="password-input"
+      />
+      <button id="password-button" class="password-button">
+        解锁访问
+      </button>
+      <p id="password-error" class="password-error">
+        ❌ 密码错误，请重试
+      </p>
+    </div>
+  </div>
+
+  <div id="content-wrapper" class="content-wrapper">
+    <div class="content-header">
+      <a href="index.html" class="home-link">← 返回首页</a>
+      <button id="lock-button" class="lock-button">重新锁定</button>
+    </div>
+    <iframe id="content-frame" class="content-frame" src="i-interview.md"></iframe>
+  </div>
+
+  <script>
+    (function() {
+      const passwordWrapper = document.getElementById('password-wrapper');
+      const contentWrapper = document.getElementById('content-wrapper');
+      const passwordInput = document.getElementById('password-input');
+      const passwordButton = document.getElementById('password-button');
+      const passwordError = document.getElementById('password-error');
+      const lockButton = document.getElementById('lock-button');
+
+      const PASSWORD = '050218';
+      const STORAGE_KEY = 'i-interview-auth';
+
+      function checkPassword() {
+        if (passwordInput.value === PASSWORD) {
+          showContent();
+          localStorage.setItem(STORAGE_KEY, 'authenticated');
+        } else {
+          passwordError.style.display = 'block';
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      }
+
+      function showContent() {
+        passwordWrapper.classList.add('hidden');
+        contentWrapper.classList.add('visible');
+        passwordError.style.display = 'none';
+      }
+
+      function lockContent() {
+        passwordWrapper.classList.remove('hidden');
+        contentWrapper.classList.remove('visible');
+        localStorage.removeItem(STORAGE_KEY);
+        passwordInput.value = '';
+        passwordInput.focus();
+      }
+
+      if (localStorage.getItem(STORAGE_KEY) === 'authenticated') {
+        showContent();
+      } else {
+        passwordInput.focus();
+      }
+
+      passwordButton.addEventListener('click', checkPassword);
+      passwordInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+          checkPassword();
+        }
+      });
+      lockButton.addEventListener('click', lockContent);
+    })();
+  </script>
+</body>
+</html>
