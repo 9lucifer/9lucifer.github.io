@@ -4,115 +4,6 @@ aside: false
 
 # 面试突击
 
-<script setup>
-import { ref, onMounted, nextTick } from 'vue'
-
-const isAuthenticated = ref(false)
-const passwordInput = ref('')
-const errorMessage = ref('')
-const inputRef = ref(null)
-
-function checkPassword() {
-  if (passwordInput.value === '050218') {
-    isAuthenticated.value = true
-    errorMessage.value = ''
-    localStorage.setItem('i-interview-auth', 'authenticated')
-  } else {
-    errorMessage.value = '密码错误，请重试'
-    passwordInput.value = ''
-    nextTick(() => {
-      inputRef.value?.focus()
-    })
-  }
-}
-
-function handleKeyPress(e) {
-  if (e.key === 'Enter') {
-    checkPassword()
-  }
-}
-
-function lockContent() {
-  isAuthenticated.value = false
-  localStorage.removeItem('i-interview-auth')
-  passwordInput.value = ''
-  nextTick(() => {
-    inputRef.value?.focus()
-  })
-}
-
-onMounted(() => {
-  const saved = localStorage.getItem('i-interview-auth')
-  if (saved === 'authenticated') {
-    isAuthenticated.value = true
-  } else {
-    nextTick(() => {
-      inputRef.value?.focus()
-    })
-  }
-})
-</script>
-
-<div v-if="!isAuthenticated" class="password-wrapper">
-  <div class="password-card">
-    <div class="password-icon">🔒</div>
-    <h2>请输入访问密码</h2>
-    <p class="password-hint">此页面需要密码才能访问</p>
-    <input
-      ref="inputRef"
-      v-model="passwordInput"
-      type="password"
-      placeholder="输入密码..."
-      @keyup="handleKeyPress"
-      class="password-input"
-    />
-    <button @click="checkPassword" class="password-button">
-      解锁访问
-    </button>
-    <p v-if="errorMessage" class="password-error">
-      ❌ {{ errorMessage }}
-    </p>
-  </div>
-</div>
-
-<div v-else class="content-wrapper">
-  <div class="unlock-bar">
-    <span class="unlock-status">✅ 已解锁</span>
-    <button @click="lockContent" class="lock-button">
-      重新锁定
-    </button>
-  </div>
-
-## javaSE
-
-### 集合
-
-#### 1. ArrayList
-
-- ***为什么 new ArrayList<>（）时建议指定初始化容量值***
-- ***为什么默认情况下的扩容机制是扩容为原数组的1.5倍***
-- ***ArrayList是线程的安全吗***
-
-#### 2. CopyOnWriteArrayList 的实现原理
-
-#### 3. HashMap
-
-- ***底层的数据结构***
-- ***添加元素流程***
-- ***扩容加载因子0.75***
-- ***扩容为数组长度的2倍***
-- ***HashMap是线程的安全吗***
-
-#### 4. ConcurrentHashMap的实现原理
-
-
-
-### 迭代器
-
-#### 1. 实现原理
-
-</content>
-
 <style>
 .password-wrapper {
   display: flex;
@@ -236,6 +127,127 @@ onMounted(() => {
 }
 
 .content-wrapper {
+  display: none;
+}
+
+.content-wrapper.visible {
   display: block;
 }
+
+.password-wrapper.hidden {
+  display: none;
+}
 </style>
+
+<div id="password-wrapper" class="password-wrapper">
+  <div class="password-card">
+    <div class="password-icon">🔒</div>
+    <h2>请输入访问密码</h2>
+    <p class="password-hint">此页面需要密码才能访问</p>
+    <input
+      id="password-input"
+      type="password"
+      placeholder="输入密码..."
+      class="password-input"
+    />
+    <button id="password-button" class="password-button">
+      解锁访问
+    </button>
+    <p id="password-error" class="password-error" style="display:none;">
+      ❌ 密码错误，请重试
+    </p>
+  </div>
+</div>
+
+<div id="content-wrapper" class="content-wrapper">
+  <div class="unlock-bar">
+    <span class="unlock-status">✅ 已解锁</span>
+    <button id="lock-button" class="lock-button">
+      重新锁定
+    </button>
+  </div>
+
+## javaSE
+
+### 集合
+
+#### 1. ArrayList
+
+- ***为什么 new ArrayList<>（）时建议指定初始化容量值***
+- ***为什么默认情况下的扩容机制是扩容为原数组的1.5倍***
+- ***ArrayList是线程的安全吗***
+
+#### 2. CopyOnWriteArrayList 的实现原理
+
+#### 3. HashMap
+
+- ***底层的数据结构***
+- ***添加元素流程***
+- ***扩容加载因子0.75***
+- ***扩容为数组长度的2倍***
+- ***HashMap是线程的安全吗***
+
+#### 4. ConcurrentHashMap的实现原理
+
+
+
+### 迭代器
+
+#### 1. 实现原理
+
+</div>
+
+<script>
+(function() {
+  const passwordWrapper = document.getElementById('password-wrapper');
+  const contentWrapper = document.getElementById('content-wrapper');
+  const passwordInput = document.getElementById('password-input');
+  const passwordButton = document.getElementById('password-button');
+  const passwordError = document.getElementById('password-error');
+  const lockButton = document.getElementById('lock-button');
+
+  const PASSWORD = '050218';
+  const STORAGE_KEY = 'i-interview-auth';
+
+  function checkPassword() {
+    if (passwordInput.value === PASSWORD) {
+      showContent();
+      localStorage.setItem(STORAGE_KEY, 'authenticated');
+    } else {
+      passwordError.style.display = 'block';
+      passwordInput.value = '';
+      passwordInput.focus();
+    }
+  }
+
+  function showContent() {
+    passwordWrapper.classList.add('hidden');
+    contentWrapper.classList.add('visible');
+    passwordError.style.display = 'none';
+  }
+
+  function lockContent() {
+    passwordWrapper.classList.remove('hidden');
+    contentWrapper.classList.remove('visible');
+    localStorage.removeItem(STORAGE_KEY);
+    passwordInput.value = '';
+    passwordInput.focus();
+  }
+
+  // 检查是否已认证
+  if (localStorage.getItem(STORAGE_KEY) === 'authenticated') {
+    showContent();
+  } else {
+    passwordInput.focus();
+  }
+
+  // 事件绑定
+  passwordButton.addEventListener('click', checkPassword);
+  passwordInput.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+  lockButton.addEventListener('click', lockContent);
+})();
+</script>
