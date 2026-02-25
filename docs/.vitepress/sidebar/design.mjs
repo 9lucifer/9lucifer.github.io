@@ -4,7 +4,7 @@ export default [
     items: [
       { text: '权限管理鉴权模型', link: '/design/role-permission' },
       { text: '1亿玩家实时战绩排名方案', link: '/design/realtime-ranking-for-100m-players' },
-      { text: '*面试查缺补漏', link: '/design/i-interview-protected.html' }
+      { text: '*面试查缺补漏', link: '/i-interview-protected.html' }
     ]
   }
 ];
