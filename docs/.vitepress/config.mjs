@@ -97,8 +97,7 @@ export default defineConfig({
         {
           text: 'MySQL 学习',
           items: [
-            { text: 'MySQL乐观锁终极指南', link: '/mysql/mysql-happy' },
-            { text: 'MySQL悲观锁深度解析', link: '/mysql/mysql-sad' }
+            { text: 'MySQL知识体系索引', link: '/mysql/mysql-info-index' },
           ]
         }
       ],
