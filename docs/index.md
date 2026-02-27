@@ -24,6 +24,30 @@ hero:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
+    <a href="/mysql/redis-info-index" class="article-card">
+      <div class="article-inner">
+        <div class="article-slide-up">
+          <div class="article-content">
+            <span class="article-tag">数据库</span>
+            <h3>Redis</h3>
+            <p>什么是 Redis?</p>
+          </div>
+          <div class="article-footer">查看详情 →</div>
+        </div>
+      </div>
+    </a>
+    <a href="/mysql/mysql-info-index" class="article-card">
+      <div class="article-inner">
+        <div class="article-slide-up">
+          <div class="article-content">
+            <span class="article-tag">数据库</span>
+            <h3>Mysql知识体系[索引]</h3>
+            <p>mysql是什么</p>
+          </div>
+          <div class="article-footer">查看详情 →</div>
+        </div>
+      </div>
+    </a>
     <a href="/design/high-concurrency-inventory-design" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
@@ -67,30 +91,6 @@ hero:
             <span class="article-tag">算法</span>
             <h3>88. 乘积最大子数组</h3>
             <p>题目链接：https://leetcode.cn/problems/maximum-product-subarray/</p>
-          </div>
-          <div class="article-footer">查看详情 →</div>
-        </div>
-      </div>
-    </a>
-    <a href="/ai/llm-fine-tuning-intro" class="article-card">
-      <div class="article-inner">
-        <div class="article-slide-up">
-          <div class="article-content">
-            <span class="article-tag">人工智能</span>
-            <h3>大模型微调介绍&理论</h3>
-            <p>和rag一样，目的都是为了增强llm对某方面的“思考深度”。</p>
-          </div>
-          <div class="article-footer">查看详情 →</div>
-        </div>
-      </div>
-    </a>
-    <a href="/algorithm/hot100/longest-increasing-subsequence" class="article-card">
-      <div class="article-inner">
-        <div class="article-slide-up">
-          <div class="article-content">
-            <span class="article-tag">算法</span>
-            <h3>87. 最长递增子序列</h3>
-            <p>题目链接：https://leetcode.cn/problems/longest-increasing-subsequ</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
