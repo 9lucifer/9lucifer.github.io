@@ -97,7 +97,8 @@ export default defineConfig({
         {
           text: 'MySQL 学习',
           items: [
-            { text: 'MySQL知识体系索引', link: '/mysql/mysql-info-index' },
+              { text: 'MySQL知识体系索引', link: '/mysql/mysql-info-index' },
+              { text: 'Redis知识体系索引', link: '/mysql/redis-info-index' },
           ]
         }
       ],

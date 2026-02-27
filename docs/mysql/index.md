@@ -5,3 +5,6 @@
 ### 学习记录
 #### mysql
 - [面试知识点梳理](/mysql/mysql-info-index)
+
+#### redis
+- [面试知识点梳理](/mysql/redis-info-index)

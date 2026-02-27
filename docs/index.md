@@ -24,103 +24,78 @@ hero:
     <p class="section-tagline">记录成长的点点滴滴</p>
   </div>
   <div class="articles-grid">
-    <a href="/algorithm/hot100/climbing-stairs" class="article-card">
+    <a href="/design/high-concurrency-inventory-design" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
-            <span class="article-tag">算法</span>
-            <h3>81. 爬楼梯</h3>
-            <p>题目链接：https://leetcode.cn/problems/climbing-stairs/</p>
+            <span class="article-tag">系统设计</span>
+            <h3>如何解决超卖和少卖</h3>
+            <p>在电商的团购、秒杀等高并发场景下，用户会在极短时间内集中抢购库存极少的商品（有的支持多件购买，有的限制每人一件），核心难</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-    <a href="/algorithm/hot100/house-robber" class="article-card">
+    <a href="/design/i-interview" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
-            <span class="article-tag">算法</span>
-            <h3>83. 打家劫舍</h3>
-            <p>题目链接：https://leetcode.cn/problems/house-robber/</p>
+            <span class="article-tag">系统设计</span>
+            <h3>面试突击</h3>
+            <p>- 为什么 new ArrayList<>（）时建议指定初始化容量值</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-    <a href="/algorithm/hot100/pascals-triangle" class="article-card">
+    <a href="/ai/openclaw-analysis" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
-            <span class="article-tag">算法</span>
-            <h3>82. 杨辉三角</h3>
-            <p>题目链接：https://leetcode.cn/problems/pascals-triangle/</p>
+            <span class="article-tag">人工智能</span>
+            <h3>OpenClaw 开源项目分析</h3>
+            <p>OpenClaw 解决的核心问题是如何构建一个多平台、可扩展的个人 AI 助手。现在的agent智能体的痛点是使用体验割</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-    <a href="/algorithm/hot100/number-of-islands" class="article-card">
+    <a href="/algorithm/hot100/maximum-product-subarray" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
             <span class="article-tag">算法</span>
-            <h3>51. 岛屿数量</h3>
-            <p>题目链接：https://leetcode.cn/problems/number-of-islands/</p>
+            <h3>88. 乘积最大子数组</h3>
+            <p>题目链接：https://leetcode.cn/problems/maximum-product-subarray/</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-    <a href="/algorithm/hot100/find-the-duplicate-number" class="article-card">
+    <a href="/ai/llm-fine-tuning-intro" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
-            <span class="article-tag">算法</span>
-            <h3>100. 寻找重复数</h3>
-            <p>题目链接：https://leetcode.cn/problems/find-the-duplicate-number/</p>
+            <span class="article-tag">人工智能</span>
+            <h3>大模型微调介绍&理论</h3>
+            <p>和rag一样，目的都是为了增强llm对某方面的“思考深度”。</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-    <a href="/algorithm/hot100/majority-element" class="article-card">
+    <a href="/algorithm/hot100/longest-increasing-subsequence" class="article-card">
       <div class="article-inner">
         <div class="article-slide-up">
           <div class="article-content">
             <span class="article-tag">算法</span>
-            <h3>97. 多数元素</h3>
-            <p>题目链接：https://leetcode.cn/problems/majority-element/</p>
+            <h3>87. 最长递增子序列</h3>
+            <p>题目链接：https://leetcode.cn/problems/longest-increasing-subsequ</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
       </div>
     </a>
-  </div>
-</div>
-
-<!-- 我的追求 -->
-<div class="features-section">
-  <div class="section-header">
-    <h2>💫 我的追求</h2>
-    <p class="section-tagline">技术、生活与爱</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🌟</div>
-      <h3>技术深耕</h3>
-      <p>积累海量的技术沉淀，追求深度的知识洞察，永葆求知若渴的初心</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">💪</div>
-      <h3>生活热爱</h3>
-      <p>拥有健康的体魄，保持年轻的心态，活出生命的精彩</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">❤️</div>
-      <h3>情感珍视</h3>
-      <p>珍惜海枯石烂的爱情，维系温暖和睦的亲情，让爱成为前行的力量</p>
-    </div>
   </div>
 </div>
 
