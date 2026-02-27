@@ -542,7 +542,7 @@
 }
 
 .VPHero img:hover {
-  transform: scale(1.03) translateY(-5px) !important;
+  transform: translate(-50%, -50%) scale(1.03) !important;
 }
 
 .VPHero .image-bg {
