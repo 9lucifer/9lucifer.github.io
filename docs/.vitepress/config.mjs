@@ -15,6 +15,10 @@ import designSidebar from './sidebar/design.mjs';
 export default defineConfig({
   title: "IsaacE2 🏠",
   description: "null",
+  ignoreDeadLinks: [
+    // 忽略 public 目录下的 HTML 文件
+    /\/i-interview-protected\.html$/
+  ],
   head: [
     // 基础favicon
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
