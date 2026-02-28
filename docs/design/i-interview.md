@@ -6,7 +6,7 @@
 
 ##### 1. ArrayList
 
-- 为什么 new ArrayList<>（）时建议指定初始化容量值
+- 为什么 `new ArrayList<>（）`时建议指定初始化容量值
 - 为什么默认情况下的扩容机制是扩容为原数组的1.5倍
 - ArrayList是线程的安全吗
 

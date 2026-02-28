@@ -68,6 +68,11 @@ function getDescription(content) {
   return '暂无描述';
 }
 
+// HTML 转义，防止构建报错
+function escapeHtml(text) {
+  return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 // 递归查找所有 markdown 文件
 function findMarkdownFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -134,8 +139,8 @@ function updateLatestArticles() {
         <div class="article-slide-up">
           <div class="article-content">
             <span class="article-tag">${article.category}</span>
-            <h3>${article.title}</h3>
-            <p>${article.description}</p>
+            <h3>${escapeHtml(article.title)}</h3>
+            <p>${escapeHtml(article.description)}</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>

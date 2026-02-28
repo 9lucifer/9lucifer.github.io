@@ -66,7 +66,7 @@ hero:
           <div class="article-content">
             <span class="article-tag">系统设计</span>
             <h3>面试突击</h3>
-            <p>- 为什么 new ArrayList<>（）时建议指定初始化容量值</p>
+            <p>- 为什么 new ArrayList() 时建议指定初始化容量值</p>
           </div>
           <div class="article-footer">查看详情 →</div>
         </div>
