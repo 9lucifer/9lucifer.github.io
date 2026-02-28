@@ -1,5 +1,7 @@
 # 计算机网络重点知识
 
+> from《小林coding计算机网络》
+
 ## 基础
 
 ### TCP/IP ⽹络模型
@@ -44,3 +46,54 @@
 7、服务器响应请求
 
 8、客户端渲染页面     
+
+
+
+### 域名解析的流程
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/image/image-20260228201828652.png" alt="image-20260228201828652" style="zoom:50%;" />
+
+1. 客户端发起查询，检查本地缓存，如果有记录的话，直接返回本地的ip地址。
+2. 本地dns服务器执行递归查询，代替客户端完成后续的流程：
+   - 根域名服务器：负责返回目标域名的**顶级域名服务器**地址（如.com）
+   - 顶级域名服务器：负责返回目标域名的**权威域名服务器**地址（如.example.com）
+   - 权威域名服务器：返回域名对应的 IP 地址（如www.example.com）
+3. 本地dns服务器将ip地址返回客户端，缓存结果。
+
+
+
+### TCP-可靠传输
+
+ Http基于tcp协议传输。下面是tcp报文头部的格式：
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/image/image-20260228202910909.png" alt="image-20260228202910909" style="zoom: 50%;" />
+
+各字段明细表：
+
+| 字段                           | 作用                                 |
+| ------------------------------ | ------------------------------------ |
+| 源端口号 (Source Port)         | 标识发送方应用进程                   |
+| 目标端口号 (Destination Port)  | 标识接收方应用进程                   |
+| 序号 (Sequence Number)         | 标识当前报文段的数据起始字节序号     |
+| 确认号 (Acknowledgment Number) | 表示期望收到的下一个字节序号         |
+| 标志位 (Flags)                 | 控制连接状态                         |
+| 窗口大小 (Window Size)         | 告诉对方还能接收多少数据，做流量控制 |
+| 校验和 (Checksum)              | 校验数据是否损坏                     |
+| 紧急指针 (Urgent Pointer)      | 标识紧急数据位置                     |
+
+在tcp传输数据之前，需要先进行三次握手建立连接，三次握手的目的是保证双方都有收发的能力。
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/image/image-20260228203240617.png" alt="image-20260228203240617" style="zoom:50%;" />
+
+- ⼀开始，客户端和服务端都处于 CLOSED 状态。先是服务端主动监听某个端⼝，处于 LISTEN 状态。
+
+- 然后客户端主动发起连接 SYN ，之后处于 SYN-SENT 状态。
+
+- 服务端收到发起的连接，返回 SYN ，并且 ACK 客户端的 SYN ，之后处于 SYN-RCVD 状态。
+
+- 客户端收到服务端发送的 SYN 和 ACK 之后，发送对 SYN 确认的 ACK ，之后处于 ESTABLISHED 状态，因为它⼀发⼀收成功了。
+
+- 服务端收到 ACK 的 ACK 之后，处于 ESTABLISHED 状态，因为它也⼀发⼀收了。
+
+
+
