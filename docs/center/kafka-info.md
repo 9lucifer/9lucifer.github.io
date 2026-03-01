@@ -36,7 +36,7 @@
 
 ## kafka为什么快
 
-<img src="/Users/heybox/Library/Application%20Support/typora-user-images/image-20260302005602190.png" alt="image-20260302005602190" style="zoom: 33%;" />
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/image/image-20260302005602190.png" alt="image-20260302005602190" style="zoom: 33%;" />
 
 - 所有的批量操作都是为了减少网络传输跟磁盘的操作速度，从而提高存储量和传输效率。
 
