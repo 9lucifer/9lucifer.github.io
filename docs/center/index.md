@@ -3,6 +3,8 @@
 ### Kafka
 
 - [Kafka 简介](kafka/kafka-basic.md)
+- [Kafka知识点汇总](kafka-info.md)
+- [Kafka疑难杂症](kafka-problem.md)
 - [Kafka2.7.2源码编译记录](kafka/Kafka-compile.md)
 - [生产者发送消息流程](kafka/producer-send.md)
 

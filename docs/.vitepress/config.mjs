@@ -122,6 +122,8 @@ export default defineConfig({
               text: 'Kafka 学习',
               items: [
                 { text: 'Kafka 简介', link: '/center/kafka/kafka-basic' },
+                  { text: 'Kafka知识点汇总', link: '/center/kafka-info' },
+                  { text: 'Kafka疑难杂症', link: '/center/kafka-problem' },
                 { text: 'Kafka2.7.2源码编译记录', link: '/center/kafka/Kafka-compile' },
                 { text: '生产者发送消息流程', link: '/center/kafka/producer-send' }
               ]
