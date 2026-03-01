@@ -7,6 +7,7 @@
 - [权限管理鉴权模型](role-permission.md) - 权限管理鉴权模型
 - [1亿玩家实时战绩排名方案](realtime-ranking-for-100m-players.md) - 1亿玩家实时战绩排名方案
 - [高并发库存扣减方案](high-concurrency-inventory-design.md) - 如何解决超卖和少卖问题
+- [分布式锁](dis_lock.md) - 分布式锁的实现方式与应用场景
 
 
 ## 自留地（访客忽视，有鉴权）

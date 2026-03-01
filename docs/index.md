@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "IsaacE2的记录"
-  text: "闲下来写两篇~"
+  text: "ai时代，也得掌握原理～"
   tagline: 联系方式：3616266449@qq.com
   image:
     src: /hero-image.png
