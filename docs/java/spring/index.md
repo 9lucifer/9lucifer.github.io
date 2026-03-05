@@ -1,6 +1,7 @@
 # Spring 框架
 
 ### 学习记录
+
 [bean的生命周期](bean_life.md)
 
 ### spring相关知识思维导图（自用）
