@@ -2,7 +2,8 @@
 
 ### 学习记录
 
-[bean的生命周期](bean_life.md)
+- [bean的生命周期](bean_life.md)
+- [Autowired和Resource](Autowired_Resource.md)
 
 ### spring相关知识思维导图（自用）
 > 可能要加载一会

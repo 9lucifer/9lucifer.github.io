@@ -4,6 +4,7 @@ export default [
     items: [
       { text: '概览', link: '/java/spring/' },
       { text: 'bean的生命周期', link: '/java/spring/bean_life' },
+      { text: 'Autowired_Resource', link: '/java/spring/Autowired_Resource' },
     ]
   }
 ];
