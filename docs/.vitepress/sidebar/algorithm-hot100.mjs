@@ -259,6 +259,10 @@ export default [
           link: "/algorithm/hot100/search-insert-position"
         },
         {
+          text: "64. 搜索二维矩阵",
+          link: "/algorithm/hot100/search-a-2d-matrix"
+        },
+        {
           text: "65. 在排序数组中查找元素的第一个和最后一个位置",
           link: "/algorithm/hot100/find-first-and-last-position-of-element-in-sorted-array"
         },
