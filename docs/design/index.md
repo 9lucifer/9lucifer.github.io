@@ -9,6 +9,7 @@
 - [高并发库存扣减方案](high-concurrency-inventory-design.md) - 如何解决超卖和少卖问题
 - [分布式锁](dis_lock.md) - 分布式锁的实现方式与应用场景
 - [电商支付系统对账](ecommerce-payment-reconciliation.md)
+- [clickhouse和doris对比](clickhouse_vs_doris.md)
 
 
 ## 自留地（访客忽视，有鉴权）
