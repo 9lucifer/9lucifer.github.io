@@ -8,6 +8,7 @@ export default [
       { text: '分布式锁', link: '/design/dis_lock' },
       { text: '电商支付系统对账', link: '/design/ecommerce-payment-reconciliation' },
       { text: 'clickhouse和doris对比', link: '/design/clickhouse_vs_doris' },
+      { text: '大模型驱动的数据分析中台设计', link: '/design/llm_mysql_design_v1' },
       { text: '*面试查缺补漏(已锁定，需密码)', link: '/i-interview-protected.html' }
     ]
   }

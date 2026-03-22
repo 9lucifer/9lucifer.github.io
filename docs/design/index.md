@@ -10,6 +10,7 @@
 - [分布式锁](dis_lock.md) - 分布式锁的实现方式与应用场景
 - [电商支付系统对账](ecommerce-payment-reconciliation.md)
 - [clickhouse和doris对比](clickhouse_vs_doris.md)
+- [大模型驱动的数据分析中台设计](llm_mysql_design_v1.md) - 构建具备元数据感知、多步多维归因分析、以及自动化运维能力的智能中台。
 
 
 ## 自留地（访客忽视，有鉴权）
