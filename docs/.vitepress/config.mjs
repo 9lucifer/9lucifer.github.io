@@ -11,6 +11,7 @@ import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 import aiSidebar from './sidebar/ai.mjs';
 import womenHealthSidebar from './sidebar/women-health.mjs';
 import designSidebar from './sidebar/design.mjs';
+import goSidebar from './sidebar/go.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -45,13 +46,25 @@ export default defineConfig({
     // 导航栏
     nav: [
       {
-        text: '☕️ Java',
-        activeMatch: '/java/',
+        text: '🖥️ 后端',
+        activeMatch: '/(java|go)/',
         items: [
-          { text: 'Java 基础', link: '/java/basic/' },
-          { text: 'Spring 框架', link: '/java/spring/' },
-          { text: 'JVM', link: '/java/jvm/' },
-          { text: '前沿探索', link: '/java/new-research/' }
+          {
+            text: '☕️ Java',
+            items: [
+              { text: 'Java 基础', link: '/java/basic/' },
+              { text: 'Spring 框架', link: '/java/spring/' },
+              { text: 'JVM', link: '/java/jvm/' },
+              { text: '前沿探索', link: '/java/new-research/' }
+            ]
+          },
+          {
+            text: '🐹 Go',
+            items: [
+              { text: 'Go 基础', link: '/go/basic/' },
+              { text: 'Go 进阶', link: '/go/advanced/' }
+            ]
+          }
         ]
       },
       { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
@@ -137,7 +150,8 @@ export default defineConfig({
       '/algorithm/tip/': algorithmTipSidebar,
       '/ai/': aiSidebar,
       '/women-health/': womenHealthSidebar,
-      '/design/': designSidebar
+      '/design/': designSidebar,
+      ...goSidebar
     },
 
     socialLinks: [
