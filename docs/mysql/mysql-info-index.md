@@ -255,6 +255,8 @@ MVCC 了解吗？
 
 - 如果两个 AB 事务并发修改⼀个变量，那么 A 读到的值是什么，怎么分析。
 
+- [分布式事务基本理论](Distributed_Transactions_Study_NotesPart1.md)
+
 ## ⾼可⽤
 
 MySQL数据库读写分离了解吗？
