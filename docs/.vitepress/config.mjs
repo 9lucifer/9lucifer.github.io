@@ -99,7 +99,7 @@ export default defineConfig({
       ],
       '/mysql/': [
         {
-          text: 'MySQL 学习',
+          text: '数据库 学习',
           items: [
               { text: 'MySQL知识体系索引', link: '/mysql/mysql-info-index' },
               { text: 'mysql锁梳理', link: '/mysql/mysql_lock' },
