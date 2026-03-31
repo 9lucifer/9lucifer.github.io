@@ -12,6 +12,7 @@ import aiSidebar from './sidebar/ai.mjs';
 import womenHealthSidebar from './sidebar/women-health.mjs';
 import designSidebar from './sidebar/design.mjs';
 import goSidebar from './sidebar/go.mjs';
+import planSidebar from './sidebar/plan.mjs';
 
 export default defineConfig({
   title: "IsaacE2 🏠",
@@ -151,6 +152,7 @@ export default defineConfig({
       '/ai/': aiSidebar,
       '/women-health/': womenHealthSidebar,
       '/design/': designSidebar,
+      '/plan/': planSidebar,
       ...goSidebar
     },
 
