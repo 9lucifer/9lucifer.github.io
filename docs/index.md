@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 个人简历
       link: /resume_v2.pdf
+    - theme: alt
+      text: 个人规划
+      link: /plan/
 ---
 
 <div v-pre>
