@@ -118,6 +118,7 @@ export default defineConfig({
               { text: 'MySQL知识体系索引', link: '/mysql/mysql-info-index' },
               { text: 'mysql锁梳理', link: '/mysql/mysql_lock' },
               { text: '分布式事务基本理论', link: '/mysql/Distributed_Transactions_Study_NotesPart1' },
+              { text: 'Seata简介', link: '/mysql/Distributed_Transactions_Study_NotesPart2' },
               { text: 'Redis知识体系索引', link: '/mysql/redis-info-index' },
           ]
         }
