@@ -13,6 +13,7 @@
 
 ## 关联文章
 - [上一篇：分布式事务基本理论](./Distributed_Transactions_Study_NotesPart1.md)
+- [下一篇：Seata AT模式介绍（Part3）](./Distributed_Transactions_Study_NotesPart3.md)
 
 ### 组件定位
 该组件刚开始是阿里内部用于解决分布式事务问题的中间件，主要模式是 AT（非侵入性） 和 TCC（侵入性），广泛用于各个业务线，主要用于解决 HSF 服务下的多数据库读写的一致性问题。
@@ -38,6 +39,11 @@ TC：事务协调器，维护全局事务和分支事务的状态，推进事务
 ### AT
 是 `seata` 主推的分布式事务解决方案，对业务无侵入，做到事务和业务分离。
 >  `seata` 里面用 AT 只需要加注解。
+
+AT 细节可以看这篇单独展开：  
+[Seata AT模式介绍（Part3）](./Distributed_Transactions_Study_NotesPart3.md)
+
+AT 模式是 Seata 默认、也最常用的一种分布式事务模式，它的特点是对业务侵入较小，开发者通常只需要像写普通本地事务一样处理业务，再由 Seata 通过数据源代理、全局锁和 undo log 机制完成分布式事务控制。其执行过程分为两阶段：第一阶段中，业务 SQL 与回滚日志会在同一个本地事务里一起提交，在提交前还要先获取全局锁；第二阶段如果全局提交，Seata 主要做异步清理，因此提交很快；如果全局回滚，则根据第一阶段记录的 undo log 进行反向补偿，把数据恢复到修改前的状态。相比 TCC，AT 不需要开发者手写 Confirm/Cancel，接入更简单，但它更依赖关系型数据库和代理机制，适合以数据库更新为主、希望低侵入实现分布式事务的一类场景。Seata 的 Spring Boot Starter 中，数据源自动代理默认就是开启的。
 
 
 ### TCC

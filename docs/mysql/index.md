@@ -12,5 +12,7 @@
 
 - [Seata简介（Part2）](Distributed_Transactions_Study_NotesPart2.md)
 
+- [Seata AT模式介绍（Part3）](Distributed_Transactions_Study_NotesPart3.md)
+
 #### redis
 - [面试知识点梳理](/mysql/redis-info-index)

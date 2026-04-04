@@ -3,7 +3,6 @@ export default {
     {
       text: 'Go 基础',
       items: [
-        { text: 'Go 简介与安装', link: '/go/basic/install' },
         { text: '基础语法', link: '/go/basic/syntax' }
       ]
     }
