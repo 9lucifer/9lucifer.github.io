@@ -11,9 +11,6 @@
   - [SAGA](#saga)
   - [XA](#xa)
 
-## 关联文章
-- [上一篇：分布式事务基本理论](./Distributed_Transactions_Study_NotesPart1.md)
-- [下一篇：Seata AT模式介绍（Part3）](./Distributed_Transactions_Study_NotesPart3.md)
 
 ### 组件定位
 该组件刚开始是阿里内部用于解决分布式事务问题的中间件，主要模式是 AT（非侵入性） 和 TCC（侵入性），广泛用于各个业务线，主要用于解决 HSF 服务下的多数据库读写的一致性问题。
@@ -48,6 +45,10 @@ AT 模式是 Seata 默认、也最常用的一种分布式事务模式，它的�
 
 ### TCC
 TCC 模式是一种基于业务层控制的分布式事务方案，将整个事务过程划分为 Try、Confirm、Cancel 三个阶段。Try 阶段主要用于预留资源和完成业务检查，Confirm 阶段在所有操作都成功后正式提交，Cancel 阶段则在出现异常时执行回滚或释放预留资源。相比 XA，TCC 不依赖底层数据库协议支持，灵活性更强、性能也更适合高并发场景，但对业务侵入较深，需要开发者为每个操作单独设计确认与补偿逻辑，实现成本相对较高。
+
+TCC 细节可以看这篇单独展开：  
+[TCC模式介绍（Part4）](./Distributed_Transactions_Study_NotesPart4.md)
+
 #### Seata 怎么实现 TCC
 Seata 实现 TCC 的核心思路是：**把业务服务本身当成事务资源**，而不是像 AT 模式那样主要依赖数据源代理。开发者需要先定义一个 TCC 接口，在 Try 方法上用 `@TwoPhaseBusinessAction` 标注，并指定对应的 `commitMethod` 和 `rollbackMethod`；如果是本地 Bean 参与，还要加 `@LocalTCC`。业务入口再通过 `@GlobalTransactional` 开启全局事务。运行时由 **TM** 发起全局事务、**TC** 负责两阶段协调、**RM** 负责执行各分支的 Try/Confirm/Cancel：Try 阶段做资源检查与预留，全部成功后由 TC 在二阶段统一下发 Confirm，否则下发 Cancel；各阶段共享 `BusinessActionContext`，其中会携带 `xid`、`branchId` 和业务参数，便于二阶段定位和处理对应分支。为了处理 TCC 常见的**幂等、空回滚、悬挂**问题，Seata 又通过 TCC 控制表或 `tcc_fence_log` 记录事务状态（如 tried、committed、rollbacked、suspended），在 Cancel/Confirm 重试或乱序到达时做状态判断，从而避免重复提交、空回滚和 Try 晚到造成的资源悬挂。
 

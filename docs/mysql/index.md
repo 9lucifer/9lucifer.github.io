@@ -14,5 +14,7 @@
 
 - [Seata AT模式介绍（Part3）](Distributed_Transactions_Study_NotesPart3.md)
 
+- [TCC模式介绍（Part4）](Distributed_Transactions_Study_NotesPart4.md)
+
 #### redis
 - [面试知识点梳理](/mysql/redis-info-index)
