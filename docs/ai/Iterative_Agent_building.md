@@ -1,4 +1,4 @@
-# agent迭代式手搓
+# agent迭代式手搓（一）
 
 > 参考https://learn.shareai.run/zh/
 
@@ -282,6 +282,208 @@ if __name__ == "__main__":
         if query.strip().lower() in ("q","exit",""):
             break
         history.append({"role": "user","content": query})
+        agent_loop(history)
+        print()
+```
+
+</details>
+
+
+
+## 三、规划功能
+
+**问题**：`agent`在执行一个10步的改动，很可能在执行几步之后就出错。原因在于随着任务的执行，上下文不断被延展，提示词的影响不断被稀释，llm就会开始逐渐放飞自我。
+
+
+
+**TodoManager 工作原理**
+
+```python
+class TodoManager:
+    def update(self, items: list) -> str:
+        validated, in_progress_count = [], 0
+        for item in items:
+            status = item.get("status", "pending")
+            if status == "in_progress":
+                in_progress_count += 1
+            validated.append({
+                "id": item["id"], 
+                "text": item["text"],
+                "status": status
+            })
+        if in_progress_count > 1:
+            raise ValueError("Only one task can be in_progress")
+        self.items = validated
+        return self.render()
+```
+
+- 每个计划项都有唯一 ID、文本和状态
+- 强制顺序执行，防止“多任务”丢失状态
+- `render()` 方法返回当前任务列表和完成进度
+
+
+
+**流程**：
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260406230455792.png" alt="image-20260406230455792" style="zoom:50%;" />
+
+
+
+**核心原理**：
+
+1. **TodoManager** 存储任务状态，分为 `pending`、`in_progress`、`completed`
+2. **单任务执行**：同时只允许一个任务处于 `in_progress`
+3. **Nag Reminder**：连续 3 轮不调用 todo，系统自动注入 `<reminder>`，提醒模型更新计划
+
+
+
+
+<details>
+<summary>点击展开/折叠代码</summary>
+
+```python
+#!/usr/bin/env python3
+import os
+import json
+import subprocess
+from pathlib import Path
+from openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv(override=True)
+api_key = os.getenv('ARK_API_KEY')
+base_url = "https://ark.cn-beijing.volces.com/api/v3"
+model_id = os.getenv("MODEL_ID", "doubao-seed-1-8-251228")
+client = OpenAI(base_url=base_url, api_key=api_key)
+WORKDIR = Path.cwd()
+SYSTEM_PROMPT = f"""You are a coding agent at {WORKDIR}.
+Use the todo tool to plan multi-step tasks. Mark in_progress before starting, completed when done.
+Prefer tools over prose. Act, don't explain."""
+TODO=None
+
+class TodoManager:
+    def __init__(self):
+        self.items=[]
+    def update(self, items: list) -> str:
+        if len(items)>20: raise ValueError("Max 20 todos allowed")
+        validated=[]
+        in_progress_count=0
+        for i,item in enumerate(items):
+            text=str(item.get("text","")).strip()
+            status=str(item.get("status","pending")).lower()
+            item_id=str(item.get("id",str(i+1)))
+            if not text: raise ValueError(f"Item {item_id}: text required")
+            if status not in ("pending","in_progress","completed"):
+                raise ValueError(f"Item {item_id}: invalid status '{status}'")
+            if status=="in_progress": in_progress_count+=1
+            validated.append({"id":item_id,"text":text,"status":status})
+        if in_progress_count>1: return "Error: Only one task can be in_progress at a time."
+        self.items=validated
+        return self.render()
+    def render(self) -> str:
+        if not self.items: return "No todos."
+        lines=["Current Tasks:"]
+        for item in self.items:
+            marker={"pending":"[ ]","in_progress":"[>]","completed":"[x]"}[item["status"]]
+            lines.append(f"{marker} #{item['id']}: {item['text']}")
+        done=sum(1 for t in self.items if t["status"]=="completed")
+        lines.append(f"\nProgress: {done}/{len(self.items)} completed")
+        return "\n".join(lines)
+TODO=TodoManager()
+
+
+def safe_path(p: str) -> Path:
+    path=(WORKDIR/p).resolve()
+    if not path.is_relative_to(WORKDIR): raise ValueError(f"Path escapes workspace: {p}")
+    return path
+
+
+def run_bash(command: str) -> str:
+    dangerous=["rm -rf /","sudo","shutdown","reboot","> /dev/"]
+    if any(d in command for d in dangerous): return "Error: Dangerous command blocked"
+    try:
+        r=subprocess.run(command,shell=True,cwd=WORKDIR,capture_output=True,text=True,timeout=120)
+        out=(r.stdout+r.stderr).strip()
+        return out[:50000] if out else "(no output)"
+    except subprocess.TimeoutExpired: return "Error: Timeout (120s)"
+
+
+def run_read(path: str, limit: int=None) -> str:
+    try:
+        lines=safe_path(path).read_text().splitlines()
+        if limit and limit<len(lines): lines=lines[:limit]+[f"... ({len(lines)-limit} more)"]
+        return "\n".join(lines)[:50000]
+    except Exception as e: return f"Error: {e}"
+
+
+def run_write(path: str, content: str) -> str:
+    try:
+        fp=safe_path(path)
+        fp.parent.mkdir(parents=True,exist_ok=True)
+        fp.write_text(content)
+        return f"Wrote {len(content)} bytes"
+    except Exception as e: return f"Error: {e}"
+
+
+def run_edit(path: str, old_text: str, new_text: str) -> str:
+    try:
+        fp=safe_path(path)
+        content=fp.read_text()
+        if old_text not in content: return f"Error: Text not found in {path}"
+        fp.write_text(content.replace(old_text,new_text,1))
+        return f"Edited {path}"
+    except Exception as e: return f"Error: {e}"
+
+
+TOOL_HANDLERS={
+    "bash":lambda **kw: run_bash(kw["command"]),
+    "read_file":lambda **kw: run_read(kw["path"],kw.get("limit")),
+    "write_file":lambda **kw: run_write(kw["path"],kw["content"]),
+    "edit_file":lambda **kw: run_edit(kw["path"],kw["old_text"],kw["new_text"]),
+    "todo":lambda **kw: TODO.update(kw["items"]),
+}
+
+
+TOOLS=[
+    {"type":"function","function":{"name":"bash","description":"Run a shell command.","parameters":{"type":"object","properties":{"command":{"type":"string"}},"required":["command"]}}},
+    {"type":"function","function":{"name":"read_file","description":"Read file contents.","parameters":{"type":"object","properties":{"path":{"type":"string"},"limit":{"type":"integer"}},"required":["path"]}}},
+    {"type":"function","function":{"name":"write_file","description":"Write content to file.","parameters":{"type":"object","properties":{"path":{"type":"string"},"content":{"type":"string"}},"required":["path","content"]}}},
+    {"type":"function","function":{"name":"edit_file","description":"Replace exact text in file.","parameters":{"type":"object","properties":{"path":{"type":"string"},"old_text":{"type":"string"},"new_text":{"type":"string"}},"required":["path","old_text","new_text"]}}},
+    {"type":"function","function":{"name":"todo","description":"Update task list. Track progress on multi-step tasks.","parameters":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"text":{"type":"string"},"status":{"type":"string","enum":["pending","in_progress","completed"]}},"required":["id","text","status"]}}},"required":["items"]}}}
+]
+
+
+def agent_loop(messages: list):
+    rounds_since_todo=0
+    while True:
+        response=client.chat.completions.create(model=model_id,messages=[{"role":"system","content":SYSTEM_PROMPT}]+messages,tools=TOOLS)
+        message=response.choices[0].message
+        messages.append(message)
+        if not message.tool_calls:
+            if message.content: print(f"\033[32mAssistant:\033[0m {message.content}")
+            return
+        used_todo=False
+        for tool_call in message.tool_calls:
+            name=tool_call.function.name
+            args=json.loads(tool_call.function.arguments)
+            if name=="todo": used_todo=True
+            handler=TOOL_HANDLERS.get(name)
+            output=handler(**args) if handler else f"Error: Unknown tool {name}"
+            print(f"\033[33m[Tool: {name}]\033[0m {str(output)[:100]}...")
+            messages.append({"role":"tool","tool_call_id":tool_call.id,"name":name,"content":str(output)})
+        rounds_since_todo=0 if used_todo else rounds_since_todo+1
+        if rounds_since_todo>=3:
+            print("\033[31m[System] Injecting todo reminder...\033[0m")
+            messages.append({"role":"user","content":"<reminder>Update your todos. You haven't updated your progress in 3 rounds.</reminder>"})
+
+
+if __name__=="__main__":
+    history=[]
+    print(f"\033[35m[Todo-Tracked Agent Ready]\033[0m Model: {model_id}")
+    while True:
+        try: query=input("\033[36ms003 >> \033[0m")
+        except (EOFError,KeyboardInterrupt): break
+        if query.strip().lower() in ("q","exit",""): break
+        history.append({"role":"user","content":query})
         agent_loop(history)
         print()
 ```
