@@ -14,7 +14,11 @@ agent的主要生产力来自于背后的语言大模型。大模型具有预测
 
 **循环退出条件**：LLM不再进行工具调用，这说明模型已经开始进行总结阶段，这个时候就可以结束整个循环。
 
-核心流程：
+为什么只用`bash`就可以：由于 Agent 的核心任务是接收模型指令并在本地执行操作，`bash` 本身就可以覆盖几乎所有系统级操作（文件操作、启动脚本、调用工具等），所以只需提供一个通用的 Bash 执行接口，就能让模型通过指令组合完成复杂任务，而无需为每种操作单独实现额外工具。
+
+至此，我们就完成了一个简单的agent，已经可以做到`创建文件-写入99乘法表-打开展示`这种复杂操作了，因为这些仅靠bash就能完成了。
+
+**核心流程**
 
 ```txt
 函数 agent_loop(消息列表):
@@ -108,3 +112,178 @@ if __name__=="__main__":
 
 </details> 
 
+
+
+## 二、维护工具集
+
+`bash`固然强大，但是在特定的场景肯定还是不如特化的工具，比如作者提到bash的安全不受约束，以及各种小工具会有自己的问题。因此我们需要解决的问题是：
+
+1. 特化工具调用；
+2. 模型的执行应该被限制在沙箱内；
+
+**解决方案**：专用工具 (`read_file`, `write_file`) 可以在工具层面做路径沙箱，因此我们引入新的工具，并事先告诉模型我们有哪些模型可以用，怎么用，供模型选择；我们拿着模型选好的工具元数据去执行，判断执行哪个工具。
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260406220439769.png" alt="image-20260406220439769" style="zoom:50%;" />
+
+> edit，bash，write，edit已经能解决我们95%的问题了
+
+
+
+**核心改动**
+
+```txt
+函数 safe_path(p):
+    path = WORKDIR / p
+    如果 path 不在 WORKDIR 下:
+        报错
+    返回 path
+
+函数 run_read(path, limit=None):
+    text = safe_path(path).读文本()
+    lines = text 分行
+    如果 limit 小于行数:
+        lines = 前 limit 行
+    返回 拼接 lines
+
+TOOL_HANDLERS = {
+    "bash": run_bash,
+    "read_file": run_read,
+    "write_file": run_write,
+    "edit_file": run_edit
+}
+
+循环 遍历 response.content:
+    如果 block 是工具调用:
+        handler = TOOL_HANDLERS[block.name] 或 None
+        output = 调用 handler(block.input) 如果存在，否则标记未知工具
+        结果 append {"type": "tool_result", "tool_use_id": block.id, "content": output}
+```
+
+
+
+
+<details>
+<summary>点击展开/折叠代码</summary>
+
+```python
+#!/usr/bin/env python3
+import os
+import json
+import subprocess
+from pathlib import Path
+from openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv(override=True)
+api_key = os.getenv('ARK_API_KEY')
+base_url = "https://ark.cn-beijing.volces.com/api/v3"
+model_id = os.getenv("MODEL_ID", "doubao-seed-1-8-251228")
+client = OpenAI(base_url=base_url, api_key=api_key)
+WORKDIR = Path.cwd()
+SYSTEM_PROMPT = f"You are a coding agent at {WORKDIR}. Use tools to solve tasks. Act, don't explain."
+TOOL_HANDLERS = {}
+
+def safe_path(p: str) -> Path:
+    path = (WORKDIR / p).resolve()
+    if not path.is_relative_to(WORKDIR):
+        raise ValueError(f"Path escapes workspace: {p}")
+    return path
+
+
+def run_bash(command: str) -> str:
+    dangerous = ["rm -rf /", "sudo", "shutdown", "reboot", "> /dev/"]
+    if any(d in command for d in dangerous):
+        return "Error: Dangerous command blocked"
+    try:
+        r = subprocess.run(command, shell=True, cwd=WORKDIR, capture_output=True, text=True, timeout=120)
+        out = (r.stdout + r.stderr).strip()
+        return out[:50000] if out else "(no output)"
+    except subprocess.TimeoutExpired:
+        return "Error: Timeout (120s)"
+
+
+def run_read(path: str, limit: int = None) -> str:
+    try:
+        text = safe_path(path).read_text()
+        lines = text.splitlines()
+        if limit and limit < len(lines):
+            lines = lines[:limit] + [f"... ({len(lines) - limit} more lines)"]
+        return "\n".join(lines)[:50000]
+    except Exception as e:
+        return f"Error: {e}"
+
+
+def run_write(path: str, content: str) -> str:
+    try:
+        fp = safe_path(path)
+        fp.parent.mkdir(parents=True, exist_ok=True)
+        fp.write_text(content)
+        return f"Wrote {len(content)} bytes to {path}"
+    except Exception as e:
+        return f"Error: {e}"
+
+
+def run_edit(path: str, old_text: str, new_text: str) -> str:
+    try:
+        fp = safe_path(path)
+        content = fp.read_text()
+        if old_text not in content:
+            return f"Error: Exact text not found in {path}"
+        fp.write_text(content.replace(old_text, new_text, 1))
+        return f"Edited {path}"
+    except Exception as e:
+        return f"Error: {e}"
+
+
+TOOL_HANDLERS = {
+    "bash": lambda **kw: run_bash(kw["command"]),
+    "read_file": lambda **kw: run_read(kw["path"], kw.get("limit")),
+    "write_file": lambda **kw: run_write(kw["path"], kw["content"]),
+    "edit_file": lambda **kw: run_edit(kw["path"], kw["old_text"], kw["new_text"]),
+}
+
+
+TOOLS = [
+    {"type": "function","function": {"name": "bash","description": "Run a shell command.","parameters": {"type": "object","properties": {"command": {"type": "string"}},"required": ["command"]}}},
+    {"type": "function","function": {"name": "read_file","description": "Read file contents.","parameters": {"type": "object","properties": {"path": {"type": "string"},"limit": {"type": "integer"}},"required": ["path"]}}},
+    {"type": "function","function": {"name": "write_file","description": "Write content to file.","parameters": {"type": "object","properties": {"path": {"type": "string"},"content": {"type": "string"}},"required": ["path","content"]}}},
+    {"type": "function","function": {"name": "edit_file","description": "Replace exact text in file.","parameters": {"type": "object","properties": {"path": {"type": "string"},"old_text": {"type": "string"},"new_text": {"type": "string"}},"required": ["path","old_text","new_text"]}}}
+]
+
+
+def agent_loop(messages: list):
+    while True:
+        response = client.chat.completions.create(model=model_id, messages=[{"role": "system", "content": SYSTEM_PROMPT}] + messages, tools=TOOLS)
+        message = response.choices[0].message
+        messages.append(message)
+        if not message.tool_calls:
+            if message.content:
+                print(f"\033[32mAssistant:\033[0m {message.content}")
+            return
+        for tool_call in message.tool_calls:
+            name = tool_call.function.name
+            args = json.loads(tool_call.function.arguments)
+            handler = TOOL_HANDLERS.get(name)
+            if handler:
+                print(f"\033[33m[Tool: {name}]\033[0m {list(args.values())[0][:50]}...")
+                output = handler(**args)
+            else:
+                output = f"Error: Unknown tool {name}"
+            messages.append({"role": "tool","tool_call_id": tool_call.id,"name": name,"content": output})
+
+
+if __name__ == "__main__":
+    history = []
+    print(f"\033[35m[Multi-Tool Agent Ready]\033[0m Model: {model_id}")
+    while True:
+        try:
+            query = input("\033[36ms002 >> \033[0m")
+        except (EOFError, KeyboardInterrupt):
+            break
+        if query.strip().lower() in ("q","exit",""):
+            break
+        history.append({"role": "user","content": query})
+        agent_loop(history)
+        print()
+```
+
+</details>
