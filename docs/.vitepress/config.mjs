@@ -68,11 +68,11 @@ export default defineConfig({
           }
         ]
       },
-      { text: '💻 计算机基础', link: '/computer/', activeMatch: '/computer/' },
+      { text: '💻 基础', link: '/computer/', activeMatch: '/computer/' },
       { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
       { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
       {
-        text: '🚀 算法练习',
+        text: '🚀 算法',
         activeMatch: '/algorithm/',
         items: [
           { text: '🔥 Hot100', link: '/algorithm/hot100/' },
@@ -80,6 +80,7 @@ export default defineConfig({
         ]
       },
       { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
+      { text: '🧩 产品', link: '/product/', activeMatch: '/product/' },
       { text: '🏗️ 系统设计', link: '/design/', activeMatch: '/design/' },
     ],
 

@@ -10,7 +10,7 @@ agent的主要生产力来自于背后的语言大模型。大模型具有预测
 
 现在有了类似`claude code`的`agent`，其实现原理也类似上面的过程，但是不同的是，我们不需要手动复制黏贴，而是靠模型自己去和真实世界交互，模型自己决定去调用哪些工具，再把工具调用结果加入到上下文，这就是一个简单的agent。
 
-<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260406213231686.png" alt="image-20260406213231686" style="zoom:50%;" />
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260406213231686.png" alt="image-20260406213231686" style="zoom:50%;" />丁
 
 **循环退出条件**：LLM不再进行工具调用，这说明模型已经开始进行总结阶段，这个时候就可以结束整个循环。
 
