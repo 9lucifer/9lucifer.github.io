@@ -8,7 +8,8 @@ export default [
         collapsed: false,
         items: [
           { text: '2026', link: '/plan/2026/index' },
-          { text: '2026-03-06 规划', link: '/plan/2026/2026_03_06' },
+          { text: '2026Q1 复盘', link: '/plan/2026/2026_01_03_re' },
+          { text: '2026Q2 规划', link: '/plan/2026/2026_04_06' },
         ]
       }
     ]
