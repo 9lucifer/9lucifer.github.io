@@ -3,7 +3,8 @@ export default {
     {
       text: 'Go 基础',
       items: [
-        { text: '基础语法', link: '/go/basic/syntax' }
+        { text: 'Go 基础首页', link: '/go/basic/' },
+        { text: 'go学习记录——基础', link: '/go/basic/go_info_v1' }
       ]
     }
   ],

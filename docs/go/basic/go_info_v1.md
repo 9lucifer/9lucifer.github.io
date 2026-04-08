@@ -1,4 +1,4 @@
-# go学习记录
+# go学习记录——基础
 
 > 记录的定位：复盘，索引，差缺补漏
 
@@ -255,5 +255,77 @@ var d = []bool{false, true} //声明一个布尔切片并初始化
 - 完整切片表达式：`a[low : high : max]`，和简单切片相比，`len`相同，但是`cap`是`max-low`，完整切片表达式只有`low`可以省略。
 - 使用`make()`函数构造切片：`make([]T, size, cap)`，其中size是元素的数量，cap是切片的容量。
 
+**切片的本质**：对底层数组的封装。切片包含了底层数组的指针，切片的长度以及切片的容量。
 
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260408103552205.png" alt="image-20260408103552205" style="zoom:50%;" />
+
+**切片判空**：务必使用`len(s) == 0`而不是`s == nil`，`=nil`说明没有底层数组，这样的数组长度和容量都是0。
+
+**切片修改**：如果两个切片基于一个底层数组，修改其一会影响另一个。
+
+**切片遍历**：同数组。
+
+**`append()`函数**：可以为切片动态添加元素，如果容量不够，会触发切片扩容，此时切片底层指向的数组会换。
+
+**扩容策略**：
+
+| 当前容量（cap）  | 扩容方式     | 新容量计算规则            | 说明                      |
+| ---------------- | ------------ | ------------------------- | ------------------------- |
+| cap < 1024       | 翻倍扩容     | newCap = 2 × cap          | 小切片快速增长，提高性能  |
+| cap ≥ 1024       | 逐步增长     | newCap ≈ 1.25 × cap       | 避免内存浪费              |
+| 不足以容纳新元素 | 至少满足需求 | newCap ≥ len + 新增元素数 | append 时优先满足容量需求 |
+| 初始切片为空     | 特殊处理     | 从 1 或所需大小开始       | 如 append(nil, x)         |
+| 多元素 append    | 按需扩容     | 可能直接跳到更大容量      | 避免多次扩容              |
+
+**copy函数**：`copy(destSlice, srcSlice []T)`，深拷贝切片。
+
+**切片删除元素**：`a = append(a[:index], a[index+1:]...)`
+
+
+
+### map
+
+map是一种无序的`k-v`结构，go的map是引用类型，需初始化才可以使用。
+
+**定义**：`map[KeyType]ValueType`
+
+**内存分配**：`make(map[KeyType]ValueType, [cap])`
+
+**基本使用**
+
+```go
+scoreMap := make(map[string]int, 8)
+scoreMap["张三"] = 90
+scoreMap["小明"] = 100
+fmt.Println(scoreMap)
+fmt.Println(scoreMap["小明"])
+
+// 也支持在声明的时候填充元素
+userInfo := map[string]string{
+	"username": "沙河小王子",
+	"password": "123456",
+}
+```
+
+
+
+**判断某个key存在**
+
+```go
+scoreMap := make(map[string]int)
+scoreMap["小明"] = 100
+// 如果key存在ok为true,v为对应的值；不存在ok为false,v为值类型的零值
+v, ok := scoreMap["张三"]
+if ok {
+	fmt.Println(v)
+} else {
+	fmt.Println("查无此人")
+}
+```
+
+
+
+**遍历map**：go使用`for range`遍历map
+
+**删除键值对**：`delete(map, key)`
 

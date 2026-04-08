@@ -22,6 +22,8 @@ Agent Harness 是一个封装 AI 模型并**管理**其生命周期、上下文�
 
 ## 二、harness组成
 
+结合`openai`、`claude`等实践，一个成熟的harness包括下面六个部分。
+
 ### （一）上下文工程
 
 上下文工程决定了模型执行时每一步能看到哪些信息，包含了系统提示词，检索的文档（rag），历史对话，工具执行结果，当前状态等。上下文工程的**挑战**在于当agent执行了几十轮之后，累积的信息会把有用的上下文推出窗口，我们需要主动管理内容，摘要内容以及清理内容。这个模块要解决的主要问题是保持`llm`的专注。
@@ -76,8 +78,157 @@ Anthropic 在这方面采用了一种较为清晰的做法：通过维护一个 
 
 核心实践包括健康检查、资源限制、优雅关闭、崩溃恢复等。缺乏生命周期管理的代理可能成为昂贵、无人监控的进程，并在静默失败中浪费资源与时间。
 
-## 三、harness实践案例-OpenAI
+
+
+## 三、实践案例-`OpenHarness`
+
+对照上面说的六个部分，我研究了下`OpenHarness`是怎么实践这六个部分的。
+
+### 1. 上下文工程                                        
+ 基于代码分析，`OpenHarness` 的上下文工程是一个多层次、自适应的系统。
+
+#### System Prompt组成
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260408182022854.png" alt="image-20260408182022854" style="zoom:50%;" />
+
+每次对话开始时重新构建，确保最新状态（在实际使用中，感觉得有优化手段比如并行去做装配工作，不然会有明显的阻塞感）。
 
 
 
-## 四、harness实践案例-OpenHarness
+#### 记忆系统
+
+```python
+ def find_relevant_memories(user_prompt: str, cwd: Path) -> list[str]:
+      """语义检索相关记忆"""
+      memory_dir = cwd / ".claude" / "memory"
+      if not memory_dir.exists():
+          return []
+
+      # 1. 读取 MEMORY.md 索引
+      index = (memory_dir / "MEMORY.md").read_text()
+    
+      # 2. 提取所有记忆文件路径
+      memory_files = _parse_memory_index(index)
+    
+      # 3. 根据用户提示词做语义匹配
+      relevant = []
+      for file_path in memory_files:
+          content = (memory_dir / file_path).read_text()
+          # 简单关键词匹配或更复杂的语义搜索
+          if _is_relevant(user_prompt, content):
+              relevant.append(content)
+    
+      return relevant[:5]  # 最多返回 5 个相关记忆
+```
+这个记忆系统的实现方式本质上是**“索引 + 按需检索 + 上下文注入”**。通过 `MEMORY.md` 作为索引文件，维护所有记忆文件的路径；在每次请求时，根据用户输入对这些记忆内容逐一进行语义匹配（可以是关键词或更复杂的相似度判断），筛选出最相关的少量记忆（最多 5 条）。同时，像 `CLAUDE.md` 这样的全局规则会被固定注入，而其他类型（用户偏好、项目上下文、反馈记录）则按相关性动态加载。最终，这些筛选后的记忆会被拼接进当前上下文，供模型参与推理使用，从而实现“按需记忆、避免上下文膨胀”的效果。
+
+| 类型       | 文件示例               | 何时注入   | 优先级 |
+| ---------- | ---------------------- | ---------- | ------ |
+| 项目规则   | `CLAUDE.md`            | 每次对话   | 最高   |
+| 用户偏好   | `memory/user_*.md`     | 语义相关时 | 高     |
+| 项目上下文 | `memory/project_*.md`  | 语义相关时 | 中     |
+| 反馈记录   | `memory/feedback_*.md` | 语义相关时 | 中     |
+
+#### 上下文窗口管理与压缩
+
+`OpenHarness` 实现了两级压缩策略：
+
+- `Micro-Compaction`（微压缩）：触发条件是对话历史超过一定长度时，清空旧工具结果的内容，保留调用记录。
+- Full Compaction（完全压缩）：触发条件：Micro 压缩后仍超过阈值，调用 LLM 生成结构化摘要
+
+> 有点类似`gc`里面的**`Minor GC`**和`Full GC`！
+
+##### 完全压缩举例
+
+```python
+async def compact_conversation(messages: list[Message], ...) -> list[Message]:
+    # 1. 构建压缩提示词
+    compact_prompt = (
+        BASE_COMPACT_PROMPT
+        + """
+        请总结以下对话，保留：
+        - 技术决策
+        - 文件路径
+        - 待办任务
+        - 错误和解决方案
+        """
+    )
+    # 2. 调用 LLM
+    summary = await llm.generate(compact_prompt + conversation_history)
+    # 3. 替换旧消息
+    return [
+        Message(role="assistant", content=f"<summary>{summary}</summary>"),
+        *messages[-6:],  # 保留最近 6 条原始消息
+    ]
+```
+
+#### 对话历史
+
+每次发送对话历史给大模型之前，都要检查是否需要压缩，工具的结果也会被加入对话（可能被微压缩清理）；保留最近的6条上下文保持语义和逻辑的连贯。
+
+
+
+### 2. 工具编排                   
+
+#### 工具调用流程
+
+<img src="https://imgtu.oss-cn-beijing.aliyuncs.com/blog_img/image-20260408200001723.png" alt="image-20260408200001723" style="zoom:50%;" />
+
+> 有点像一个简单的审核流。
+
+ LLM 永远只在第1步做决策，其余全由 Harness 控制。
+
+#### 工具定义
+
+每个工具由三个核心组件组成：
+
+```python
+class BaseTool(ABC):
+    name: str                     # LLM 看到的工具名
+    description: str              # LLM 看到的功能说明
+    input_model: type[BaseModel]  # 参数定义（Pydantic）
+
+    async def execute(...)        # 实际执行逻辑
+    def is_read_only(...)         # 是否只读（影响权限）
+    def to_api_schema(...)        # 生成 JSON Schema
+```
+
+生成的`json schema`：
+
+```json
+Pydantic 自动转换成：
+
+{
+  "name": "bash",
+  "description": "Run a shell command in the local repository.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "command": {
+        "type": "string",
+        "description": "Shell command to execute"
+      },
+      "cwd": {
+        "type": "string",
+        "description": "Working directory override"
+      },
+      "timeout_seconds": {
+        "type": "integer",
+        "default": 120,
+        "minimum": 1,
+        "maximum": 600
+      }
+    },
+    "required": ["command"]
+  }
+}
+```
+
+LLM 从来不知道工具的实现细节，它只看到这个 JSON Schema。这就是 **Harness** 的意义：**LLM 负责决策，Harness 负责执行**。
+
+
+
+### 3. 状态与内存管理                                                              
+### 4. 安全                                                                                                
+### 5. 人工介入
+### 6. 生命周期管理
