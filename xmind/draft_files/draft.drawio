@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="第 1 页" id="CjHvkFy7zRYWKIsUJ_4L">
+    <mxGraphModel dx="532" dy="627" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;fillColor=none;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="321" width="280" x="94" y="274" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;" value="&lt;div&gt;&amp;nbsp; 解决问题：&quot;崩溃后能否从中断处继续&quot;&lt;br&gt;&amp;nbsp; 存储位置：&lt;code data-start=&quot;108&quot; data-end=&quot;139&quot;&gt;~/.openharness/data/sessions/&lt;/code&gt;&lt;br&gt;&amp;nbsp; 格式：JSON（完整消息历史 + 元数据）&lt;/div&gt;" vertex="1">
+          <mxGeometry height="64" width="252" x="108" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=none;glass=1;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;1. 会话快照&lt;/font&gt;" vertex="1">
+          <mxGeometry height="28" width="86" x="103" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; 解决问题：&quot;崩溃后能否从中断处继续&quot;&lt;br&gt;&amp;nbsp; &amp;nbsp; 存储位置：&lt;code data-start=&quot;108&quot; data-end=&quot;139&quot;&gt;~/.openharness/data/sessions/&lt;/code&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; 格式：JSON（完整消息历史 + 元数据）&lt;/div&gt;" vertex="1">
+          <mxGeometry height="64" width="252" x="108" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=none;glass=1;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;2. 持久记忆&lt;/font&gt;" vertex="1">
+          <mxGeometry height="28" width="86" x="103" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;" value="&lt;p data-start=&quot;340&quot; data-end=&quot;412&quot;&gt;&amp;nbsp; &amp;nbsp; 解决问题：&quot;不依赖重放完整历史&quot;&lt;br&gt;&amp;nbsp; &amp;nbsp; 机制：Micro 压缩 + LLM 摘要&lt;br&gt;&amp;nbsp; &amp;nbsp; 效果：1 条结构化摘要 + 最近 6 条&lt;/p&gt;" vertex="1">
+          <mxGeometry height="64" width="252" x="108" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="DobTKN_0Qo6JNoRh8SZ3-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=none;glass=1;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;3. 上下文压缩&lt;/font&gt;" vertex="1">
+          <mxGeometry height="28" width="86" x="103" y="494" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
