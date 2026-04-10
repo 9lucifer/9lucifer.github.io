@@ -136,7 +136,7 @@ Anthropic 在这方面采用了一种较为清晰的做法：通过维护一个 
 - `Micro-Compaction`（微压缩）：触发条件是对话历史超过一定长度时，清空旧工具结果的内容，保留调用记录。
 - Full Compaction（完全压缩）：触发条件：Micro 压缩后仍超过阈值，调用 LLM 生成结构化摘要
 
-> 有点类似`gc`里面的**`Minor GC`**和`Full GC`！
+> 有点类似`gc`里面的`Minor GC`和`Full GC`！
 
 ##### 完全压缩举例
 
@@ -196,7 +196,6 @@ class BaseTool(ABC):
 生成的`json schema`：
 
 ```json
-Pydantic 自动转换成：
 
 {
   "name": "bash",

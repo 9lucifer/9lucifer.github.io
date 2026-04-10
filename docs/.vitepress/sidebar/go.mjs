@@ -4,7 +4,8 @@ export default {
       text: 'Go 基础',
       items: [
         { text: 'Go 基础首页', link: '/go/basic/' },
-        { text: 'go学习记录——基础', link: '/go/basic/go_info_v1' }
+        { text: 'go学习记录——基础', link: '/go/basic/go_info_v1' },
+        { text: 'go学习记录——进阶', link: '/go/basic/go_info_v2' }
       ]
     }
   ],
