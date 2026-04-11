@@ -13,8 +13,8 @@ export default {
     {
       text: 'Go 进阶',
       items: [
-        { text: '并发编程', link: '/go/advanced/concurrency' },
-        { text: '内存模型', link: '/go/advanced/memory' }
+        { text: 'Go 进阶首页', link: '/go/advanced/' },
+        { text: 'Go 并发', link: '/go/advanced/go_concurrency' }
       ]
     }
   ]
