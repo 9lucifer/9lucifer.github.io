@@ -442,3 +442,385 @@ func (接收者变量 接收者类型) 方法名(参数列表) (返回参数) {
 
 > 切记不要在键值之间加多余空格
 
+
+
+### 接口
+
+接口更倾向于描述<u>能做什么</u>，约定一个类型应该具备哪些方法。
+
+go里面提倡面向接口编程，从而实现<u>**解耦**</u>。
+
+接口类型是一组方法的集合，规定了需要实现的所有方法，接口类型由任意个方法签名构成，定义格式如下：
+
+```go
+type 接口类型名 interface{
+    方法名1( 参数列表1 ) 返回值列表1
+    方法名2( 参数列表2 ) 返回值列表2
+    …
+}
+```
+
+- 当**方法名**首字母是大写且这个**接口类型**名首字母也是大写时，这个方法可以被接口所在的包之外的代码访问。
+
+#### 接口实现
+
+Go 语言中的类型只要实现了接口中的**所有方法**，就称实现了该接口。
+
+举例，定义接口如下：
+
+```go
+type Singer interface {
+	Sing()
+}
+```
+
+有一个结构体：`type Bird struct {}`
+
+只要给该结构体加一个方法就可以实现该接口：
+
+```go
+func (b Bird) Sing() {
+	fmt.Println("汪汪汪")
+}
+```
+
+> 一个接口类型的变量能够存储**所有**实现了该接口的类型变量。
+
+注意：
+
+- 一个类型能实现多个不同的接口
+
+- 也可以多个类型实现一个接口（这个指的是一个结构体以及其嵌套的子结构体一起实现）
+
+  ```go
+  type RW interface {
+  	Read()
+  	Write()
+  }
+  
+  type A struct{}
+  func (A) Read() {}
+  
+  type B struct{}
+  func (B) Write() {}
+  
+  type C struct {
+  	A
+  	B
+  }
+  ```
+
+
+
+#### 接口的意义
+
+让代码面向行为编程，而不是面向具体类型编程，一套类似的逻辑可以用一个统一的方法去处理。在实际开发中，很多场景并不关心对象的具体类型，而只关心它是否具备某种能力。
+
+比如在<u>电商系统</u>中，用户可以选择<u>支付宝</u>、<u>微信</u>、<u>银联</u>等不同支付方式，但交易流程本身并不需要区分具体用的是哪一种，只要该方式能够提供 `Pay` 方法完成支付即可。
+
+接口的意义就在于此：它把<u>不同的具体实现</u>统一抽象为**相同的行为**，使代码能够面向能力编程，而不是面向具体类型编程。
+
+#### 值接收和指针接收
+
+值接收者实现接口：值和指针**都**可以实现接口
+指针接收者实现接口：**只有指针**可以实现接口（值不行）
+
+原理：接口匹配的是“方法集合”：
+
+> 方法集合：某个类型，按 Go 的规则，真正算拥有的方法有哪些。
+
+值类型 `T`只拥有：
+```
+func (t T) xxx()
+```
+
+指针类型 `*T`拥有：
+
+```
+func (t T) xxx()
+func (t *T) xxx()
+```
+
+如果是值接收者，T和*T都有对应的方法，所以都满足；
+
+如果是指针接收者，只有*T有；
+
+
+
+#### 接口组合
+
+##### 接口和接口组合
+
+把多个接口“拼在一起”，形成一个更大的接口
+
+```go
+type ReadWriter interface {
+    Reader
+    Writer
+}
+```
+
+##### 接口和结构体组合
+
+把接口当字段放进结构体，让结构体“继承”接口能力，举例：
+
+```go
+type Interface interface {
+    Len() int
+    Less(i, j int) bool
+    Swap(i, j int)
+}
+
+type reverse struct {
+    Interface
+}
+```
+
+`reverse` 会自动拥有`Len()`、`Less()`、`Swap()`，因为这些方法来自它内部的 `Interface`
+
+**优点**：可以实现特定方法的重写。
+
+>  结构体嵌入接口 = 默认复用 + 局部重写
+
+
+
+#### 空接口
+
+空接口是指没有定义任何方法的接口类型。
+
+任何类型都可以视为实现了空接口。因为这个特性，空接口类型的变量可以存储任意类型的值。
+
+通常在使用空接口类型直接使用`interface{}`：`var x interface{}  // 声明一个空接口类型变量x`
+
+##### 应用
+
+1. 空接口作为函数的参数，使用空接口实现可以接收任意类型的函数参数。
+
+   ```go
+   func show(a interface{}) {
+   	fmt.Printf("type:%T value:%v\n", a, a)
+   }
+   ```
+
+2. 空接口作为map的值
+
+   ```go
+   // 空接口作为map值
+   var studentInfo = make(map[string]interface{})
+   studentInfo["name"] = "沙河娜扎"
+   studentInfo["age"] = 18
+   studentInfo["married"] = false
+   fmt.Println(studentInfo)
+   ```
+
+   
+
+#### 类型断言
+
+一个接口值，本质包含两部分：
+
+1. **动态类型**（里面实际是什么类型，比如 `*Dog`）
+2. **动态值**（具体数据，比如 `{Name: "旺财"}`）
+
+##### 两种写法
+
+1. 安全写法
+
+```
+v, ok := x.(*Dog)
+```
+
+- `v`：转换后的值
+- `ok`：是否成功
+
+2. 不安全写法
+
+```
+v := x.(*Dog)
+```
+
+如果不是 `*Dog`，直接崩：
+
+```
+panic: interface conversion: xxx is not *Dog
+```
+
+> 类型断言本质是从“接口类型”拿回“具体类型”
+
+**提前发现**：var _ 接口 = 类型 是一种编译期断言，用来保证某个类型确实实现了该接口。
+
+
+
+### error接口
+
+go语言中，error是一种类型，更强调判断错误和处理错误。
+
+Go 语言中使用一个名为 `error` 接口来表示错误类型。
+
+```go
+type error interface {
+    Error() string
+}
+```
+
+该接口只包含一个方法`Error()`，返回描述错误信息的字符串。
+
+#### 默认值和判断
+
+由于error是一个接口，默认值是nil，所以一般把error和nil对比从而判断是否有error。
+
+#### 创建错误
+
+我们可以用errors包自定义的`New`函数创建一个错误，例：
+
+```go
+func queryById(id int64) (*Info, error) {
+	if id <= 0 {
+		return nil, errors.New("无效的id")
+	}
+
+	// ...
+}
+```
+
+#### `fmt.Errorf`
+
+当我们需要传入格式化的错误描述信息时，可以使用`fmt.Errorf`。
+
+```go
+func GetUser() error {
+	err := errors.New("数据库连接超时")
+	if err != nil {
+		return fmt.Errorf("查询数据库失败，err:%v", err)
+	}
+	return nil
+}
+```
+
+但是上面的方式会丢失原有的错误类型，只拿到错误描述的文本信息。
+
+为了**不丢失**函数调用的错误链，使用`fmt.Errorf`时搭配使用特殊的格式化动词`%w`，可以实现基于已有错误包装得到一个新的错误。
+
+```go
+fmt.Errorf("查询数据库失败，err:%w", err)
+```
+
+对于这种二次包装的错误，`errors`包中提供了以下三个方法。
+
+```go
+func Unwrap(err error) error                 // 获得err包含下一层错误
+func Is(err, target error) bool              // 判断err是否包含target
+func As(err error, target interface{}) bool  // 判断err是否为target类型
+```
+
+
+
+### 反射
+
+go的变量分为两部分，类型信息和值信息；反射指的是程序在编译期间把变量的信息比如字段名，类型信息等整合到可执行文件中，并提供接口，使得程序运行期间能访问和修改这些信息。
+
+例如：go可以用反射去获取空接口的类型。
+
+在Go语言中反射的相关功能由内置的reflect包提供，任意接口值在反射中都可以理解为由`reflect.Type`和`reflect.Value`两部分组成，并且reflect包提供了`reflect.TypeOf`和`reflect.ValueOf`两个函数来获取任意对象的Value和Type。
+
+#### 取类型
+
+- `reflect.TypeOf`：可以获得任意值的类型对象。
+
+在反射中，类型分为 **Type** 和 **Kind**。`Type` 指具体类型，包括用户自定义类型；`Kind` 指底层类别，用来表示它属于哪一大类，例如指针、结构体、整数等。由于 Go 可以通过 `type` 定义很多新类型，所以多个不同的 `Type` 可能对应同一种 `Kind`。例如，两个自定义结构体的 `Type` 不同，但它们的 `Kind` 都是 `struct`；两个不同的指针类型，`Type` 不同，但 `Kind` 都是 `ptr`。
+
+例如：
+
+```go
+func reflectType(x interface{}) {
+	t := reflect.TypeOf(x)
+	fmt.Printf("type:%v kind:%v\n", t.Name(), t.Kind())
+}
+
+func main() {
+	var a *float32 // 指针
+	reflectType(a) // type: kind:ptr
+}
+```
+
+`Name()` → 具体类型叫什么
+
+`Kind()` → 它底层属于哪一类
+
+> Go语言的反射中像数组、切片、Map、指针等类型的变量，它们的`.Name()`都是返回`空`。
+
+#### 取值
+
+- `reflect.ValueOf()`：返回`reflect.Value`类型，包含了原始值的值信息。`reflect.Value`与原始值之间可以互相转换，例如：
+
+```go
+func reflectValue(x interface{}) {
+	v := reflect.ValueOf(x)
+
+	switch v.Kind() {
+	case reflect.Int64:
+		fmt.Println("int64:", v.Int())
+	case reflect.Float32, reflect.Float64:
+		fmt.Println("float:", v.Float())
+	}
+}
+
+func main() {
+	var a float32 = 3.14
+	var b int64 = 100
+
+	reflectValue(a)
+	reflectValue(b)
+}
+```
+
+
+
+#### 设置值
+
+反射修改值时，必须传入变量地址。因为函数参数默认是值拷贝，直接反射拿到的是副本，不能修改原变量；只有**传指针**，再用 `Elem()` 取到指针指向的值，才能修改成功。
+
+```
+func setValue(x interface{}) {
+	v := reflect.ValueOf(x)
+	if v.Elem().Kind() == reflect.Int64 {
+		v.Elem().SetInt(200)
+	}
+}
+
+func main() {
+	var a int64 = 100
+	setValue(&a)
+	fmt.Println(a) // 200
+}
+```
+
+
+
+#### `IsNil()` 和 `IsValid()` 的区别
+
+**`IsNil()`**：判断“值是不是 `nil`”
+ 只能用于这些类型：**指针、接口、切片、map、chan、func**，否则会 `panic`。
+
+**`IsValid()`**：判断“这个反射值存不存在、是否有效”
+ 常用于判断查找结果是否找到。若是无效值，除了 `IsValid`、`Kind`、`String` 外，调用其他方法基本都会 `panic`。
+
+```go
+func main() {
+	var p *int
+	fmt.Println(reflect.ValueOf(p).IsNil())   // true
+	fmt.Println(reflect.ValueOf(nil).IsValid()) // false
+
+	m := map[string]int{}
+	v := reflect.ValueOf(m).MapIndex(reflect.ValueOf("x"))
+	fmt.Println(v.IsValid()) // false
+}
+```
+
+
+
+#### 反射缺点
+
+1. 反射中的类型错误会在运行的时候才会引发panic，很可能是在代码写完很久之后。
+2. 大量用反射的代码难以理解。
+3. 反射的性能低下，比正常代码运行速度慢。
