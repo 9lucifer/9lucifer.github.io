@@ -11,6 +11,7 @@ import algorithmTipSidebar from './sidebar/algorithm-tip.mjs';
 import aiSidebar from './sidebar/ai.mjs';
 import womenHealthSidebar from './sidebar/women-health.mjs';
 import designSidebar from './sidebar/design.mjs';
+import productSidebar from './sidebar/product.mjs';
 import goSidebar from './sidebar/go.mjs';
 import planSidebar from './sidebar/plan.mjs';
 
@@ -154,6 +155,7 @@ export default defineConfig({
       '/algorithm/hot100/': algorithmHot100Sidebar,
       '/algorithm/tip/': algorithmTipSidebar,
       '/ai/': aiSidebar,
+      '/product/': productSidebar,
       '/women-health/': womenHealthSidebar,
       '/design/': designSidebar,
       '/plan/': planSidebar,
