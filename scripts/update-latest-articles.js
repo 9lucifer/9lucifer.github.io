@@ -43,6 +43,7 @@ function getCategory(filePath) {
   if (filePath.includes('/ai/')) return '人工智能';
   if (filePath.includes('/design/')) return '系统设计';
   if (filePath.includes('/plan/')) return '个人规划';
+  if (filePath.includes('/product/')) return '产品';
   return '其他';
 }
 

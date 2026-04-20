@@ -7,3 +7,4 @@
 ## 学习记录
 
 - [产品思维学习](./product_mind_info_v1.md)
+- [飞书多维表格产品分析](./LarkBitableProductAnalysis.md)
