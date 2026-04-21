@@ -60,7 +60,7 @@ export default defineConfig({
     // 导航栏
     nav: [
       {
-        text: '🖥️ 后端',
+        text: '后端',
         activeMatch: '/(java|go)/',
         items: [
           {
@@ -81,20 +81,20 @@ export default defineConfig({
           }
         ]
       },
-      { text: '💻 基础', link: '/computer/', activeMatch: '/computer/' },
-      { text: '🗄️ 数据库', link: '/mysql/', activeMatch: '/mysql/' },
-      { text: '⚙️ 中间件', link: '/center/', activeMatch: '/center/' },
+      { text: '基础', link: '/computer/', activeMatch: '/computer/' },
+      { text: '数据库', link: '/mysql/', activeMatch: '/mysql/' },
+      { text: '中间件', link: '/center/', activeMatch: '/center/' },
       {
-        text: '🚀 算法',
+        text: '算法',
         activeMatch: '/algorithm/',
         items: [
           { text: '🔥 Hot100', link: '/algorithm/hot100/' },
           { text: '💡 算法技巧', link: '/algorithm/tip/' }
         ]
       },
-      { text: '🤖 AI', link: '/ai/', activeMatch: '/ai/' },
-      { text: '🧩 产品', link: '/product/', activeMatch: '/product/' },
-      { text: '🏗️ 系统设计', link: '/design/', activeMatch: '/design/' },
+      { text: 'AI', link: '/ai/', activeMatch: '/ai/' },
+      { text: '产品', link: '/product/', activeMatch: '/product/' },
+      { text: '系统设计', link: '/design/', activeMatch: '/design/' },
     ],
 
     // 侧边栏
