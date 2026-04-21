@@ -5,6 +5,7 @@ package-lock.json
 # VitePress 缓存和构建产物
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+/.vitepress/
 .temp/
 .cache/
 

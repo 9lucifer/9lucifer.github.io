@@ -1,4 +1,6 @@
 # mysql数据库——锁
+<PageViewCount />
+
 
 ## 一、什么是数据库锁
 

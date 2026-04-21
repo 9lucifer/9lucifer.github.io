@@ -1,4 +1,6 @@
 #  📚 MySQL悲观锁深度解析 | 从原理到实战避坑指南 
+<PageViewCount />
+
 
 ---
 

@@ -1,4 +1,6 @@
 # Seata AT 模式介绍
+<PageViewCount />
+
 
 >   from《正本清源分布式事务之 Seata》-第三章
 

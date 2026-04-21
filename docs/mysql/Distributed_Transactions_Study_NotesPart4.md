@@ -1,4 +1,6 @@
 # TCC 模式介绍
+<PageViewCount />
+
 >   from《正本清源分布式事务之 Seata》-第四章
 
 ## 目录

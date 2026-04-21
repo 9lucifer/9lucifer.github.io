@@ -1,4 +1,6 @@
 # 分布式事务基本理论
+<PageViewCount />
+
 
 
 >  from《正本清源分布式事务之 Seata》-第一章

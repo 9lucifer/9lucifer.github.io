@@ -1,4 +1,6 @@
 # Mysql知识体系[索引]
+<PageViewCount />
+
 
 ## 基础
 

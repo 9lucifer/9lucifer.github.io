@@ -1,4 +1,6 @@
 # Seata 简介
+<PageViewCount />
+
 >   from《正本清源分布式事务之 Seata》-第二章
 
 ## 目录

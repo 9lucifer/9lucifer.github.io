@@ -27,8 +27,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
     // 现代浏览器适配
     ['link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],
-    // Vercount 访问计数器脚本
-    ['script', { defer: true, src: 'https://events.vercount.one/js' }],
     // 自定义 CSS
     ['link', { rel: 'stylesheet', href: '/css/home.css?v=20260410-design-ui-1' }],
     // 自定义 JS
