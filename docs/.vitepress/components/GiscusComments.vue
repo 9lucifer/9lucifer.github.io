@@ -1,63 +1,49 @@
 <template>
   <div v-if="enabled" class="giscus-comments">
-    <div ref="container" class="giscus-comments__inner" />
+    <div class="giscus-comments__header">
+      <span class="giscus-comments__title">评论区</span>
+      <span class="giscus-comments__hint">欢迎交流</span>
+    </div>
+    <Giscus
+      id="comments"
+      :key="route.path"
+      repo="9lucifer/9lucifer.github.io"
+      repo-id="R_kgDOOVGq5Q"
+      category="Announcements"
+      category-id="DIC_kwDOOVGq5c4C7VwI"
+      mapping="pathname"
+      strict="0"
+      reactions-enabled="1"
+      emit-metadata="0"
+      input-position="top"
+      lang="zh-CN"
+      loading="lazy"
+      :theme="theme"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import Giscus from '@giscus/vue'
+import { computed, watch } from 'vue'
 import { inBrowser, useData, useRoute } from 'vitepress'
 
-const { frontmatter, isDark } = useData()
+const { frontmatter, isDark, page } = useData()
 const route = useRoute()
-const container = ref(null)
-
-const enabled = computed(() => frontmatter.value.comment !== false)
-
-const getTheme = () => (isDark.value ? 'dark' : 'light')
-
-const cleanup = () => {
-  if (container.value) {
-    container.value.innerHTML = ''
-  }
-}
-
-const loadGiscus = () => {
-  if (!inBrowser || !container.value || !enabled.value) {
-    cleanup()
-    return
-  }
-
-  cleanup()
-
-  const script = document.createElement('script')
-  script.src = 'https://giscus.app/client.js'
-  script.async = true
-  script.crossOrigin = 'anonymous'
-  script.setAttribute('data-repo', '9lucifer/9lucifer.github.io')
-  script.setAttribute('data-repo-id', 'R_kgDOOVGq5Q')
-  script.setAttribute('data-category', 'Announcements')
-  script.setAttribute('data-category-id', 'DIC_kwDOOVGq5c4C7VwI')
-  script.setAttribute('data-mapping', 'pathname')
-  script.setAttribute('data-strict', '0')
-  script.setAttribute('data-reactions-enabled', '1')
-  script.setAttribute('data-emit-metadata', '0')
-  script.setAttribute('data-input-position', 'top')
-  script.setAttribute('data-theme', getTheme())
-  script.setAttribute('data-lang', 'zh-CN')
-
-  container.value.appendChild(script)
-}
+const theme = computed(() => (isDark.value ? 'dark' : 'light'))
 
 const syncTheme = () => {
   if (!inBrowser) return
 
-  const iframe = document.querySelector('iframe.giscus-frame')
+  const iframe = document
+    .querySelector('giscus-widget')
+    ?.shadowRoot?.querySelector('iframe')
+
   iframe?.contentWindow?.postMessage(
     {
       giscus: {
         setConfig: {
-          theme: getTheme()
+          theme: theme.value
         }
       }
     },
@@ -65,34 +51,16 @@ const syncTheme = () => {
   )
 }
 
-watch(
-  () => route.path,
-  async () => {
-    await nextTick()
-    loadGiscus()
-  }
-)
-
-watch(enabled, async (value) => {
-  await nextTick()
-  if (value) {
-    loadGiscus()
-    return
-  }
-
-  cleanup()
+const enabled = computed(() => {
+  const relativePath = page.value.relativePath || ''
+  if (frontmatter.value.comment === false) return false
+  if (!relativePath.startsWith('mysql/')) return false
+  if (relativePath === 'mysql/index.md') return false
+  return true
 })
 
 watch(isDark, () => {
   syncTheme()
-})
-
-onMounted(() => {
-  loadGiscus()
-})
-
-onBeforeUnmount(() => {
-  cleanup()
 })
 </script>
 
@@ -103,7 +71,30 @@ onBeforeUnmount(() => {
   border-top: 1px solid var(--vp-c-divider);
 }
 
-.giscus-comments__inner {
-  min-height: 160px;
+.giscus-comments__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.giscus-comments__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+.giscus-comments__hint {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+@media (max-width: 640px) {
+  .giscus-comments__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 </style>

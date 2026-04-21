@@ -6,6 +6,7 @@
     "pageview:add": "node scripts/add-page-view-count.js"
   },
   "dependencies": {
+    "@giscus/vue": "^3.1.1",
     "echarts": "^6.0.0",
     "vitepress": "^1.6.3",
     "xmind": "^2.2.33"
