@@ -54,8 +54,7 @@ const syncTheme = () => {
 const enabled = computed(() => {
   const relativePath = page.value.relativePath || ''
   if (frontmatter.value.comment === false) return false
-  if (!relativePath.startsWith('mysql/')) return false
-  if (relativePath === 'mysql/index.md') return false
+  if (!relativePath) return false
   return true
 })
 
