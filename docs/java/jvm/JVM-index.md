@@ -1,4 +1,5 @@
 # JVM知识体系[索引]
+<PageViewCount />
 
 ## 概述
 

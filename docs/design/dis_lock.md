@@ -1,4 +1,5 @@
 # 分布式锁
+<PageViewCount />
 
 > 面试和面试之外
 

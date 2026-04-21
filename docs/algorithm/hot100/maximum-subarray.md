@@ -1,4 +1,6 @@
 # 13. 最大子数组和
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/maximum-subarray
 
 ### 解题思路

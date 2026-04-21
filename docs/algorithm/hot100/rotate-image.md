@@ -1,4 +1,6 @@
 # 20. 旋转图像
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/rotate-image
 
 ### 解题思路

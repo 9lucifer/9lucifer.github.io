@@ -1,4 +1,6 @@
 # 51. 岛屿数量
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/number-of-islands/
 
 ### 解题思路

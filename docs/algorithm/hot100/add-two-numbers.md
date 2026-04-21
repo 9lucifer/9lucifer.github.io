@@ -1,4 +1,6 @@
 # 28. 两数相加
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/add-two-numbers/
 
 ### 解题思路

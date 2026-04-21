@@ -1,4 +1,6 @@
 # 54. 实现 Trie (前缀树)
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/implement-trie-prefix-tree/
 
 ### 解题思路

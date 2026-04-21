@@ -1,4 +1,6 @@
 # 62. N 皇后
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/n-queens/
 
 ### 解题思路

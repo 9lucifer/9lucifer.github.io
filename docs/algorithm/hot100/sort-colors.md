@@ -1,4 +1,6 @@
 # 98. 颜色分类
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/sort-colors/
 
 ### 解题思路

@@ -1,4 +1,5 @@
 # go并发
+<PageViewCount />
 
 ## 并发基础
 

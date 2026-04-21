@@ -1,4 +1,6 @@
 # 55. 全排列
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/permutations/
 
 ### 解题思路

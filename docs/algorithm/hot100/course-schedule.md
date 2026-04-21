@@ -1,4 +1,6 @@
 # 53. 课程表
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/course-schedule/
 
 ### 解题思路

@@ -1,4 +1,6 @@
 # 6. 三数之和
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/3sum
 
 小黑盒二面好像必问三数之和的三种解法，私以为是新时代的茴香豆几种写法了。

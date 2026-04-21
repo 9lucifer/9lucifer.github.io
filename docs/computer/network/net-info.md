@@ -1,4 +1,5 @@
 # 计算机网络重点知识
+<PageViewCount />
 
 > from《小林coding计算机网络》
 

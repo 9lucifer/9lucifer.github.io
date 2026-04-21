@@ -1,4 +1,5 @@
 # bean的生命周期
+<PageViewCount />
 
 bean的生命周期可以分为下面五个阶段。
 

@@ -1,4 +1,6 @@
 # 4. 移动零
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/move-zeroes
 
 ### 解题思路

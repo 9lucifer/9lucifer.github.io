@@ -1,4 +1,6 @@
 # 91. 不同路径
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/unique-paths/
 
 ### 解题思路

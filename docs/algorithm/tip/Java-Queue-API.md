@@ -1,4 +1,5 @@
 # Java Queue 接口 API 介绍
+<PageViewCount />
 
 ------
 

@@ -1,4 +1,6 @@
 # 24. 回文链表
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/palindrome-linked-list
 
 ### 解题思路

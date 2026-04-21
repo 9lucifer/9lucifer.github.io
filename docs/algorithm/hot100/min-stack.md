@@ -1,4 +1,6 @@
 # 70. 最小栈
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/min-stack/
 
 ### 解题思路

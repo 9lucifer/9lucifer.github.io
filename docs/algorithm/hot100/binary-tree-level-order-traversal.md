@@ -1,4 +1,6 @@
 # 41. 二叉树的层序遍历
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/binary-tree-level-order-traversal/
 
 ### 解题思路

@@ -1,4 +1,6 @@
 # 12. 最小覆盖子串
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/minimum-window-substring
 
 ### 解题思路

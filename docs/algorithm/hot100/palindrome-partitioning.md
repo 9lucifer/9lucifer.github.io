@@ -1,4 +1,6 @@
 # 61. 分割回文串
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/palindrome-partitioning/
 
 ### 解题思路

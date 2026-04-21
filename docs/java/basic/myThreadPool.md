@@ -1,4 +1,5 @@
 # 手写线程池实战：从原理到实现，深入理解线程池工作机制
+<PageViewCount />
 
 > 本文参考B站技术视频 [《Java手写线程池实战》](https://www.bilibili.com/video/BV1cJf2YXEw3/) 的核心思路实现，结合代码解析线程池设计思想
 

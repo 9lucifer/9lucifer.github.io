@@ -1,4 +1,6 @@
 # 36. 二叉树的中序遍历
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/binary-tree-inorder-traversal/
 
 ### 解题思路

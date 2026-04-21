@@ -1,4 +1,6 @@
 # 10. 和为k的子数组
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/subarray-sum-equals-k
 
 ### 解题思路

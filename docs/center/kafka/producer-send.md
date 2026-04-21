@@ -1,4 +1,5 @@
 # kafka生产者发送消息流程
+<PageViewCount />
 
 下面是发送消息的测试代码：
 

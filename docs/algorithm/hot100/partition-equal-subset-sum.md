@@ -1,4 +1,6 @@
 # 89. 分割等和子集
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/partition-equal-subset-sum/
 
 ### 解题思路

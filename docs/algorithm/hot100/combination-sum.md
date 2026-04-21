@@ -1,4 +1,6 @@
 # 58. 组合总和
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/combination-sum/
 
 ### 解题思路

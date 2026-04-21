@@ -1,4 +1,6 @@
 # 69. 有效的括号
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/valid-parentheses/
 
 ### 解题思路

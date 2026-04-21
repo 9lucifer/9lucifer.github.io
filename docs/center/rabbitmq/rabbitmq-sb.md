@@ -1,4 +1,5 @@
 # rabbitmq五种模式的实现——springboot
+<PageViewCount />
 
 > 基础知识和javase的实现形式可以看我之前的博客
 >

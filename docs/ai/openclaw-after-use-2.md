@@ -1,4 +1,5 @@
 # openclaw 使用体验（二）
+<PageViewCount />
 
 一个字——拉。
 

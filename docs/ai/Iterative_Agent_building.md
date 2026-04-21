@@ -1,4 +1,5 @@
 # agent迭代式手搓（一）
+<PageViewCount />
 
 > 参考https://learn.shareai.run/zh/
 

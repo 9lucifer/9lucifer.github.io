@@ -1,4 +1,5 @@
 # kafka疑难杂症
+<PageViewCount />
 
 
 

@@ -1,4 +1,6 @@
 # 17. 缺失的第一个正数
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/first-missing-positive
 
 ### 解题思路

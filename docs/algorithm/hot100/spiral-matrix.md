@@ -1,4 +1,6 @@
 # 19. 螺旋矩阵
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/spiral-matrix
 
 ### 解题思路

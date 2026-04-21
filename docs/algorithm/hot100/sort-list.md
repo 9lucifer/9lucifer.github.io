@@ -1,4 +1,6 @@
 # 33. 排序链表
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/sort-list/
 
 ### 解题思路

@@ -1,4 +1,6 @@
 # 22. 相交链表
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/intersection-of-two-linked-lists
 
 ### 解题思路

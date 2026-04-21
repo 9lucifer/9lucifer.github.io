@@ -1,4 +1,6 @@
 # 80. 划分字母区间
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/partition-labels/
 
 ### 解题思路

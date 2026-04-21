@@ -1,4 +1,6 @@
 # 63. 搜索插入位置
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/search-insert-position/
 
 ### 解题思路

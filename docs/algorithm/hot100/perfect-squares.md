@@ -1,4 +1,6 @@
 # 84. 完全平方数
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/perfect-squares/
 
 ### 解题思路

@@ -1,4 +1,6 @@
 # 23. 反转链表
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/reverse-linked-list
 
 ### 解题思路

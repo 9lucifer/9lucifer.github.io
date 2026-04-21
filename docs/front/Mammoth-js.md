@@ -1,4 +1,5 @@
 # 📄 使用 Mammoth.js 渲染 Word 文档为 HTML：详细教程 🚀
+<PageViewCount />
 
 在现代 Web 开发中，处理 Word 文档并将其渲染为 HTML 是一个常见的需求。Mammoth.js 是一个强大的 JavaScript 库，能够将 `.docx` 文件转换为 HTML，非常适合在网页中展示文档内容。本文将详细介绍如何使用 Mammoth.js 渲染 Word 文档，并提供一个完整的代码示例。🌟
 

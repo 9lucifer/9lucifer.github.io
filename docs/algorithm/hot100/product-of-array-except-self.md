@@ -1,4 +1,6 @@
 # 16. 除了自身以外数组的乘积
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/product-of-array-except-self
 
 ### 解题思路

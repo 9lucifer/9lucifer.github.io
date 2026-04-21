@@ -1,4 +1,6 @@
 # 82. 杨辉三角
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/pascals-triangle/
 
 ### 解题思路

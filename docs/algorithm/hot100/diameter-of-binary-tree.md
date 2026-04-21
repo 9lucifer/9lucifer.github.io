@@ -1,4 +1,6 @@
 # 40. 二叉树的直径
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/diameter-of-binary-tree/
 
 ### 解题思路

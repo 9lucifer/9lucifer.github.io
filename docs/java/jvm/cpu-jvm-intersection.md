@@ -1,4 +1,5 @@
 # cpu&amp;指令重排
+<PageViewCount />
 
 ## cpu是什么
 

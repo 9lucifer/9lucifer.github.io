@@ -1,4 +1,6 @@
 # 94. 最长公共子序列
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/longest-common-subsequence/
 
 ### 解题思路

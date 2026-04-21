@@ -1,4 +1,6 @@
 # 11. 滑动窗口最大值
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/sliding-window-maximum
 
 ### 解题思路

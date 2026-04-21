@@ -1,4 +1,5 @@
 # Harness调研与分析
+<PageViewCount />
 
 ## 一、传统agent的问题
 

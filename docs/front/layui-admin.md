@@ -1,4 +1,5 @@
 # 后端程序员好上手的前端框架——layui
+<PageViewCount />
 
 layui的基础之后再补，现在是介绍**pear admin layui**
 

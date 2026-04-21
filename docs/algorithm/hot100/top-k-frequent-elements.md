@@ -1,4 +1,6 @@
 # 75. 前 K 个高频元素
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/top-k-frequent-elements/
 
 ### 解题思路

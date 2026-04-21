@@ -1,4 +1,6 @@
 # 78. 跳跃游戏
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/jump-game/
 
 ### 解题思路

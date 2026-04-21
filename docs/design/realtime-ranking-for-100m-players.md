@@ -1,4 +1,5 @@
 # 1亿玩家实时战绩排名方案
+<PageViewCount />
 
 >  学而习之：https://mp.weixin.qq.com/s/ZhVULR3esu66ZrMVaCEm2g?scene=1
 

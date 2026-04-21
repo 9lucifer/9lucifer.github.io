@@ -1,4 +1,6 @@
 # 96. 只出现一次的数字
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/single-number/
 
 ### 解题思路

@@ -1,4 +1,5 @@
 # OpenClaw 开源项目分析
+<PageViewCount />
 
 ## 一、项目定位
 

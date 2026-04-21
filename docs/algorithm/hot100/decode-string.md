@@ -1,4 +1,6 @@
 # 71. 字符串解码
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/decode-string/
 
 ### 解题思路

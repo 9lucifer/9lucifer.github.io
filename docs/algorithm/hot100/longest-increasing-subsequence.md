@@ -1,4 +1,6 @@
 # 87. 最长递增子序列
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/longest-increasing-subsequence/
 
 ### 解题思路

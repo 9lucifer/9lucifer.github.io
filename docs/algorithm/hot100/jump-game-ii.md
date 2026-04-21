@@ -1,4 +1,6 @@
 # 79. 跳跃游戏 II
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/jump-game-ii/
 
 ### 解题思路

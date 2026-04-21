@@ -1,4 +1,6 @@
 # 35. LRU 缓存
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/lru-cache/
 
 ### 解题思路

@@ -1,4 +1,6 @@
 # 52. 腐烂的橘子
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/rotting-oranges/
 
 ### 解题思路

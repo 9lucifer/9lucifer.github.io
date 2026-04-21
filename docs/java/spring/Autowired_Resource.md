@@ -1,4 +1,5 @@
 # Autowired和Resource
+<PageViewCount />
 
 如果使⽤ `@Autowired `注解注⼊ Bean 时，IDEA 会提示“Field injection is not recommended”。主要原因如下：
 

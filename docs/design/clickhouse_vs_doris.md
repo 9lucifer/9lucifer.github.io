@@ -1,4 +1,5 @@
 # clickhouse和doris对比
+<PageViewCount />
 
 > 这篇博客（https://cloud.tencent.com/developer/article/2506311）总结的很全，我就在此基础上，汇聚高见，站在前人肩膀上壮大几身，
 

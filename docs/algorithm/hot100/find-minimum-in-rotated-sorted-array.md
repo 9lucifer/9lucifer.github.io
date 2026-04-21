@@ -1,4 +1,6 @@
 # 67. 寻找旋转排序数组中的最小值
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/
 
 ### 解题思路

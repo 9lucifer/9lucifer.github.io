@@ -1,4 +1,6 @@
 # 50. 二叉树中的最大路径和
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/binary-tree-maximum-path-sum/
 
 ### 解题思路

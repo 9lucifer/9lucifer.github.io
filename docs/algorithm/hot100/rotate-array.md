@@ -1,4 +1,6 @@
 # 15. 轮转数组
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/rotate-array
 
 ### 解题思路

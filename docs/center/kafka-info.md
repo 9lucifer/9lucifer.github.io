@@ -1,4 +1,5 @@
 # kafka知识点汇总
+<PageViewCount />
 
 ## mq使用场景
 

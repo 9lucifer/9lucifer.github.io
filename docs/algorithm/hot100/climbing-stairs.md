@@ -1,4 +1,6 @@
 # 81. 爬楼梯
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/climbing-stairs/
 
 ### 解题思路

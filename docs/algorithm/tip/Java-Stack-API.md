@@ -1,3 +1,5 @@
+<PageViewCount />
+
 ## 🚩 Java Stack API 介绍（LeetCode 刷题常用）
 
 ------

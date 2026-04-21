@@ -53,5 +53,5 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-Write-Host "`n[SUCCESS] ✓ Changes pushed to main branch." -ForegroundColor Green
+Write-Host "`n[SUCCESS] Changes pushed to main branch." -ForegroundColor Green
 Read-Host "Press Enter to exit..."

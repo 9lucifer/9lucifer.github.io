@@ -1,4 +1,6 @@
 # 99. 下一个排列
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/next-permutation/
 
 ### 解题思路

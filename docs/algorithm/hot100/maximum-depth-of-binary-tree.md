@@ -1,4 +1,6 @@
 # 37. 二叉树的最大深度
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/maximum-depth-of-binary-tree/
 
 ### 解题思路

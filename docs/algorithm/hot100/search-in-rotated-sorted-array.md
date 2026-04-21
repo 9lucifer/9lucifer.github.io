@@ -1,4 +1,6 @@
 # 66. 搜索旋转排序数组
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/search-in-rotated-sorted-array/
 
 ### 解题思路

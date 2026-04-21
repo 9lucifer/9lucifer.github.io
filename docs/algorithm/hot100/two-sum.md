@@ -1,4 +1,6 @@
 # 1. 两数之和
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/two-sum
 
 ### 解题思路

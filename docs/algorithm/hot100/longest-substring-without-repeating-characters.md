@@ -1,4 +1,6 @@
 # 8. 无重复字符最长子串
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/longest-substring-without-repeating-characters
 
 ### 解题思路

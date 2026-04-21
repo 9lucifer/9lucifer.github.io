@@ -1,4 +1,6 @@
 # 60. 单词搜索
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/word-search/
 
 ### 解题思路

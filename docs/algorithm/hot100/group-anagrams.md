@@ -1,4 +1,6 @@
 # 2. 字母异位词分组
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/group-anagrams
 
 ### 解题思路

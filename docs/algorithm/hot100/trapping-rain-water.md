@@ -1,4 +1,6 @@
 # 7. 接雨水
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/trapping-rain-water
 
 ### 解题思路

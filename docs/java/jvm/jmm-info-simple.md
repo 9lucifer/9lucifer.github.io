@@ -1,4 +1,5 @@
 # java内存模型概述
+<PageViewCount />
 
 ## 背景
 

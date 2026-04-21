@@ -1,4 +1,5 @@
 # Kafka2.7.2源码编译记录
+<PageViewCount />
 
 > 参考博客：https://cloud.tencent.com/developer/article/2240359
 

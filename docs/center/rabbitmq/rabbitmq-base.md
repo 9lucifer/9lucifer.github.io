@@ -1,4 +1,5 @@
 # rabbitmq五种模式的总结
+<PageViewCount />
 
 > 完整项目地址：https://github.com/9lucifer/rabbitmq4j-learning
 

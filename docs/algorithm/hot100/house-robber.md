@@ -1,4 +1,6 @@
 # 83. 打家劫舍
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/house-robber/
 
 ### 解题思路

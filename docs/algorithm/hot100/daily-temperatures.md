@@ -1,4 +1,6 @@
 # 72. 每日温度
+<PageViewCount />
+
 > 题目链接：https://leetcode.cn/problems/daily-temperatures/
 
 ### 解题思路
