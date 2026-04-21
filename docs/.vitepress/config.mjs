@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { execSync } from 'child_process';
+import tailwindcss from '@tailwindcss/vite';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 import annualSummarySidebar from './sidebar/annual-summary.mjs';
 import computerSidebar from './sidebar/computer.mjs';
@@ -43,7 +44,7 @@ export default defineConfig({
     }
   },
   vite: {
-    plugins: [groupIconVitePlugin()]
+    plugins: [tailwindcss(), groupIconVitePlugin()]
   },
   
   themeConfig: {

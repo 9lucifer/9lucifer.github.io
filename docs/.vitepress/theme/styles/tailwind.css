@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@variant dark (.dark &);
+
+:root {
+  --tw-main-color: var(--vp-c-brand-1);
+  --tw-main-soft-color: var(--vp-c-brand-soft);
+  --tw-bg-color: var(--vp-c-bg);
+  --tw-bg-soft-color: var(--vp-c-bg-soft);
+  --tw-text-1-color: var(--vp-c-text-1);
+  --tw-text-2-color: var(--vp-c-text-2);
+  --tw-text-3-color: var(--vp-c-text-3);
+  --tw-border-color: var(--vp-c-divider);
+  --tw-shadow-color: rgba(15, 23, 42, 0.08);
+  --tw-icon-color: currentColor;
+}
+
+.dark {
+  --tw-shadow-color: rgba(0, 0, 0, 0.28);
+}
+
+@theme {
+  --color-main: var(--tw-main-color);
+  --color-main-soft: var(--tw-main-soft-color);
+  --color-bg: var(--tw-bg-color);
+  --color-bg-soft: var(--tw-bg-soft-color);
+  --color-text1: var(--tw-text-1-color);
+  --color-text2: var(--tw-text-2-color);
+  --color-text3: var(--tw-text-3-color);
+  --color-border: var(--tw-border-color);
+  --color-shadow: var(--tw-shadow-color);
+  --color-icon: var(--tw-icon-color);
+
+  --shadow-soft: 0 10px 30px var(--tw-shadow-color);
+  --radius-card: 1rem;
+}

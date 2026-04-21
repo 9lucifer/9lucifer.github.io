@@ -1,6 +1,8 @@
-import DefaultTheme from 'vitepress/theme'
+﻿import DefaultTheme from 'vitepress/theme'
 import 'virtual:group-icons.css'
+import './styles/tailwind.css'
 import './styles/code.css'
+import HomeLatestArticles from '../components/HomeLatestArticles.vue'
 import PageViewCount from '../components/PageViewCount.vue'
 import MyLayout from './MyLayout.vue'
 
@@ -8,6 +10,7 @@ export default {
   extends: DefaultTheme,
   Layout: MyLayout,
   enhanceApp({ app, router }) {
+    app.component('HomeLatestArticles', HomeLatestArticles)
     app.component('PageViewCount', PageViewCount)
 
     if (typeof window !== 'undefined') {
