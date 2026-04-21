@@ -3,6 +3,8 @@ param (
     [string]$msg
 )
 
+$githubHttpsUrl = "https://9lucifer@github.com/9lucifer/9lucifer.github.io.git"
+
 # 1. Check for changes
 $status = git status --porcelain
 if (-not $status) {
@@ -26,28 +28,28 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 4. Check & Update Remote (HTTPS -> SSH)
-$remoteUrl = git remote get-url origin
-if ($remoteUrl -like "http*") {
-    Write-Host "[INFO] HTTPS detected. Switching to SSH..." -ForegroundColor Yellow
-    git remote set-url origin git@github.com:9lucifer/9lucifer.github.io.git
+# 4. Test remote connectivity
+Write-Host "[INFO] Testing GitHub HTTPS connection..." -ForegroundColor Cyan
+git ls-remote $githubHttpsUrl HEAD | Out-Null
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ERROR] Remote connectivity test failed." -ForegroundColor Red
+    Write-Host "Please confirm Git Credential Manager can access GitHub."
+    exit 1
 }
 
-# 5. Test SSH
-Write-Host "[INFO] Testing SSH connection..." -ForegroundColor Cyan
-$sshTest = ssh -T git@github.com 2>&1
-if ($sshTest -notmatch "successfully authenticated") {
-    Write-Host "[ERROR] SSH authentication failed. Please check:" -ForegroundColor Red
-    Write-Host "1. Is ~/.ssh/id_rsa present?"
-    Write-Host "2. Is the key added to GitHub?"
+# 5. Sync before push
+Write-Host "[INFO] Rebasing from GitHub main..." -ForegroundColor Cyan
+git pull --rebase $githubHttpsUrl main
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ERROR] git pull --rebase failed." -ForegroundColor Red
     exit 1
 }
 
 # 6. Push
-Write-Host "[INFO] Pushing to origin main..." -ForegroundColor Cyan
-git push origin main
+Write-Host "[INFO] Pushing to GitHub main..." -ForegroundColor Cyan
+git push $githubHttpsUrl HEAD:main
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "[ERROR] Push failed. Try manual: git push origin main" -ForegroundColor Red
+    Write-Host "[ERROR] Push failed. Try manual: git push $githubHttpsUrl HEAD:main" -ForegroundColor Red
     exit 1
 }
 
