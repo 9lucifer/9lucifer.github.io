@@ -27,8 +27,10 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
     // 现代浏览器适配
     ['link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://cn.vercount.one' }],
+    ['link', { rel: 'preconnect', href: 'https://cn.vercount.one', crossorigin: '' }],
     // Vercount 访问统计（国内优化）
-    ['script', { defer: true, src: 'https://cn.vercount.one/js' }],
+    ['script', { defer: true, async: true, src: 'https://cn.vercount.one/js' }],
     // 自定义 CSS
     ['link', { rel: 'stylesheet', href: '/css/home.css?v=20260410-design-ui-1' }],
     // 自定义 JS

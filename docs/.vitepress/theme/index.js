@@ -8,26 +8,18 @@ export default {
 
     if (typeof window !== 'undefined') {
       const loadVercount = () => {
-        window.clearTimeout(window.__vercountTimer)
-        window.__vercountTimer = window.setTimeout(() => {
-          const old = document.getElementById('vercount-script')
-          if (old) old.remove()
+        const old = document.getElementById('vercount-script')
+        if (old) old.remove()
 
-          const script = document.createElement('script')
-          script.id = 'vercount-script'
-          script.defer = true
-          script.src = 'https://cn.vercount.one/js'
-          document.head.appendChild(script)
-        }, 120)
+        const script = document.createElement('script')
+        script.id = 'vercount-script'
+        script.async = true
+        script.defer = true
+        script.src = 'https://cn.vercount.one/js'
+        document.head.appendChild(script)
       }
 
       window.__reloadVercount = loadVercount
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadVercount, { once: true })
-      } else {
-        loadVercount()
-      }
 
       router.onAfterRouteChanged = () => {
         loadVercount()
