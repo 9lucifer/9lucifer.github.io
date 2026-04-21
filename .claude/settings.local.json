@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git check-ignore *)",
       "Bash(python3 *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }
