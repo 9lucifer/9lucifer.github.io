@@ -9,6 +9,7 @@
     "@giscus/vue": "^3.1.1",
     "echarts": "^6.0.0",
     "vitepress": "^1.6.3",
+    "vitepress-plugin-group-icons": "^1.7.5",
     "xmind": "^2.2.33"
   }
 }

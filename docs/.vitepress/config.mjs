@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { execSync } from 'child_process';
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 import annualSummarySidebar from './sidebar/annual-summary.mjs';
 import computerSidebar from './sidebar/computer.mjs';
 import javaBasicSidebar from './sidebar/java-basic.mjs';
@@ -36,6 +37,14 @@ export default defineConfig({
     // 自定义 JS
     ['script', { defer: true, src: '/js/home.js' }]
   ],
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin)
+    }
+  },
+  vite: {
+    plugins: [groupIconVitePlugin()]
+  },
   
   themeConfig: {
     logo: '/hero-image.png',

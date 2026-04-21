@@ -1,4 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
+import 'virtual:group-icons.css'
+import './styles/code.css'
 import PageViewCount from '../components/PageViewCount.vue'
 import MyLayout from './MyLayout.vue'
 
